@@ -2680,7 +2680,7 @@ static const char __pyx_k_measure[] = "measure";
 static const char __pyx_k_message[] = "message";
 static const char __pyx_k_note_on[] = "note_on";
 static const char __pyx_k_phrases[] = "phrases";
-static const char __pyx_k_tkinter[] = "tkinter";
+static const char __pyx_k_tk[] = "tk";
 static const char __pyx_k_Combobox[] = "Combobox";
 static const char __pyx_k_Generate[] = "Generate";
 static const char __pyx_k_MidiFile[] = "MidiFile";
@@ -2719,7 +2719,7 @@ static const char __pyx_k_MetaMessage[] = "MetaMessage";
 static const char __pyx_k_connections[] = "connections";
 static const char __pyx_k_index_first[] = "index_first";
 static const char __pyx_k_make_thread[] = "make_thread";
-static const char __pyx_k_tkinter_ttk[] = "tkinter.ttk";
+static const char __pyx_k_tk_ttk[] = "tk.ttk";
 static const char __pyx_k_click_button[] = "click_button";
 static const char __pyx_k_combobox_bpm[] = "combobox_bpm";
 static const char __pyx_k_initializing[] = "_initializing";
@@ -2746,7 +2746,7 @@ static const char __pyx_k_combobox_key_note[] = "combobox_key_note";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_combobox_track_num[] = "combobox_track_num";
-static const char __pyx_k_tkinter_filedialog[] = "tkinter.filedialog";
+static const char __pyx_k_tk_filedialog[] = "tk.filedialog";
 static const char __pyx_k_Generate_locals_run[] = "Generate.<locals>.run";
 static const char __pyx_k_Learn_locals_lambda[] = "Learn.<locals>.<lambda>";
 static const char __pyx_k_on_ask_window_close[] = "on_ask_window_close";
@@ -3065,9 +3065,9 @@ typedef struct {
   PyObject *__pyx_n_s_time;
   PyObject *__pyx_n_s_time_count;
   PyObject *__pyx_n_s_title;
-  PyObject *__pyx_n_s_tkinter;
-  PyObject *__pyx_n_s_tkinter_filedialog;
-  PyObject *__pyx_n_s_tkinter_ttk;
+  PyObject *__pyx_n_s_tk;
+  PyObject *__pyx_n_s_tk_filedialog;
+  PyObject *__pyx_n_s_tk_ttk;
   PyObject *__pyx_n_s_track;
   PyObject *__pyx_n_s_track_num;
   PyObject *__pyx_n_s_tracks;
@@ -3410,9 +3410,9 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_time);
   Py_CLEAR(clear_module_state->__pyx_n_s_time_count);
   Py_CLEAR(clear_module_state->__pyx_n_s_title);
-  Py_CLEAR(clear_module_state->__pyx_n_s_tkinter);
-  Py_CLEAR(clear_module_state->__pyx_n_s_tkinter_filedialog);
-  Py_CLEAR(clear_module_state->__pyx_n_s_tkinter_ttk);
+  Py_CLEAR(clear_module_state->__pyx_n_s_tk);
+  Py_CLEAR(clear_module_state->__pyx_n_s_tk_filedialog);
+  Py_CLEAR(clear_module_state->__pyx_n_s_tk_ttk);
   Py_CLEAR(clear_module_state->__pyx_n_s_track);
   Py_CLEAR(clear_module_state->__pyx_n_s_track_num);
   Py_CLEAR(clear_module_state->__pyx_n_s_tracks);
@@ -3733,9 +3733,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_time);
   Py_VISIT(traverse_module_state->__pyx_n_s_time_count);
   Py_VISIT(traverse_module_state->__pyx_n_s_title);
-  Py_VISIT(traverse_module_state->__pyx_n_s_tkinter);
-  Py_VISIT(traverse_module_state->__pyx_n_s_tkinter_filedialog);
-  Py_VISIT(traverse_module_state->__pyx_n_s_tkinter_ttk);
+  Py_VISIT(traverse_module_state->__pyx_n_s_tk);
+  Py_VISIT(traverse_module_state->__pyx_n_s_tk_filedialog);
+  Py_VISIT(traverse_module_state->__pyx_n_s_tk_ttk);
   Py_VISIT(traverse_module_state->__pyx_n_s_track);
   Py_VISIT(traverse_module_state->__pyx_n_s_track_num);
   Py_VISIT(traverse_module_state->__pyx_n_s_tracks);
@@ -4066,9 +4066,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_time __pyx_mstate_global->__pyx_n_s_time
 #define __pyx_n_s_time_count __pyx_mstate_global->__pyx_n_s_time_count
 #define __pyx_n_s_title __pyx_mstate_global->__pyx_n_s_title
-#define __pyx_n_s_tkinter __pyx_mstate_global->__pyx_n_s_tkinter
-#define __pyx_n_s_tkinter_filedialog __pyx_mstate_global->__pyx_n_s_tkinter_filedialog
-#define __pyx_n_s_tkinter_ttk __pyx_mstate_global->__pyx_n_s_tkinter_ttk
+#define __pyx_n_s_tk __pyx_mstate_global->__pyx_n_s_tk
+#define __pyx_n_s_tk_filedialog __pyx_mstate_global->__pyx_n_s_tk_filedialog
+#define __pyx_n_s_tk_ttk __pyx_mstate_global->__pyx_n_s_tk_ttk
 #define __pyx_n_s_track __pyx_mstate_global->__pyx_n_s_track
 #define __pyx_n_s_track_num __pyx_mstate_global->__pyx_n_s_track_num
 #define __pyx_n_s_tracks __pyx_mstate_global->__pyx_n_s_tracks
@@ -6727,7 +6727,7 @@ static PyObject *__pyx_pf_5ComII_5Learn_8run(PyObject *__pyx_self, PyObject *__p
  * 
  *         addlog("")             # <<<<<<<<<<<<<<
  * 
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_addlog); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 128, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -7032,11 +7032,11 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "ComII.pyx":130
  *         addlog("")
  * 
- *     ask_window = tkinter.Toplevel(root)             # <<<<<<<<<<<<<<
+ *     ask_window = tk.Toplevel(root)             # <<<<<<<<<<<<<<
  *     ask_window.title("")
  *     ask_window.geometry("400x100")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Toplevel); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -7072,7 +7072,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
 
   /* "ComII.pyx":131
  * 
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("")             # <<<<<<<<<<<<<<
  *     ask_window.geometry("400x100")
  *     ask_window.protocol("WM_DELETE_WINDOW", on_ask_window_close)
@@ -7104,7 +7104,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "ComII.pyx":132
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("")
  *     ask_window.geometry("400x100")             # <<<<<<<<<<<<<<
  *     ask_window.protocol("WM_DELETE_WINDOW", on_ask_window_close)
@@ -7141,7 +7141,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
  *     ask_window.geometry("400x100")
  *     ask_window.protocol("WM_DELETE_WINDOW", on_ask_window_close)             # <<<<<<<<<<<<<<
  * 
- *     combobox_track_num = tkinter.ttk.Combobox(ask_window, values=[0], state="readonly")
+ *     combobox_track_num = tk.ttk.Combobox(ask_window, values=[0], state="readonly")
  */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_ask_window, __pyx_n_s_protocol); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 133, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -7172,11 +7172,11 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "ComII.pyx":135
  *     ask_window.protocol("WM_DELETE_WINDOW", on_ask_window_close)
  * 
- *     combobox_track_num = tkinter.ttk.Combobox(ask_window, values=[0], state="readonly")             # <<<<<<<<<<<<<<
+ *     combobox_track_num = tk.ttk.Combobox(ask_window, values=[0], state="readonly")             # <<<<<<<<<<<<<<
  *     combobox_track_num.set(0)
  *     combobox_track_num.pack()
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 135, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_tk); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_ttk); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 135, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -7210,7 +7210,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
 
   /* "ComII.pyx":136
  * 
- *     combobox_track_num = tkinter.ttk.Combobox(ask_window, values=[0], state="readonly")
+ *     combobox_track_num = tk.ttk.Combobox(ask_window, values=[0], state="readonly")
  *     combobox_track_num.set(0)             # <<<<<<<<<<<<<<
  *     combobox_track_num.pack()
  * 
@@ -7242,11 +7242,11 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
   /* "ComII.pyx":137
- *     combobox_track_num = tkinter.ttk.Combobox(ask_window, values=[0], state="readonly")
+ *     combobox_track_num = tk.ttk.Combobox(ask_window, values=[0], state="readonly")
  *     combobox_track_num.set(0)
  *     combobox_track_num.pack()             # <<<<<<<<<<<<<<
  * 
- *     combobox_weight = tkinter.ttk.Combobox(
+ *     combobox_weight = tk.ttk.Combobox(
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_combobox_track_num, __pyx_n_s_pack); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 137, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -7277,11 +7277,11 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "ComII.pyx":139
  *     combobox_track_num.pack()
  * 
- *     combobox_weight = tkinter.ttk.Combobox(             # <<<<<<<<<<<<<<
+ *     combobox_weight = tk.ttk.Combobox(             # <<<<<<<<<<<<<<
  *         ask_window, values=list(range(1, 10)), state="readonly"
  *     )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_tk); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_ttk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 139, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -7292,7 +7292,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
 
   /* "ComII.pyx":140
  * 
- *     combobox_weight = tkinter.ttk.Combobox(
+ *     combobox_weight = tk.ttk.Combobox(
  *         ask_window, values=list(range(1, 10)), state="readonly"             # <<<<<<<<<<<<<<
  *     )
  *     combobox_weight.set(1)
@@ -7316,7 +7316,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "ComII.pyx":139
  *     combobox_track_num.pack()
  * 
- *     combobox_weight = tkinter.ttk.Combobox(             # <<<<<<<<<<<<<<
+ *     combobox_weight = tk.ttk.Combobox(             # <<<<<<<<<<<<<<
  *         ask_window, values=list(range(1, 10)), state="readonly"
  *     )
  */
@@ -7367,7 +7367,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
  *     combobox_weight.set(1)
  *     combobox_weight.pack()             # <<<<<<<<<<<<<<
  * 
- *     button_run = tkinter.Button(
+ *     button_run = tk.Button(
  */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_combobox_weight, __pyx_n_s_pack); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 143, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -7398,11 +7398,11 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "ComII.pyx":145
  *     combobox_weight.pack()
  * 
- *     button_run = tkinter.Button(             # <<<<<<<<<<<<<<
+ *     button_run = tk.Button(             # <<<<<<<<<<<<<<
  *         ask_window,
  *         text="Run",
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 145, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_tk); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_Button); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 145, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -7410,7 +7410,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
 
   /* "ComII.pyx":146
  * 
- *     button_run = tkinter.Button(
+ *     button_run = tk.Button(
  *         ask_window,             # <<<<<<<<<<<<<<
  *         text="Run",
  *         command=lambda: make_thread(
@@ -7422,7 +7422,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
   if (__Pyx_PyTuple_SET_ITEM(__pyx_t_6, 0, __pyx_cur_scope->__pyx_v_ask_window)) __PYX_ERR(0, 145, __pyx_L1_error);
 
   /* "ComII.pyx":147
- *     button_run = tkinter.Button(
+ *     button_run = tk.Button(
  *         ask_window,
  *         text="Run",             # <<<<<<<<<<<<<<
  *         command=lambda: make_thread(
@@ -7447,7 +7447,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "ComII.pyx":145
  *     combobox_weight.pack()
  * 
- *     button_run = tkinter.Button(             # <<<<<<<<<<<<<<
+ *     button_run = tk.Button(             # <<<<<<<<<<<<<<
  *         ask_window,
  *         text="Run",
  */
@@ -11948,7 +11948,7 @@ static PyObject *__pyx_pf_5ComII_8Generate_6run(PyObject *__pyx_self, PyObject *
  *         #
  *         save_path = "C:/Ipota/programs/ongaku/child/a.mid"             # <<<<<<<<<<<<<<
  * 
- *         save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
+ *         save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
  */
   __Pyx_INCREF(__pyx_kp_u_C_Ipota_programs_ongaku_child_a);
   __pyx_v_save_path = __pyx_kp_u_C_Ipota_programs_ongaku_child_a;
@@ -11956,11 +11956,11 @@ static PyObject *__pyx_pf_5ComII_8Generate_6run(PyObject *__pyx_self, PyObject *
   /* "ComII.pyx":384
  *         save_path = "C:/Ipota/programs/ongaku/child/a.mid"
  * 
- *         save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])             # <<<<<<<<<<<<<<
+ *         save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])             # <<<<<<<<<<<<<<
  *         if len(save_path) == 0:
  *             addlog("")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 384, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 384, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_filedialog); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 384, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -11986,7 +11986,7 @@ static PyObject *__pyx_pf_5ComII_8Generate_6run(PyObject *__pyx_self, PyObject *
 
   /* "ComII.pyx":385
  * 
- *         save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
+ *         save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
  *         if len(save_path) == 0:             # <<<<<<<<<<<<<<
  *             addlog("")
  *             return None
@@ -11996,7 +11996,7 @@ static PyObject *__pyx_pf_5ComII_8Generate_6run(PyObject *__pyx_self, PyObject *
   if (__pyx_t_7) {
 
     /* "ComII.pyx":386
- *         save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
+ *         save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
  *         if len(save_path) == 0:
  *             addlog("")             # <<<<<<<<<<<<<<
  *             return None
@@ -12041,7 +12041,7 @@ static PyObject *__pyx_pf_5ComII_8Generate_6run(PyObject *__pyx_self, PyObject *
 
     /* "ComII.pyx":385
  * 
- *         save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
+ *         save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
  *         if len(save_path) == 0:             # <<<<<<<<<<<<<<
  *             addlog("")
  *             return None
@@ -12476,7 +12476,7 @@ static PyObject *__pyx_pf_5ComII_8Generate_8click_button(PyObject *__pyx_self) {
  * 
  *         run(key_note, bpm)             # <<<<<<<<<<<<<<
  * 
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  */
   if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_v_key_note))||((__pyx_v_key_note) == Py_None) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_v_key_note))) __PYX_ERR(0, 410, __pyx_L1_error)
   if (!(likely(__Pyx_Py3Int_CheckExact(__pyx_v_bpm))||((__pyx_v_bpm) == Py_None) || __Pyx_RaiseUnexpectedTypeError("int", __pyx_v_bpm))) __PYX_ERR(0, 410, __pyx_L1_error)
@@ -12616,11 +12616,11 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "ComII.pyx":412
  *         run(key_note, bpm)
  * 
- *     ask_window = tkinter.Toplevel(root)             # <<<<<<<<<<<<<<
+ *     ask_window = tk.Toplevel(root)             # <<<<<<<<<<<<<<
  *     ask_window.title("(C4=60)")
  *     ask_window.geometry("400x100")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 412, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 412, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_Toplevel); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 412, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -12656,7 +12656,7 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
 
   /* "ComII.pyx":413
  * 
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("(C4=60)")             # <<<<<<<<<<<<<<
  *     ask_window.geometry("400x100")
  *     ask_window.protocol("WM_DELETE_WINDOW", on_ask_window_close)
@@ -12688,7 +12688,7 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "ComII.pyx":414
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("(C4=60)")
  *     ask_window.geometry("400x100")             # <<<<<<<<<<<<<<
  *     ask_window.protocol("WM_DELETE_WINDOW", on_ask_window_close)
@@ -12725,7 +12725,7 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
  *     ask_window.geometry("400x100")
  *     ask_window.protocol("WM_DELETE_WINDOW", on_ask_window_close)             # <<<<<<<<<<<<<<
  * 
- *     combobox_key_note = tkinter.ttk.Combobox(
+ *     combobox_key_note = tk.ttk.Combobox(
  */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_ask_window, __pyx_n_s_protocol); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 415, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -12756,11 +12756,11 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "ComII.pyx":417
  *     ask_window.protocol("WM_DELETE_WINDOW", on_ask_window_close)
  * 
- *     combobox_key_note = tkinter.ttk.Combobox(             # <<<<<<<<<<<<<<
+ *     combobox_key_note = tk.ttk.Combobox(             # <<<<<<<<<<<<<<
  *         ask_window, values=list(range(128)), state="readonly"
  *     )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 417, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_tk); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 417, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_ttk); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 417, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -12771,7 +12771,7 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
 
   /* "ComII.pyx":418
  * 
- *     combobox_key_note = tkinter.ttk.Combobox(
+ *     combobox_key_note = tk.ttk.Combobox(
  *         ask_window, values=list(range(128)), state="readonly"             # <<<<<<<<<<<<<<
  *     )
  *     combobox_key_note.set(72)
@@ -12795,7 +12795,7 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "ComII.pyx":417
  *     ask_window.protocol("WM_DELETE_WINDOW", on_ask_window_close)
  * 
- *     combobox_key_note = tkinter.ttk.Combobox(             # <<<<<<<<<<<<<<
+ *     combobox_key_note = tk.ttk.Combobox(             # <<<<<<<<<<<<<<
  *         ask_window, values=list(range(128)), state="readonly"
  *     )
  */
@@ -12846,7 +12846,7 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
  *     combobox_key_note.set(72)
  *     combobox_key_note.pack()             # <<<<<<<<<<<<<<
  * 
- *     combobox_bpm = tkinter.ttk.Combobox(
+ *     combobox_bpm = tk.ttk.Combobox(
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_combobox_key_note, __pyx_n_s_pack); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 421, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -12877,11 +12877,11 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "ComII.pyx":423
  *     combobox_key_note.pack()
  * 
- *     combobox_bpm = tkinter.ttk.Combobox(             # <<<<<<<<<<<<<<
+ *     combobox_bpm = tk.ttk.Combobox(             # <<<<<<<<<<<<<<
  *         ask_window, values=list(range(300)), state="readonly"
  *     )
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 423, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_tk); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 423, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_ttk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 423, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -12892,7 +12892,7 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
 
   /* "ComII.pyx":424
  * 
- *     combobox_bpm = tkinter.ttk.Combobox(
+ *     combobox_bpm = tk.ttk.Combobox(
  *         ask_window, values=list(range(300)), state="readonly"             # <<<<<<<<<<<<<<
  *     )
  *     combobox_bpm.set(120)
@@ -12916,7 +12916,7 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "ComII.pyx":423
  *     combobox_key_note.pack()
  * 
- *     combobox_bpm = tkinter.ttk.Combobox(             # <<<<<<<<<<<<<<
+ *     combobox_bpm = tk.ttk.Combobox(             # <<<<<<<<<<<<<<
  *         ask_window, values=list(range(300)), state="readonly"
  *     )
  */
@@ -12967,7 +12967,7 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
  *     combobox_bpm.set(120)
  *     combobox_bpm.pack()             # <<<<<<<<<<<<<<
  * 
- *     button_run = tkinter.Button(ask_window, text="Run", command=click_button)
+ *     button_run = tk.Button(ask_window, text="Run", command=click_button)
  */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_combobox_bpm, __pyx_n_s_pack); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 427, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -12998,11 +12998,11 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "ComII.pyx":429
  *     combobox_bpm.pack()
  * 
- *     button_run = tkinter.Button(ask_window, text="Run", command=click_button)             # <<<<<<<<<<<<<<
+ *     button_run = tk.Button(ask_window, text="Run", command=click_button)             # <<<<<<<<<<<<<<
  *     button_run.pack()
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 429, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_tk); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 429, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_Button); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 429, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -13026,7 +13026,7 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
 
   /* "ComII.pyx":430
  * 
- *     button_run = tkinter.Button(ask_window, text="Run", command=click_button)
+ *     button_run = tk.Button(ask_window, text="Run", command=click_button)
  *     button_run.pack()             # <<<<<<<<<<<<<<
  * 
  * 
@@ -13090,7 +13090,7 @@ static PyObject *__pyx_pf_5ComII_2Generate(CYTHON_UNUSED PyObject *__pyx_self) {
  * 
  * 
  * def Introduce():             # <<<<<<<<<<<<<<
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("AI")
  */
 
@@ -13128,11 +13128,11 @@ static PyObject *__pyx_pf_5ComII_4Introduce(CYTHON_UNUSED PyObject *__pyx_self) 
   /* "ComII.pyx":434
  * 
  * def Introduce():
- *     ask_window = tkinter.Toplevel(root)             # <<<<<<<<<<<<<<
+ *     ask_window = tk.Toplevel(root)             # <<<<<<<<<<<<<<
  *     ask_window.title("AI")
  *     ask_window.geometry("400x100")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_tk); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Toplevel); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 434, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -13167,7 +13167,7 @@ static PyObject *__pyx_pf_5ComII_4Introduce(CYTHON_UNUSED PyObject *__pyx_self) 
 
   /* "ComII.pyx":435
  * def Introduce():
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("AI")             # <<<<<<<<<<<<<<
  *     ask_window.geometry("400x100")
  * 
@@ -13199,11 +13199,11 @@ static PyObject *__pyx_pf_5ComII_4Introduce(CYTHON_UNUSED PyObject *__pyx_self) 
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "ComII.pyx":436
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("AI")
  *     ask_window.geometry("400x100")             # <<<<<<<<<<<<<<
  * 
- *     text = tkinter.Text(ask_window)
+ *     text = tk.Text(ask_window)
  */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ask_window, __pyx_n_s_geometry); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 436, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -13234,11 +13234,11 @@ static PyObject *__pyx_pf_5ComII_4Introduce(CYTHON_UNUSED PyObject *__pyx_self) 
   /* "ComII.pyx":438
  *     ask_window.geometry("400x100")
  * 
- *     text = tkinter.Text(ask_window)             # <<<<<<<<<<<<<<
+ *     text = tk.Text(ask_window)             # <<<<<<<<<<<<<<
  *     text.pack(anchor="nw", fill="both", expand=True)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 438, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_tk); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_Text); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 438, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -13270,10 +13270,10 @@ static PyObject *__pyx_pf_5ComII_4Introduce(CYTHON_UNUSED PyObject *__pyx_self) 
 
   /* "ComII.pyx":439
  * 
- *     text = tkinter.Text(ask_window)
+ *     text = tk.Text(ask_window)
  *     text.pack(anchor="nw", fill="both", expand=True)             # <<<<<<<<<<<<<<
  * 
- *     text.insert(tkinter.END, ":2\n")
+ *     text.insert(tk.END, ":2\n")
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_text, __pyx_n_s_pack); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 439, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -13291,13 +13291,13 @@ static PyObject *__pyx_pf_5ComII_4Introduce(CYTHON_UNUSED PyObject *__pyx_self) 
   /* "ComII.pyx":441
  *     text.pack(anchor="nw", fill="both", expand=True)
  * 
- *     text.insert(tkinter.END, ":2\n")             # <<<<<<<<<<<<<<
- *     text.insert(tkinter.END, "AI\n")
+ *     text.insert(tk.END, ":2\n")             # <<<<<<<<<<<<<<
+ *     text.insert(tk.END, "AI\n")
  *     text["state"] = "disabled"
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_text, __pyx_n_s_insert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 441, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 441, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 441, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_END); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 441, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -13329,13 +13329,13 @@ static PyObject *__pyx_pf_5ComII_4Introduce(CYTHON_UNUSED PyObject *__pyx_self) 
 
   /* "ComII.pyx":442
  * 
- *     text.insert(tkinter.END, ":2\n")
- *     text.insert(tkinter.END, "AI\n")             # <<<<<<<<<<<<<<
+ *     text.insert(tk.END, ":2\n")
+ *     text.insert(tk.END, "AI\n")             # <<<<<<<<<<<<<<
  *     text["state"] = "disabled"
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_text, __pyx_n_s_insert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 442, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_tk); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_END); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 442, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -13366,8 +13366,8 @@ static PyObject *__pyx_pf_5ComII_4Introduce(CYTHON_UNUSED PyObject *__pyx_self) 
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "ComII.pyx":443
- *     text.insert(tkinter.END, ":2\n")
- *     text.insert(tkinter.END, "AI\n")
+ *     text.insert(tk.END, ":2\n")
+ *     text.insert(tk.END, "AI\n")
  *     text["state"] = "disabled"             # <<<<<<<<<<<<<<
  */
   if (unlikely((PyObject_SetItem(__pyx_v_text, __pyx_n_u_state, __pyx_n_u_disabled) < 0))) __PYX_ERR(0, 443, __pyx_L1_error)
@@ -13376,7 +13376,7 @@ static PyObject *__pyx_pf_5ComII_4Introduce(CYTHON_UNUSED PyObject *__pyx_self) 
  * 
  * 
  * def Introduce():             # <<<<<<<<<<<<<<
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("AI")
  */
 
@@ -15386,9 +15386,9 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_time, __pyx_k_time, sizeof(__pyx_k_time), 0, 0, 1, 1},
     {&__pyx_n_s_time_count, __pyx_k_time_count, sizeof(__pyx_k_time_count), 0, 0, 1, 1},
     {&__pyx_n_s_title, __pyx_k_title, sizeof(__pyx_k_title), 0, 0, 1, 1},
-    {&__pyx_n_s_tkinter, __pyx_k_tkinter, sizeof(__pyx_k_tkinter), 0, 0, 1, 1},
-    {&__pyx_n_s_tkinter_filedialog, __pyx_k_tkinter_filedialog, sizeof(__pyx_k_tkinter_filedialog), 0, 0, 1, 1},
-    {&__pyx_n_s_tkinter_ttk, __pyx_k_tkinter_ttk, sizeof(__pyx_k_tkinter_ttk), 0, 0, 1, 1},
+    {&__pyx_n_s_tk, __pyx_k_tk, sizeof(__pyx_k_tk), 0, 0, 1, 1},
+    {&__pyx_n_s_tk_filedialog, __pyx_k_tk_filedialog, sizeof(__pyx_k_tk_filedialog), 0, 0, 1, 1},
+    {&__pyx_n_s_tk_ttk, __pyx_k_tk_ttk, sizeof(__pyx_k_tk_ttk), 0, 0, 1, 1},
     {&__pyx_n_s_track, __pyx_k_track, sizeof(__pyx_k_track), 0, 0, 1, 1},
     {&__pyx_n_s_track_num, __pyx_k_track_num, sizeof(__pyx_k_track_num), 0, 0, 1, 1},
     {&__pyx_n_s_tracks, __pyx_k_tracks, sizeof(__pyx_k_tracks), 0, 0, 1, 1},
@@ -15507,7 +15507,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
   /* "ComII.pyx":140
  * 
- *     combobox_weight = tkinter.ttk.Combobox(
+ *     combobox_weight = tk.ttk.Combobox(
  *         ask_window, values=list(range(1, 10)), state="readonly"             # <<<<<<<<<<<<<<
  *     )
  *     combobox_weight.set(1)
@@ -15552,7 +15552,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "ComII.pyx":384
  *         save_path = "C:/Ipota/programs/ongaku/child/a.mid"
  * 
- *         save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])             # <<<<<<<<<<<<<<
+ *         save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])             # <<<<<<<<<<<<<<
  *         if len(save_path) == 0:
  *             addlog("")
  */
@@ -15619,7 +15619,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
   /* "ComII.pyx":418
  * 
- *     combobox_key_note = tkinter.ttk.Combobox(
+ *     combobox_key_note = tk.ttk.Combobox(
  *         ask_window, values=list(range(128)), state="readonly"             # <<<<<<<<<<<<<<
  *     )
  *     combobox_key_note.set(72)
@@ -15630,7 +15630,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
   /* "ComII.pyx":424
  * 
- *     combobox_bpm = tkinter.ttk.Combobox(
+ *     combobox_bpm = tk.ttk.Combobox(
  *         ask_window, values=list(range(300)), state="readonly"             # <<<<<<<<<<<<<<
  *     )
  *     combobox_bpm.set(120)
@@ -15641,23 +15641,23 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
   /* "ComII.pyx":8
  * 
- * import tkinter
- * import tkinter.ttk             # <<<<<<<<<<<<<<
- * import tkinter.filedialog
+ * import tk
+ * import tk.ttk             # <<<<<<<<<<<<<<
+ * import tk.filedialog
  * 
  */
-  __pyx_tuple__42 = PyTuple_Pack(2, __pyx_n_s_tkinter, __pyx_n_s_ttk); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_tuple__42 = PyTuple_Pack(2, __pyx_n_s_tk, __pyx_n_s_ttk); if (unlikely(!__pyx_tuple__42)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__42);
   __Pyx_GIVEREF(__pyx_tuple__42);
 
   /* "ComII.pyx":9
- * import tkinter
- * import tkinter.ttk
- * import tkinter.filedialog             # <<<<<<<<<<<<<<
+ * import tk
+ * import tk.ttk
+ * import tk.filedialog             # <<<<<<<<<<<<<<
  * 
  * import mido
  */
-  __pyx_tuple__43 = PyTuple_Pack(2, __pyx_n_s_tkinter, __pyx_n_s_filedialog); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_tuple__43 = PyTuple_Pack(2, __pyx_n_s_tk, __pyx_n_s_filedialog); if (unlikely(!__pyx_tuple__43)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__43);
   __Pyx_GIVEREF(__pyx_tuple__43);
 
@@ -15689,7 +15689,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  * 
  * 
  * def Introduce():             # <<<<<<<<<<<<<<
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("AI")
  */
   __pyx_tuple__49 = PyTuple_Pack(2, __pyx_n_s_ask_window, __pyx_n_s_text); if (unlikely(!__pyx_tuple__49)) __PYX_ERR(0, 433, __pyx_L1_error)
@@ -16298,7 +16298,7 @@ if (!__Pyx_RefNanny) {
  * import numpy as np
  * import copy             # <<<<<<<<<<<<<<
  * 
- * import tkinter
+ * import tk
  */
   __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_copy, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -16308,41 +16308,41 @@ if (!__Pyx_RefNanny) {
   /* "ComII.pyx":7
  * import copy
  * 
- * import tkinter             # <<<<<<<<<<<<<<
- * import tkinter.ttk
- * import tkinter.filedialog
+ * import tk             # <<<<<<<<<<<<<<
+ * import tk.ttk
+ * import tk.filedialog
  */
-  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_tkinter, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_tk, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tkinter, __pyx_t_2) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tk, __pyx_t_2) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "ComII.pyx":8
  * 
- * import tkinter
- * import tkinter.ttk             # <<<<<<<<<<<<<<
- * import tkinter.filedialog
+ * import tk
+ * import tk.ttk             # <<<<<<<<<<<<<<
+ * import tk.filedialog
  * 
  */
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_tkinter_ttk, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_tk_ttk, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tkinter, __pyx_t_2) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tk, __pyx_t_2) < 0) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "ComII.pyx":9
- * import tkinter
- * import tkinter.ttk
- * import tkinter.filedialog             # <<<<<<<<<<<<<<
+ * import tk
+ * import tk.ttk
+ * import tk.filedialog             # <<<<<<<<<<<<<<
  * 
  * import mido
  */
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_tkinter_filedialog, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_tk_filedialog, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tkinter, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tk, __pyx_t_2) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "ComII.pyx":11
- * import tkinter.filedialog
+ * import tk.filedialog
  * 
  * import mido             # <<<<<<<<<<<<<<
  * from window import *
@@ -16446,7 +16446,7 @@ if (!__Pyx_RefNanny) {
  * 
  * 
  * def Introduce():             # <<<<<<<<<<<<<<
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("AI")
  */
   __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_5ComII_5Introduce, 0, __pyx_n_s_Introduce, NULL, __pyx_n_s_ComII, __pyx_d, ((PyObject *)__pyx_codeobj__50)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 433, __pyx_L1_error)

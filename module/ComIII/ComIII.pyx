@@ -7,9 +7,9 @@ import json
 import math
 import os
 import time
-import tkinter
-import tkinter.filedialog
-import tkinter.ttk
+import tk
+import tk.filedialog
+import tk.ttk
 import numpy as np
 import mido
 from mido import Message, MidiFile, MidiTrack, MetaMessage
@@ -315,7 +315,7 @@ cpdef Generate():
         return None
 
     # 保存先を確認
-    save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
+    save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
     if len(save_path) == 0:
         addlog("生成がキャンセルされたのだ")
         return None
@@ -334,17 +334,17 @@ cpdef Generate():
     read_midi_file(save_path)
 
 cpdef Introduce():
-    ask_window = tkinter.Toplevel(root)
+    ask_window = tk.Toplevel(root)
     ask_window.title("AI紹介")
     ask_window.geometry("400x100")
 
-    text = tkinter.Text(ask_window)
+    text = tk.Text(ask_window)
     text.pack(anchor="nw", fill="both", expand=True)
 
-    text.insert(tkinter.END, "名前:こんちゃん3号\n")
-    text.insert(tkinter.END, "第3の作曲AI、マルコフ連鎖を利用している\n")
-    text.insert(tkinter.END, "メロディを解析することによって学習量を増やすことが狙い\n仕組みとしてはこんちゃん1号と近い\n")
-    text.insert(tkinter.END, "translated_midiさえあればmidiを読み込んでいなくても学習可能\n")
-    text.insert(tkinter.END, "解析の性質上key=Cに固定される\n")
-    text.insert(tkinter.END, "めんどかったのでbpm=168で固定\n")
+    text.insert(tk.END, "名前:こんちゃん3号\n")
+    text.insert(tk.END, "第3の作曲AI、マルコフ連鎖を利用している\n")
+    text.insert(tk.END, "メロディを解析することによって学習量を増やすことが狙い\n仕組みとしてはこんちゃん1号と近い\n")
+    text.insert(tk.END, "translated_midiさえあればmidiを読み込んでいなくても学習可能\n")
+    text.insert(tk.END, "解析の性質上key=Cに固定される\n")
+    text.insert(tk.END, "めんどかったのでbpm=168で固定\n")
     text["state"] = "disabled"

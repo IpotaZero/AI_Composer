@@ -3,9 +3,9 @@ import os
 
 import numpy as np
 
-import tkinter
-import tkinter.filedialog
-import tkinter.ttk
+import tk
+import tk.filedialog
+import tk.ttk
 
 import mido
 from window import *
@@ -133,7 +133,7 @@ def Generate() -> mido.MidiFile:
             return None
 
         # 保存先を確認
-        save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
+        save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
         if len(save_path) == 0:
             # addlog("生成がキャンセルされたのだ")
             return None
@@ -157,36 +157,36 @@ def Generate() -> mido.MidiFile:
 
         run(key_note, bpm)
 
-    ask_window = tkinter.Toplevel(root)
+    ask_window = tk.Toplevel(root)
     ask_window.title("主音を選択するのだ(C4=60)")
     ask_window.geometry("400x100")
     ask_window.protocol("WM_DELETE_WINDOW", on_ask_window_close)
 
-    combobox_key_note = tkinter.ttk.Combobox(
+    combobox_key_note = tk.ttk.Combobox(
         ask_window, values=list(range(128)), state="readonly"
     )
     combobox_key_note.set(72)
     combobox_key_note.pack()
 
-    combobox_bpm = tkinter.ttk.Combobox(
+    combobox_bpm = tk.ttk.Combobox(
         ask_window, values=list(range(300)), state="readonly"
     )
     combobox_bpm.set(120)
     combobox_bpm.pack()
 
-    button_run = tkinter.Button(ask_window, text="Run", command=click_button)
+    button_run = tk.Button(ask_window, text="Run", command=click_button)
     button_run.pack()
 
 
 def Introduce():
-    ask_window = tkinter.Toplevel(root)
+    ask_window = tk.Toplevel(root)
     ask_window.title("AI紹介")
     ask_window.geometry("400x100")
 
-    text = tkinter.Text(ask_window)
+    text = tk.Text(ask_window)
     text.pack(anchor="nw", fill="both", expand=True)
 
-    text.insert(tkinter.END, "名前:こんちゃん3号\n")
-    text.insert(tkinter.END, "第3の作曲AI、マルコフ連鎖を利用している\n")
-    text.insert(tkinter.END, "メロディを解析することによって学習量を増やすことが狙い\n仕組みとしてはこんちゃん1号と近い\n")
+    text.insert(tk.END, "名前:こんちゃん3号\n")
+    text.insert(tk.END, "第3の作曲AI、マルコフ連鎖を利用している\n")
+    text.insert(tk.END, "メロディを解析することによって学習量を増やすことが狙い\n仕組みとしてはこんちゃん1号と近い\n")
     text["state"] = "disabled"

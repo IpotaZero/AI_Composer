@@ -2732,7 +2732,7 @@ static const char __pyx_k_bpm_168[] = "\343\202\201\343\202\223\343\201\251\343\
 static const char __pyx_k_disable[] = "disable";
 static const char __pyx_k_genexpr[] = "genexpr";
 static const char __pyx_k_note_on[] = "note_on";
-static const char __pyx_k_tkinter[] = "tkinter";
+static const char __pyx_k_tk[] = "tk";
 static const char __pyx_k_Generate[] = "Generate";
 static const char __pyx_k_MidiFile[] = "MidiFile";
 static const char __pyx_k_Toplevel[] = "Toplevel";
@@ -2755,7 +2755,7 @@ static const char __pyx_k_filedialog[] = "filedialog";
 static const char __pyx_k_MetaMessage[] = "MetaMessage";
 static const char __pyx_k_append_note[] = "append_note";
 static const char __pyx_k_connections[] = "connections";
-static const char __pyx_k_tkinter_ttk[] = "tkinter.ttk";
+static const char __pyx_k_tk_ttk[] = "tk.ttk";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_class_getitem[] = "__class_getitem__";
@@ -2766,7 +2766,7 @@ static const char __pyx_k_selected_track[] = "selected_track";
 static const char __pyx_k_asksaveasfilename[] = "asksaveasfilename";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_tkinter_filedialog[] = "tkinter.filedialog";
+static const char __pyx_k_tk_filedialog[] = "tk.filedialog";
 static const char __pyx_k_translated_midimidi[] = "translated_midi\343\201\225\343\201\210\343\201\202\343\202\214\343\201\260midi\343\202\222\350\252\255\343\201\277\350\276\274\343\202\223\343\201\247\343\201\204\343\201\252\343\201\217\343\201\246\343\202\202\345\255\246\347\277\222\345\217\257\350\203\275\n";
 static const char __pyx_k_translated_midi_json[] = "/translated_midi.json";
 static const char __pyx_k_learning_locals_genexpr[] = "learning.<locals>.genexpr";
@@ -2976,9 +2976,9 @@ typedef struct {
   PyObject *__pyx_n_u_tick;
   PyObject *__pyx_n_s_time;
   PyObject *__pyx_n_s_title;
-  PyObject *__pyx_n_s_tkinter;
-  PyObject *__pyx_n_s_tkinter_filedialog;
-  PyObject *__pyx_n_s_tkinter_ttk;
+  PyObject *__pyx_n_s_tk;
+  PyObject *__pyx_n_s_tk_filedialog;
+  PyObject *__pyx_n_s_tk_ttk;
   PyObject *__pyx_n_s_track;
   PyObject *__pyx_n_s_tracks;
   PyObject *__pyx_n_u_tracks;
@@ -3209,9 +3209,9 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_u_tick);
   Py_CLEAR(clear_module_state->__pyx_n_s_time);
   Py_CLEAR(clear_module_state->__pyx_n_s_title);
-  Py_CLEAR(clear_module_state->__pyx_n_s_tkinter);
-  Py_CLEAR(clear_module_state->__pyx_n_s_tkinter_filedialog);
-  Py_CLEAR(clear_module_state->__pyx_n_s_tkinter_ttk);
+  Py_CLEAR(clear_module_state->__pyx_n_s_tk);
+  Py_CLEAR(clear_module_state->__pyx_n_s_tk_filedialog);
+  Py_CLEAR(clear_module_state->__pyx_n_s_tk_ttk);
   Py_CLEAR(clear_module_state->__pyx_n_s_track);
   Py_CLEAR(clear_module_state->__pyx_n_s_tracks);
   Py_CLEAR(clear_module_state->__pyx_n_u_tracks);
@@ -3420,9 +3420,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_u_tick);
   Py_VISIT(traverse_module_state->__pyx_n_s_time);
   Py_VISIT(traverse_module_state->__pyx_n_s_title);
-  Py_VISIT(traverse_module_state->__pyx_n_s_tkinter);
-  Py_VISIT(traverse_module_state->__pyx_n_s_tkinter_filedialog);
-  Py_VISIT(traverse_module_state->__pyx_n_s_tkinter_ttk);
+  Py_VISIT(traverse_module_state->__pyx_n_s_tk);
+  Py_VISIT(traverse_module_state->__pyx_n_s_tk_filedialog);
+  Py_VISIT(traverse_module_state->__pyx_n_s_tk_ttk);
   Py_VISIT(traverse_module_state->__pyx_n_s_track);
   Py_VISIT(traverse_module_state->__pyx_n_s_tracks);
   Py_VISIT(traverse_module_state->__pyx_n_u_tracks);
@@ -3641,9 +3641,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_u_tick __pyx_mstate_global->__pyx_n_u_tick
 #define __pyx_n_s_time __pyx_mstate_global->__pyx_n_s_time
 #define __pyx_n_s_title __pyx_mstate_global->__pyx_n_s_title
-#define __pyx_n_s_tkinter __pyx_mstate_global->__pyx_n_s_tkinter
-#define __pyx_n_s_tkinter_filedialog __pyx_mstate_global->__pyx_n_s_tkinter_filedialog
-#define __pyx_n_s_tkinter_ttk __pyx_mstate_global->__pyx_n_s_tkinter_ttk
+#define __pyx_n_s_tk __pyx_mstate_global->__pyx_n_s_tk
+#define __pyx_n_s_tk_filedialog __pyx_mstate_global->__pyx_n_s_tk_filedialog
+#define __pyx_n_s_tk_ttk __pyx_mstate_global->__pyx_n_s_tk_ttk
 #define __pyx_n_s_track __pyx_mstate_global->__pyx_n_s_track
 #define __pyx_n_s_tracks __pyx_mstate_global->__pyx_n_s_tracks
 #define __pyx_n_u_tracks __pyx_mstate_global->__pyx_n_u_tracks
@@ -9459,11 +9459,11 @@ static PyObject *__pyx_f_6ComIII_Generate(CYTHON_UNUSED int __pyx_skip_dispatch)
   /* "ComIII.pyx":318
  * 
  *     #
- *     save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])             # <<<<<<<<<<<<<<
+ *     save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])             # <<<<<<<<<<<<<<
  *     if len(save_path) == 0:
  *         addlog("")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_filedialog); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 318, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -9489,7 +9489,7 @@ static PyObject *__pyx_f_6ComIII_Generate(CYTHON_UNUSED int __pyx_skip_dispatch)
 
   /* "ComIII.pyx":319
  *     #
- *     save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
+ *     save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
  *     if len(save_path) == 0:             # <<<<<<<<<<<<<<
  *         addlog("")
  *         return None
@@ -9499,7 +9499,7 @@ static PyObject *__pyx_f_6ComIII_Generate(CYTHON_UNUSED int __pyx_skip_dispatch)
   if (__pyx_t_7) {
 
     /* "ComIII.pyx":320
- *     save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
+ *     save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
  *     if len(save_path) == 0:
  *         addlog("")             # <<<<<<<<<<<<<<
  *         return None
@@ -9544,7 +9544,7 @@ static PyObject *__pyx_f_6ComIII_Generate(CYTHON_UNUSED int __pyx_skip_dispatch)
 
     /* "ComIII.pyx":319
  *     #
- *     save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
+ *     save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
  *     if len(save_path) == 0:             # <<<<<<<<<<<<<<
  *         addlog("")
  *         return None
@@ -9812,7 +9812,7 @@ static PyObject *__pyx_pf_6ComIII_4Generate(CYTHON_UNUSED PyObject *__pyx_self) 
  *     read_midi_file(save_path)
  * 
  * cpdef Introduce():             # <<<<<<<<<<<<<<
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("AI")
  */
 
@@ -9835,11 +9835,11 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
   /* "ComIII.pyx":337
  * 
  * cpdef Introduce():
- *     ask_window = tkinter.Toplevel(root)             # <<<<<<<<<<<<<<
+ *     ask_window = tk.Toplevel(root)             # <<<<<<<<<<<<<<
  *     ask_window.title("AI")
  *     ask_window.geometry("400x100")
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_tk); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_Toplevel); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 337, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -9874,7 +9874,7 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
 
   /* "ComIII.pyx":338
  * cpdef Introduce():
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("AI")             # <<<<<<<<<<<<<<
  *     ask_window.geometry("400x100")
  * 
@@ -9906,11 +9906,11 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "ComIII.pyx":339
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("AI")
  *     ask_window.geometry("400x100")             # <<<<<<<<<<<<<<
  * 
- *     text = tkinter.Text(ask_window)
+ *     text = tk.Text(ask_window)
  */
   __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_v_ask_window, __pyx_n_s_geometry); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 339, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -9941,11 +9941,11 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
   /* "ComIII.pyx":341
  *     ask_window.geometry("400x100")
  * 
- *     text = tkinter.Text(ask_window)             # <<<<<<<<<<<<<<
+ *     text = tk.Text(ask_window)             # <<<<<<<<<<<<<<
  *     text.pack(anchor="nw", fill="both", expand=True)
  * 
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 341, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_tk); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 341, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_Text); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 341, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -9977,10 +9977,10 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
 
   /* "ComIII.pyx":342
  * 
- *     text = tkinter.Text(ask_window)
+ *     text = tk.Text(ask_window)
  *     text.pack(anchor="nw", fill="both", expand=True)             # <<<<<<<<<<<<<<
  * 
- *     text.insert(tkinter.END, ":3\n")
+ *     text.insert(tk.END, ":3\n")
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_text, __pyx_n_s_pack); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 342, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -9998,13 +9998,13 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
   /* "ComIII.pyx":344
  *     text.pack(anchor="nw", fill="both", expand=True)
  * 
- *     text.insert(tkinter.END, ":3\n")             # <<<<<<<<<<<<<<
- *     text.insert(tkinter.END, "3AI\n")
- *     text.insert(tkinter.END, "\n1\n")
+ *     text.insert(tk.END, ":3\n")             # <<<<<<<<<<<<<<
+ *     text.insert(tk.END, "3AI\n")
+ *     text.insert(tk.END, "\n1\n")
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_text, __pyx_n_s_insert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_END); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 344, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -10036,14 +10036,14 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
 
   /* "ComIII.pyx":345
  * 
- *     text.insert(tkinter.END, ":3\n")
- *     text.insert(tkinter.END, "3AI\n")             # <<<<<<<<<<<<<<
- *     text.insert(tkinter.END, "\n1\n")
- *     text.insert(tkinter.END, "translated_midimidi\n")
+ *     text.insert(tk.END, ":3\n")
+ *     text.insert(tk.END, "3AI\n")             # <<<<<<<<<<<<<<
+ *     text.insert(tk.END, "\n1\n")
+ *     text.insert(tk.END, "translated_midimidi\n")
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_text, __pyx_n_s_insert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 345, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_tk); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_END); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 345, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -10074,15 +10074,15 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "ComIII.pyx":346
- *     text.insert(tkinter.END, ":3\n")
- *     text.insert(tkinter.END, "3AI\n")
- *     text.insert(tkinter.END, "\n1\n")             # <<<<<<<<<<<<<<
- *     text.insert(tkinter.END, "translated_midimidi\n")
- *     text.insert(tkinter.END, "key=C\n")
+ *     text.insert(tk.END, ":3\n")
+ *     text.insert(tk.END, "3AI\n")
+ *     text.insert(tk.END, "\n1\n")             # <<<<<<<<<<<<<<
+ *     text.insert(tk.END, "translated_midimidi\n")
+ *     text.insert(tk.END, "key=C\n")
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_text, __pyx_n_s_insert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 346, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_END); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 346, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -10113,15 +10113,15 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "ComIII.pyx":347
- *     text.insert(tkinter.END, "3AI\n")
- *     text.insert(tkinter.END, "\n1\n")
- *     text.insert(tkinter.END, "translated_midimidi\n")             # <<<<<<<<<<<<<<
- *     text.insert(tkinter.END, "key=C\n")
- *     text.insert(tkinter.END, "bpm=168\n")
+ *     text.insert(tk.END, "3AI\n")
+ *     text.insert(tk.END, "\n1\n")
+ *     text.insert(tk.END, "translated_midimidi\n")             # <<<<<<<<<<<<<<
+ *     text.insert(tk.END, "key=C\n")
+ *     text.insert(tk.END, "bpm=168\n")
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_text, __pyx_n_s_insert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 347, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_tk); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_END); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 347, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -10152,15 +10152,15 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "ComIII.pyx":348
- *     text.insert(tkinter.END, "\n1\n")
- *     text.insert(tkinter.END, "translated_midimidi\n")
- *     text.insert(tkinter.END, "key=C\n")             # <<<<<<<<<<<<<<
- *     text.insert(tkinter.END, "bpm=168\n")
+ *     text.insert(tk.END, "\n1\n")
+ *     text.insert(tk.END, "translated_midimidi\n")
+ *     text.insert(tk.END, "key=C\n")             # <<<<<<<<<<<<<<
+ *     text.insert(tk.END, "bpm=168\n")
  *     text["state"] = "disabled"
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_text, __pyx_n_s_insert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_tk); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_END); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 348, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -10191,14 +10191,14 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "ComIII.pyx":349
- *     text.insert(tkinter.END, "translated_midimidi\n")
- *     text.insert(tkinter.END, "key=C\n")
- *     text.insert(tkinter.END, "bpm=168\n")             # <<<<<<<<<<<<<<
+ *     text.insert(tk.END, "translated_midimidi\n")
+ *     text.insert(tk.END, "key=C\n")
+ *     text.insert(tk.END, "bpm=168\n")             # <<<<<<<<<<<<<<
  *     text["state"] = "disabled"
  */
   __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_text, __pyx_n_s_insert); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_tkinter); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 349, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_4, __pyx_n_s_tk); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_END); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 349, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -10229,8 +10229,8 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "ComIII.pyx":350
- *     text.insert(tkinter.END, "key=C\n")
- *     text.insert(tkinter.END, "bpm=168\n")
+ *     text.insert(tk.END, "key=C\n")
+ *     text.insert(tk.END, "bpm=168\n")
  *     text["state"] = "disabled"             # <<<<<<<<<<<<<<
  */
   if (unlikely((PyObject_SetItem(__pyx_v_text, __pyx_n_u_state, __pyx_n_u_disabled) < 0))) __PYX_ERR(0, 350, __pyx_L1_error)
@@ -10239,7 +10239,7 @@ static PyObject *__pyx_f_6ComIII_Introduce(CYTHON_UNUSED int __pyx_skip_dispatch
  *     read_midi_file(save_path)
  * 
  * cpdef Introduce():             # <<<<<<<<<<<<<<
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("AI")
  */
 
@@ -12143,9 +12143,9 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_u_tick, __pyx_k_tick, sizeof(__pyx_k_tick), 0, 1, 0, 1},
     {&__pyx_n_s_time, __pyx_k_time, sizeof(__pyx_k_time), 0, 0, 1, 1},
     {&__pyx_n_s_title, __pyx_k_title, sizeof(__pyx_k_title), 0, 0, 1, 1},
-    {&__pyx_n_s_tkinter, __pyx_k_tkinter, sizeof(__pyx_k_tkinter), 0, 0, 1, 1},
-    {&__pyx_n_s_tkinter_filedialog, __pyx_k_tkinter_filedialog, sizeof(__pyx_k_tkinter_filedialog), 0, 0, 1, 1},
-    {&__pyx_n_s_tkinter_ttk, __pyx_k_tkinter_ttk, sizeof(__pyx_k_tkinter_ttk), 0, 0, 1, 1},
+    {&__pyx_n_s_tk, __pyx_k_tk, sizeof(__pyx_k_tk), 0, 0, 1, 1},
+    {&__pyx_n_s_tk_filedialog, __pyx_k_tk_filedialog, sizeof(__pyx_k_tk_filedialog), 0, 0, 1, 1},
+    {&__pyx_n_s_tk_ttk, __pyx_k_tk_ttk, sizeof(__pyx_k_tk_ttk), 0, 0, 1, 1},
     {&__pyx_n_s_track, __pyx_k_track, sizeof(__pyx_k_track), 0, 0, 1, 1},
     {&__pyx_n_s_tracks, __pyx_k_tracks, sizeof(__pyx_k_tracks), 0, 0, 1, 1},
     {&__pyx_n_u_tracks, __pyx_k_tracks, sizeof(__pyx_k_tracks), 0, 1, 0, 1},
@@ -12257,7 +12257,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "ComIII.pyx":318
  * 
  *     #
- *     save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])             # <<<<<<<<<<<<<<
+ *     save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])             # <<<<<<<<<<<<<<
  *     if len(save_path) == 0:
  *         addlog("")
  */
@@ -12267,23 +12267,23 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
   /* "ComIII.pyx":11
  * import time
- * import tkinter
- * import tkinter.filedialog             # <<<<<<<<<<<<<<
- * import tkinter.ttk
+ * import tk
+ * import tk.filedialog             # <<<<<<<<<<<<<<
+ * import tk.ttk
  * import numpy as np
  */
-  __pyx_tuple__18 = PyTuple_Pack(2, __pyx_n_s_tkinter, __pyx_n_s_filedialog); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_tuple__18 = PyTuple_Pack(2, __pyx_n_s_tk, __pyx_n_s_filedialog); if (unlikely(!__pyx_tuple__18)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__18);
   __Pyx_GIVEREF(__pyx_tuple__18);
 
   /* "ComIII.pyx":12
- * import tkinter
- * import tkinter.filedialog
- * import tkinter.ttk             # <<<<<<<<<<<<<<
+ * import tk
+ * import tk.filedialog
+ * import tk.ttk             # <<<<<<<<<<<<<<
  * import numpy as np
  * import mido
  */
-  __pyx_tuple__19 = PyTuple_Pack(2, __pyx_n_s_tkinter, __pyx_n_s_ttk); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_tuple__19 = PyTuple_Pack(2, __pyx_n_s_tk, __pyx_n_s_ttk); if (unlikely(!__pyx_tuple__19)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__19);
   __Pyx_GIVEREF(__pyx_tuple__19);
 
@@ -12321,7 +12321,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     read_midi_file(save_path)
  * 
  * cpdef Introduce():             # <<<<<<<<<<<<<<
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("AI")
  */
   __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 0, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ComIII_pyx, __pyx_n_s_Introduce, 336, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 336, __pyx_L1_error)
@@ -12912,7 +12912,7 @@ if (!__Pyx_RefNanny) {
  * import math
  * import os             # <<<<<<<<<<<<<<
  * import time
- * import tkinter
+ * import tk
  */
   __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_os, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 8, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -12923,8 +12923,8 @@ if (!__Pyx_RefNanny) {
  * import math
  * import os
  * import time             # <<<<<<<<<<<<<<
- * import tkinter
- * import tkinter.filedialog
+ * import tk
+ * import tk.filedialog
  */
   __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_time, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -12934,42 +12934,42 @@ if (!__Pyx_RefNanny) {
   /* "ComIII.pyx":10
  * import os
  * import time
- * import tkinter             # <<<<<<<<<<<<<<
- * import tkinter.filedialog
- * import tkinter.ttk
+ * import tk             # <<<<<<<<<<<<<<
+ * import tk.filedialog
+ * import tk.ttk
  */
-  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_tkinter, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_ImportDottedModule(__pyx_n_s_tk, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tkinter, __pyx_t_2) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tk, __pyx_t_2) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "ComIII.pyx":11
  * import time
- * import tkinter
- * import tkinter.filedialog             # <<<<<<<<<<<<<<
- * import tkinter.ttk
+ * import tk
+ * import tk.filedialog             # <<<<<<<<<<<<<<
+ * import tk.ttk
  * import numpy as np
  */
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_tkinter_filedialog, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_tk_filedialog, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tkinter, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tk, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "ComIII.pyx":12
- * import tkinter
- * import tkinter.filedialog
- * import tkinter.ttk             # <<<<<<<<<<<<<<
+ * import tk
+ * import tk.filedialog
+ * import tk.ttk             # <<<<<<<<<<<<<<
  * import numpy as np
  * import mido
  */
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_tkinter_ttk, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_tk_ttk, 0, 0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tkinter, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tk, __pyx_t_2) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "ComIII.pyx":13
- * import tkinter.filedialog
- * import tkinter.ttk
+ * import tk.filedialog
+ * import tk.ttk
  * import numpy as np             # <<<<<<<<<<<<<<
  * import mido
  * from mido import Message, MidiFile, MidiTrack, MetaMessage
@@ -12980,7 +12980,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "ComIII.pyx":14
- * import tkinter.ttk
+ * import tk.ttk
  * import numpy as np
  * import mido             # <<<<<<<<<<<<<<
  * from mido import Message, MidiFile, MidiTrack, MetaMessage
@@ -13091,7 +13091,7 @@ if (!__Pyx_RefNanny) {
  *     read_midi_file(save_path)
  * 
  * cpdef Introduce():             # <<<<<<<<<<<<<<
- *     ask_window = tkinter.Toplevel(root)
+ *     ask_window = tk.Toplevel(root)
  *     ask_window.title("AI")
  */
   __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_6ComIII_7Introduce, 0, __pyx_n_s_Introduce, NULL, __pyx_n_s_ComIII, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 336, __pyx_L1_error)

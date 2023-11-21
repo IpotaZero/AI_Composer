@@ -4,9 +4,9 @@ import os
 import numpy as np
 import copy
 
-import tkinter
-import tkinter.ttk
-import tkinter.filedialog
+import tk
+import tk.ttk
+import tk.filedialog
 
 import mido
 from window import *
@@ -127,22 +127,22 @@ def Learn():
 
         addlog("学習が終了したのだ")
 
-    ask_window = tkinter.Toplevel(root)
+    ask_window = tk.Toplevel(root)
     ask_window.title("学習するトラックを選択するのだ")
     ask_window.geometry("400x100")
     ask_window.protocol("WM_DELETE_WINDOW", on_ask_window_close)
 
-    combobox_track_num = tkinter.ttk.Combobox(ask_window, values=[0], state="readonly")
+    combobox_track_num = tk.ttk.Combobox(ask_window, values=[0], state="readonly")
     combobox_track_num.set(0)
     combobox_track_num.pack()
 
-    combobox_weight = tkinter.ttk.Combobox(
+    combobox_weight = tk.ttk.Combobox(
         ask_window, values=list(range(1, 10)), state="readonly"
     )
     combobox_weight.set(1)
     combobox_weight.pack()
 
-    button_run = tkinter.Button(
+    button_run = tk.Button(
         ask_window,
         text="Run",
         command=lambda: make_thread(
@@ -381,7 +381,7 @@ def Generate() -> mido.MidiFile:
         # 保存先を確認
         save_path = "C:/Ipota/programs/ongaku/child/a.mid"
 
-        save_path = tkinter.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
+        save_path = tk.filedialog.asksaveasfilename(filetypes=[("midi", ".mid")])
         if len(save_path) == 0:
             addlog("生成がキャンセルされたのだ")
             return None
@@ -409,35 +409,35 @@ def Generate() -> mido.MidiFile:
 
         run(key_note, bpm)
 
-    ask_window = tkinter.Toplevel(root)
+    ask_window = tk.Toplevel(root)
     ask_window.title("主音を選択するのだ(C4=60)")
     ask_window.geometry("400x100")
     ask_window.protocol("WM_DELETE_WINDOW", on_ask_window_close)
 
-    combobox_key_note = tkinter.ttk.Combobox(
+    combobox_key_note = tk.ttk.Combobox(
         ask_window, values=list(range(128)), state="readonly"
     )
     combobox_key_note.set(72)
     combobox_key_note.pack()
 
-    combobox_bpm = tkinter.ttk.Combobox(
+    combobox_bpm = tk.ttk.Combobox(
         ask_window, values=list(range(300)), state="readonly"
     )
     combobox_bpm.set(120)
     combobox_bpm.pack()
 
-    button_run = tkinter.Button(ask_window, text="Run", command=click_button)
+    button_run = tk.Button(ask_window, text="Run", command=click_button)
     button_run.pack()
 
 
 def Introduce():
-    ask_window = tkinter.Toplevel(root)
+    ask_window = tk.Toplevel(root)
     ask_window.title("AI紹介")
     ask_window.geometry("400x100")
 
-    text = tkinter.Text(ask_window)
+    text = tk.Text(ask_window)
     text.pack(anchor="nw", fill="both", expand=True)
 
-    text.insert(tkinter.END, "名前:こんちゃん2号\n")
-    text.insert(tkinter.END, "次に作成された作曲AI\n")
+    text.insert(tk.END, "名前:こんちゃん2号\n")
+    text.insert(tk.END, "次に作成された作曲AI\n")
     text["state"] = "disabled"

@@ -5,7 +5,7 @@ import os
 import threading
 import time
 
-import tkinter
+import tkinter as tk
 import tkinter.ttk
 import tkinterdnd2
 
@@ -30,7 +30,7 @@ def drop_file(event):
 def addlog(text):
     print(text)
     log["state"] = "normal"
-    log.insert(tkinter.END, text + "\n")
+    log.insert(tk.END, text + "\n")
     log["state"] = "disabled"
     log.see("end")
     log.update()
@@ -166,15 +166,16 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
     t["length"] = max(track["length"] for track in t["tracks"])
     t["selected_track"] = 0
 
-    print()
     save(t)
+
+    midi_player["current_time"] = 0
 
     return t
 
 
 # midiファイルを選択する
 def click_fileselect():
-    file_path = tkinter.filedialog.askopenfilename(filetypes=[("midi", ".mid")])
+    file_path = tk.filedialog.askopenfilename(filetypes=[("midi", ".mid")])
 
     if len(file_path) == 0:
         addlog("MIDIが選択されなかったのだ")
@@ -236,6 +237,8 @@ def draw_all_notes():
     canvas.create_line(0, 0, 0, 1000, fill="#000000", width=2, tags="sequencer_line")
     canvas.lift("sequencer_line")
 
+    canvas.config(scrollregion=(0, 0, 480 + translated_midi_file["length"] * mlt, 640))
+
 
 def draw_notes(track_num: int, colour: str):
     if translated_midi_file is None:
@@ -258,8 +261,6 @@ def draw_notes(track_num: int, colour: str):
             canvas.create_rectangle(
                 x1, y1, x2, y2, fill=colour, tags=f"track:{track_num}"
             )
-
-    # canvas.config(scrollregion=(0, 0, 480 + t["length"] * mlt, 640))
 
 
 def track_select(event):
@@ -366,6 +367,12 @@ def click_canvas(event):
     canvas.lift("sequencer_line")
 
 
+def push_reset():
+    midi_player["current_time"] = 0
+    label1["text"] = 0
+    addlog("再生位置を0に戻したのだ")
+
+
 def save(t_midi):
     with open(path + "/translated_midi.json", "wt") as f:
         json.dump(t_midi, f)
@@ -404,23 +411,23 @@ root.geometry("960x320")
 
 root.bind("<Key>", key_action)
 
-menubar = tkinter.Menu(root)
+menubar = tk.Menu(root)
 root.config(menu=menubar)
 
-file = tkinter.Menu(menubar, tearoff=0)
+file = tk.Menu(menubar, tearoff=0)
 menubar.add_cascade(label="File", menu=file)
 
-exe = tkinter.Menu(menubar, tearoff=0)
+exe = tk.Menu(menubar, tearoff=0)
 menubar.add_cascade(label="exe", menu=exe)
 
-frame0 = tkinter.Frame(root, width=360)
+frame0 = tk.Frame(root, width=360)
 frame0.pack(side="left", anchor="n", fill="y")
 
-log = tkinter.Text(frame0, state="disabled")
+log = tk.Text(frame0, state="disabled")
 log.place(x=0, y=20, width=360, relheight=1)
 # Scrollbarを生成してCanvasに配置処理
-scroll_log = tkinter.Scrollbar(log, orient=tkinter.VERTICAL)
-scroll_log.pack(side=tkinter.RIGHT, fill=tkinter.Y)
+scroll_log = tk.Scrollbar(log, orient=tk.VERTICAL)
+scroll_log.pack(side=tk.RIGHT, fill=tk.Y)
 scroll_log.config(command=log.yview)
 log.config(yscrollcommand=scroll_log.set)
 
@@ -435,31 +442,34 @@ file.add_command(
 
 # ---------------------------------------------------------------------------
 
-label_track_num = tkinter.Label(frame0, text="Track_Num:")
+label_track_num = tk.Label(frame0, text="Track_Num:")
 label_track_num.place(x=0, y=0, width=80, height=20)
 
-combobox0 = tkinter.ttk.Combobox(frame0, values=[0], state="readonly")
+combobox0 = tk.ttk.Combobox(frame0, values=[0], state="readonly")
 combobox0.set(0)
 combobox0.bind("<<ComboboxSelected>>", track_select)
 combobox0.place(x=80, y=0, width=120, height=20)
 
-button0 = tkinter.Button(frame0, text="▷", command=push_play)
+button0 = tk.Button(frame0, text="▷", command=push_play)
 button0.place(x=240, y=0, width=20, height=20)
 
-label1 = tkinter.Label(frame0, text="0")
+button_reset = tk.Button(frame0, text="◁|", command=push_reset)
+button_reset.place(x=220, y=0, width=20, height=20)
+
+label1 = tk.Label(frame0, text="0")
 label1.place(x=260, y=0, width=100, height=20)
 
-frame1 = tkinter.Frame(root)
+frame1 = tk.Frame(root)
 frame1.pack(side="left", anchor="n", fill="both", expand=True)
 
-canvas = tkinter.Canvas(frame1, bg="#151515")
+canvas = tk.Canvas(frame1, bg="#151515")
 canvas.pack(side="left", anchor="n", fill="both", expand=True)
 
 # Scrollbarを生成してCanvasに配置処理
-bar_y = tkinter.Scrollbar(canvas, orient=tkinter.VERTICAL)
-bar_x = tkinter.Scrollbar(canvas, orient=tkinter.HORIZONTAL)
-bar_y.pack(side=tkinter.RIGHT, fill=tkinter.Y)
-bar_x.pack(side=tkinter.BOTTOM, fill=tkinter.X)
+bar_y = tk.Scrollbar(canvas, orient=tk.VERTICAL)
+bar_x = tk.Scrollbar(canvas, orient=tk.HORIZONTAL)
+bar_y.pack(side=tk.RIGHT, fill=tk.Y)
+bar_x.pack(side=tk.BOTTOM, fill=tk.X)
 bar_y.config(command=canvas.yview)
 bar_x.config(command=canvas.xview)
 canvas.config(yscrollcommand=bar_y.set, xscrollcommand=bar_x.set)

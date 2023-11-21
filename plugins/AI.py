@@ -2,7 +2,7 @@ import glob
 import sys
 from window import *
 
-import tkinter
+import tkinter as tk
 import tkinter.filedialog
 import os
 
@@ -45,11 +45,11 @@ def load_module():
 
     # print(ai_module)
 
-    ai = tkinter.Menu(menubar, tearoff=0)
+    ai = tk.Menu(menubar, tearoff=0)
     menubar.add_cascade(label="AI", menu=ai)
 
     for ai_name in ais.keys():
-        ais[ai_name]["menu"] = tkinter.Menu(ai, tearoff=0)
+        ais[ai_name]["menu"] = tk.Menu(ai, tearoff=0)
 
         ai.add_cascade(label=ai_name, menu=ais[ai_name]["menu"])
 
