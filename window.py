@@ -100,14 +100,15 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
 
     t = {
         "tracks": [],
+        "beat_length": 20,
         "length": 0,
         "name": name,
         "start": float("inf"),
         "tempo": 0,
-        "resolusion": midi_file.ticks_per_beat,
+        "resolution": midi_file.ticks_per_beat,
     }
 
-    mlt = int(480 / t["resolusion"])
+    mlt = int(480 / t["resolution"])
 
     debug(reset=True)
 
@@ -194,6 +195,8 @@ def draw_all_notes():
     # キャンバスをクリア
     canvas.delete("all")
 
+    mlt = translated_midi_file["beat_length"] / 480
+
     scale = [0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0]
 
     for y in range(128):
@@ -202,7 +205,7 @@ def draw_all_notes():
             colour = "#ffffff"
 
         canvas.create_rectangle(
-            0, y * 8, translated_midi_file["length"] / 24, (y + 1) * 8, fill=colour
+            0, y * 8, translated_midi_file["length"] * mlt, (y + 1) * 8, fill=colour
         )
     off_set_x = translated_midi_file["start"]
 
@@ -210,7 +213,7 @@ def draw_all_notes():
         canvas.create_line(
             0,
             (y * 12 + 8) * 8,
-            translated_midi_file["length"] / 24,
+            translated_midi_file["length"] * mlt,
             (y * 12 + 8) * 8,
             fill="#000000",
             width=2,
@@ -218,9 +221,9 @@ def draw_all_notes():
 
     for x in range(int(translated_midi_file["length"] / 1920)):
         canvas.create_line(
-            x * 80 + off_set_x / 24,
+            x * 80 + off_set_x * mlt,
             0,
-            x * 80 + off_set_x / 24,
+            x * 80 + off_set_x * mlt,
             canvas["height"] * 3,
             fill="#636363",
         )
@@ -230,11 +233,16 @@ def draw_all_notes():
 
     draw_notes(translated_midi_file["selected_track"], "#7777ff")
 
+    canvas.create_line(0, 0, 0, 1000, fill="#000000", width=2, tags="sequencer_line")
+    canvas.lift("sequencer_line")
+
 
 def draw_notes(track_num: int, colour: str):
     if translated_midi_file is None:
         addlog("MIDIが選択されていないのだ")
         return None
+
+    mlt = translated_midi_file["beat_length"] / 480
 
     t = translated_midi_file
 
@@ -242,30 +250,35 @@ def draw_notes(track_num: int, colour: str):
     for note in t["tracks"][track_num]["notes"]:
         if note["length"] is not None:
             # ノートの長さを計算
-            x1 = note["tick"] / 24
-            x2 = x1 + note["length"] / 24
+            x1 = note["tick"] * mlt
+            x2 = x1 + note["length"] * mlt
             y1 = (127 - note["pitch"]) * 8
             y2 = y1 + 8
 
-            if track_num == 10:
-                canvas.create_oval(x1 - 5, y1 - 1, x1 + 5, y2 + 1, fill=colour)
-            else:
-                canvas.create_rectangle(x1, y1, x2, y2, fill=colour)
+            canvas.create_rectangle(
+                x1, y1, x2, y2, fill=colour, tags=f"track:{track_num}"
+            )
 
-    canvas.config(scrollregion=(0, 0, 480 + t["length"] / 24, 640))
+    # canvas.config(scrollregion=(0, 0, 480 + t["length"] * mlt, 640))
 
 
 def track_select(event):
     if translated_midi_file is not None:
+        canvas.itemconfig(
+            f"track:{translated_midi_file['selected_track']}", fill="#777777"
+        )
+
         translated_midi_file["selected_track"] = int(event.widget.get())
         # save(translated_midi_file)
 
+        canvas.itemconfig(
+            f"track:{translated_midi_file['selected_track']}", fill="#7777ff"
+        )
+
         addlog(event.widget.get() + "番にトラックを変更したのだ")
 
-    draw_all_notes()
 
-
-def button_play():
+def push_play():
     global midi_player
 
     if midi_player["is_playing"]:
@@ -291,17 +304,18 @@ def midi_stop():
     button0["text"] = "▷"
 
     ports = mido.get_output_names()
-    with mido.open_output(ports[0]) as outport:
+    with mido.open_output(ports[midi_player["port"]]) as outport:
         for i in range(128):
             outport.send(mido.Message(type="note_off", note=i, time=0))
+    addlog("再生を終了したのだ")
 
 
 def midi_play():
     current_position = (
-        int(label1["text"]) * translated_midi_file["tempo"] / (480 * 1000 * 1000)
+        midi_player["current_time"]
+        * translated_midi_file["tempo"]
+        / (translated_midi_file["resolution"] * 1000 * 1000)
     )
-
-    print(current_position)
 
     messages = []
     sum_time = 0
@@ -310,20 +324,22 @@ def midi_play():
         if sum_time >= current_position:
             messages.append(msg)
 
-    print(messages)
+    if len(messages) == 0:
+        midi_stop()
+        return
 
     ports = mido.get_output_names()
-    with mido.open_output(ports[0]) as outport:
+    with mido.open_output(ports[midi_player["port"]]) as outport:
         i = 0
-        while i < len(messages) and midi_player["is_playing"]:
+        while i < len(messages) - 1 and midi_player["is_playing"]:
             msg = messages[i]
             if not msg.is_meta:
                 outport.send(msg)
-            time.sleep(msg.time)
+            time.sleep(messages[i + 1].time)
             i += 1
 
+        outport.send(messages[-1])
     midi_stop()
-    addlog("再生を終了したのだ")
 
 
 def key_action(event):
@@ -333,7 +349,7 @@ def key_action(event):
         key_listener[event.keysym]()
 
 
-def click_close():
+def on_window_closed():
     midi_stop()
     for p in processes:
         p.kill()
@@ -341,10 +357,13 @@ def click_close():
 
 
 def click_canvas(event):
-    label1["text"] = canvas.canvasx(event.x) * 24 + 120
+    x = canvas.canvasx(event.x) * 24
+    label1["text"] = x
+    label1["text"] = int(x) - int(x) % 120
+    midi_player["current_time"] = x
 
-    label1["text"] = int(label1["text"]) - int(label1["text"]) % 120
-    pass
+    canvas.moveto("sequencer_line", canvas.canvasx(event.x), 0)
+    canvas.lift("sequencer_line")
 
 
 def save(t_midi):
@@ -363,12 +382,12 @@ can_drop_file["mid"] = read_midi_file
 # listeners = {"key": function}
 key_listener = {}
 
-key_listener["space"] = button_play
+key_listener["space"] = push_play
 
 # 作業しているところ
 path = os.getcwd()
 
-midi_player = {"is_playing": False}
+midi_player = {"is_playing": False, "current_time": 0, "port": 0}
 
 midi_file = None
 
@@ -407,7 +426,7 @@ log.config(yscrollcommand=scroll_log.set)
 
 # ---------------------------------------------------------------------------
 
-root.protocol("WM_DELETE_WINDOW", click_close)
+root.protocol("WM_DELETE_WINDOW", on_window_closed)
 
 file.add_command(label="open_midi...", command=click_fileselect)
 file.add_command(
@@ -424,7 +443,7 @@ combobox0.set(0)
 combobox0.bind("<<ComboboxSelected>>", track_select)
 combobox0.place(x=80, y=0, width=120, height=20)
 
-button0 = tkinter.Button(frame0, text="▷", command=button_play)
+button0 = tkinter.Button(frame0, text="▷", command=push_play)
 button0.place(x=240, y=0, width=20, height=20)
 
 label1 = tkinter.Label(frame0, text="0")
