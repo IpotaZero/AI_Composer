@@ -290,23 +290,37 @@ def midi_stop():
     midi_player["is_playing"] = False
     button0["text"] = "▷"
 
+    ports = mido.get_output_names()
+    with mido.open_output(ports[0]) as outport:
+        for i in range(128):
+            outport.send(mido.Message(type="note_off", note=i, time=0))
+
 
 def midi_play():
-    duration = 0
+    current_position = (
+        int(label1["text"]) * translated_midi_file["tempo"] / (480 * 1000 * 1000)
+    )
+
+    print(current_position)
+
+    messages = []
+    sum_time = 0
+    for msg in midi_file:
+        sum_time += msg.time
+        if sum_time >= current_position:
+            messages.append(msg)
+
+    print(messages)
 
     ports = mido.get_output_names()
     with mido.open_output(ports[0]) as outport:
-        for msg in midi_file:
-            duration += msg.time * 480 * 1000 * 1000 / translated_midi_file["tempo"]
-            if midi_player["is_playing"]:
-                # 指定位置まで超速再生
-                if int(label1["text"]) <= duration:
-                    time.sleep(msg.time)
-                elif msg.type == "note_on":
-                    msg.velocity = 0
-
-                if not msg.is_meta:
-                    outport.send(msg)
+        i = 0
+        while i < len(messages) and midi_player["is_playing"]:
+            msg = messages[i]
+            if not msg.is_meta:
+                outport.send(msg)
+            time.sleep(msg.time)
+            i += 1
 
     midi_stop()
     addlog("再生を終了したのだ")
@@ -396,6 +410,9 @@ log.config(yscrollcommand=scroll_log.set)
 root.protocol("WM_DELETE_WINDOW", click_close)
 
 file.add_command(label="open_midi...", command=click_fileselect)
+file.add_command(
+    label="save_translated_midi", command=lambda: save(translated_midi_file)
+)
 
 # ---------------------------------------------------------------------------
 
