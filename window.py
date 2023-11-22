@@ -47,24 +47,20 @@ class Com_file:
     def play(self):
         def midi_play():
             midi_file = self.get_midi()
+            # midi_file = mido.MidiFile("./test.mid")
 
             current_position = (
                 self.midi_player["current_time"]
-                * self.data["tempo"]
-                / (self.data["resolution"] * 1000 * 1000)
+                # * self.data["tempo"]
+                # / (self.data["resolution"] * 1000 * 1000)
             )
-
-            print([msg for msg in midi_file if not msg.is_meta and msg.channel != 0])
 
             messages = []
             sum_time = 0
             for msg in midi_file:
                 sum_time += msg.time
-                print(msg)
                 if sum_time >= current_position:
                     messages.append(msg)
-
-            print(messages)
 
             if len(messages) > 0:
                 ports = mido.get_output_names()
@@ -122,7 +118,7 @@ class Com_file:
 
         midi_file.ticks_per_beat = 480
 
-        for i, track in enumerate(self.data["tracks"]):
+        for track in self.data["tracks"]:
             midi_track = mido.MidiTrack()
             midi_file.tracks.append(midi_track)
 
@@ -136,7 +132,6 @@ class Com_file:
                         "note": note["pitch"],
                         "velocity": note["velocity"],
                         "tick": note["tick"],
-                        "channel": channel,
                     }
                 )
                 note_massages.append(
@@ -144,7 +139,6 @@ class Com_file:
                         "type": "note_off",
                         "note": note["pitch"],
                         "tick": note["tick"] + note["length"],
-                        "channel": channel,
                     }
                 )
 
@@ -167,6 +161,12 @@ class Com_file:
                 midi_track.append(m)
 
         addlog("変換が終了したのだ")
+
+        temp_path = "./temp.mid"
+        with open(temp_path, "wt"):
+            midi_file.save(temp_path)
+
+        midi_file = mido.MidiFile(temp_path)
         return midi_file
 
 
@@ -237,7 +237,7 @@ def get_file_extension(file_path):
 
 
 def read_midi_file(file_path: str):
-    global com_file, midi_file
+    global com_file
     addlog("MIDIデータ読み込み開始...")
 
     midi_file = mido.MidiFile(file_path)
