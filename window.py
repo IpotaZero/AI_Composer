@@ -12,6 +12,91 @@ import tkinterdnd2
 import mido
 
 
+class Com_file:
+    def __init__(self):
+        self.data = None
+        self.midi_player = {"is_playing": False, "current_time": 0, "port": 0}
+        self.midi = None
+
+    def save(self):
+        if self.data is None:
+            return
+
+        file_path = self.data["path"]
+        if file is None:
+            file_path = tk.filedialog.asksaveasfilename(filetypes=[("Com", ".comcom")])
+            self.data["path"] = file_path
+
+        if len(file_path) == 0:
+            return
+
+        with open(file_path, "wt") as f:
+            json.dump(self.data, f)
+
+    def __str__(self) -> str:
+        return str(self.data)
+
+    def reset_time(self):
+        self.midi_player["current_time"] = 0
+
+    def play(self):
+        midi = self.get_midi()
+
+    def write(self):
+        file_path = tk.filedialog.asksaveasfilename(filetypes=[("MIDI", ".mid")])
+        if len(file_path) == 0:
+            return
+        self.get_midi().save(file_path)
+
+    def get_midi(self):
+        if self.midi is None:
+            self.midi = self.make_midi()
+
+        return self.midi
+
+    def make_midi(self):
+        midi_file = mido.MidiFile()
+
+        midi_file.ticks_per_beat = 480
+
+        for track in self.data["tracks"]:
+            midi_track = mido.MidiTrack()
+            midi_file.tracks.append(midi_track)
+
+            note_massages = []
+            for note in track["notes"]:
+                note_massages.append(
+                    {
+                        "type": "note_on",
+                        "note": note["pitch"],
+                        "velocity": 127,
+                        "tick": note["tick"],
+                    }
+                )
+                note_massages.append(
+                    {
+                        "type": "note_off",
+                        "note": note["pitch"],
+                        "tick": note["tick"] + note["length"],
+                    }
+                )
+
+            messages = sorted(track["events"] + note_massages, key=lambda x: x["tick"])
+
+            current_time = 0
+            for message in messages:
+                message["time"] = message["tick"] - current_time
+                current_time = message["tick"]
+                message.pop("tick")
+
+                try:
+                    midi_track.append(mido.Message(**message))
+                except:
+                    midi_track.append(mido.MetaMessage(**message))
+
+        return midi_file
+
+
 # ファイルをドロップする
 def drop_file(event):
     keys = can_drop_file.keys()
@@ -79,14 +164,14 @@ def get_file_extension(file_path):
 
 
 def read_midi_file(file_path: str):
-    global translated_midi_file, midi_file
+    global com_file, midi_file
     addlog("MIDIデータ読み込み開始...")
 
     midi_file = mido.MidiFile(file_path)
 
-    translated_midi_file = translate_midi_file(midi_file, os.path.basename(file_path))
+    com_file.data = translate_midi_file(midi_file, os.path.basename(file_path))
 
-    combobox0["values"] = list(range(len(translated_midi_file["tracks"])))
+    combobox0["values"] = list(range(len(com_file.data["tracks"])))
     combobox0.set(0)
 
     draw_all_notes()
@@ -98,11 +183,15 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
     if midi_player["is_playing"]:
         midi_stop()
 
+    print(midi_file)
+
     t = {
         "tracks": [],
         "beat_length": 20,
+        "format": 0,
         "length": 0,
         "name": name,
+        "path": None,
         "start": float("inf"),
         "tempo": 0,
         "resolution": midi_file.ticks_per_beat,
@@ -189,14 +278,14 @@ def click_fileselect():
 
 
 def draw_all_notes():
-    if translated_midi_file is None:
+    if com_file.data is None:
         addlog("MIDIが選択されていないのだ")
         return None
 
     # キャンバスをクリア
     canvas.delete("all")
 
-    mlt = translated_midi_file["beat_length"] / 480
+    mlt = com_file.data["beat_length"] / 480
 
     scale = [0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0]
 
@@ -206,21 +295,21 @@ def draw_all_notes():
             colour = "#ffffff"
 
         canvas.create_rectangle(
-            0, y * 8, translated_midi_file["length"] * mlt, (y + 1) * 8, fill=colour
+            0, y * 8, com_file.data["length"] * mlt, (y + 1) * 8, fill=colour
         )
-    off_set_x = translated_midi_file["start"]
+    off_set_x = com_file.data["start"]
 
     for y in range(int(128 / 12)):
         canvas.create_line(
             0,
             (y * 12 + 8) * 8,
-            translated_midi_file["length"] * mlt,
+            com_file.data["length"] * mlt,
             (y * 12 + 8) * 8,
             fill="#000000",
             width=2,
         )
 
-    for x in range(int(translated_midi_file["length"] / 1920)):
+    for x in range(int(com_file.data["length"] / 1920)):
         canvas.create_line(
             x * 80 + off_set_x * mlt,
             0,
@@ -229,25 +318,25 @@ def draw_all_notes():
             fill="#636363",
         )
 
-    for t in range(len(translated_midi_file["tracks"])):
+    for t in range(len(com_file.data["tracks"])):
         draw_notes(t, "#777777")
 
-    draw_notes(translated_midi_file["selected_track"], "#7777ff")
+    draw_notes(com_file.data["selected_track"], "#7777ff")
 
     canvas.create_line(0, 0, 0, 1000, fill="#000000", width=2, tags="sequencer_line")
     canvas.lift("sequencer_line")
 
-    canvas.config(scrollregion=(0, 0, 480 + translated_midi_file["length"] * mlt, 640))
+    canvas.config(scrollregion=(0, 0, 480 + com_file.data["length"] * mlt, 640))
 
 
 def draw_notes(track_num: int, colour: str):
-    if translated_midi_file is None:
+    if com_file.data is None:
         addlog("MIDIが選択されていないのだ")
         return None
 
-    mlt = translated_midi_file["beat_length"] / 480
+    mlt = com_file.data["beat_length"] / 480
 
-    t = translated_midi_file
+    t = com_file.data
 
     # ノートの描画
     for note in t["tracks"][track_num]["notes"]:
@@ -264,17 +353,13 @@ def draw_notes(track_num: int, colour: str):
 
 
 def track_select(event):
-    if translated_midi_file is not None:
-        canvas.itemconfig(
-            f"track:{translated_midi_file['selected_track']}", fill="#777777"
-        )
+    if com_file.data is not None:
+        canvas.itemconfig(f"track:{com_file.data['selected_track']}", fill="#777777")
 
-        translated_midi_file["selected_track"] = int(event.widget.get())
-        # save(translated_midi_file)
+        com_file.data["selected_track"] = int(event.widget.get())
+        # save(com_file.data)
 
-        canvas.itemconfig(
-            f"track:{translated_midi_file['selected_track']}", fill="#7777ff"
-        )
+        canvas.itemconfig(f"track:{com_file.data['selected_track']}", fill="#7777ff")
 
         addlog(event.widget.get() + "番にトラックを変更したのだ")
 
@@ -314,8 +399,8 @@ def midi_stop():
 def midi_play():
     current_position = (
         midi_player["current_time"]
-        * translated_midi_file["tempo"]
-        / (translated_midi_file["resolution"] * 1000 * 1000)
+        * com_file.data["tempo"]
+        / (com_file.data["resolution"] * 1000 * 1000)
     )
 
     messages = []
@@ -398,7 +483,7 @@ midi_player = {"is_playing": False, "current_time": 0, "port": 0}
 
 midi_file = None
 
-translated_midi_file = None
+com_file = Com_file()
 
 processes = []
 
@@ -416,6 +501,9 @@ root.config(menu=menubar)
 
 file = tk.Menu(menubar, tearoff=0)
 menubar.add_cascade(label="File", menu=file)
+
+edit = tk.Menu(menubar, tearoff=0)
+menubar.add_cascade(label="Edit", menu=edit)
 
 exe = tk.Menu(menubar, tearoff=0)
 menubar.add_cascade(label="exe", menu=exe)
@@ -436,9 +524,8 @@ log.config(yscrollcommand=scroll_log.set)
 root.protocol("WM_DELETE_WINDOW", on_window_closed)
 
 file.add_command(label="open_midi...", command=click_fileselect)
-file.add_command(
-    label="save_translated_midi", command=lambda: save(translated_midi_file)
-)
+file.add_command(label="save_translated_midi", command=com_file.save)
+file.add_command(label="save_midi", command=com_file.write)
 
 # ---------------------------------------------------------------------------
 
@@ -484,8 +571,8 @@ canvas.bind("<Button-1>", click_canvas)
 
 if os.path.exists(path + "/translated_midi.json"):
     with open(path + "/translated_midi.json", "r") as f:
-        translated_midi_file = json.load(f)
-        combobox0["values"] = list(range(len(translated_midi_file["tracks"])))
-        combobox0.set(translated_midi_file["selected_track"])
+        com_file.data = json.load(f)
+        combobox0["values"] = list(range(len(com_file.data["tracks"])))
+        combobox0.set(com_file.data["selected_track"])
 
         draw_all_notes()

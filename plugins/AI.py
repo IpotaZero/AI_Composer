@@ -10,9 +10,9 @@ import os
 def load_module():
     # 学習
     def click_learn(fn):
-        from window import translated_midi_file
+        from window import com_file
 
-        save(translated_midi_file)
+        save(com_file.data)
 
         # スレッドの生成とスタート
         thread_learn = threading.Thread(target=fn, daemon=True)

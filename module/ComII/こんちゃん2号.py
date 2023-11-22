@@ -19,7 +19,7 @@ def Learn():
         # 長さの最小単位
         resolution = 1
 
-        notes = translated_midi_file["tracks"][track_num]["notes"]
+        notes = com_file.data["tracks"][track_num]["notes"]
 
         phrases = []
 
@@ -153,11 +153,9 @@ def Learn():
 
     if os.path.exists(path + "/translated_midi.json"):
         with open(path + "/translated_midi.json", "r") as f:
-            translated_midi_file = json.load(f)
-            combobox_track_num["values"] = list(
-                range(len(translated_midi_file["tracks"]))
-            )
-            combobox_track_num.set(translated_midi_file["selected_track"])
+            com_file.data = json.load(f)
+            combobox_track_num["values"] = list(range(len(com_file.data["tracks"])))
+            combobox_track_num.set(com_file.data["selected_track"])
     else:
         addlog("translated_midiが存在しないのだ")
         return None

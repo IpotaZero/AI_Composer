@@ -16,9 +16,9 @@ from ComIII_learning import run
 
 
 def Learn():
-    from window import translated_midi_file
+    from window import com_file.data
 
-    save(translated_midi_file)
+    save(com_file.data)
 
     thread_lerning = threading.Thread(target=run, daemon=True)
     thread_lerning.start()
