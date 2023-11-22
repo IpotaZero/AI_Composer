@@ -2,6 +2,8 @@ import glob
 import sys
 from window import *
 
+import importlib
+
 import tkinter as tk
 import tkinter.filedialog
 import os
@@ -12,7 +14,7 @@ def load_module():
     def click_learn(fn):
         from window import com_file
 
-        save(com_file.data)
+        com_file.save()
 
         # スレッドの生成とスタート
         thread_learn = threading.Thread(target=fn, daemon=True)
