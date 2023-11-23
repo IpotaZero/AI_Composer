@@ -16,9 +16,9 @@ from ComIII_learning import run
 
 
 def Learn():
-    from window import com_file.data
+    from window import com_files[com_select].data
 
-    save(com_file.data)
+    save(com_files[com_select].data)
 
     thread_lerning = threading.Thread(target=run, daemon=True)
     thread_lerning.start()

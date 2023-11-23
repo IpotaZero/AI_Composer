@@ -1500,7 +1500,7 @@ struct __pyx_obj_5ComII___pyx_scope_struct__Learn {
   PyObject *__pyx_v_make_thread;
   PyObject *__pyx_v_read_midi_file;
   PyObject *__pyx_v_run;
-  PyObject *__pyx_v_com_file.data;
+  PyObject *__pyx_v_com_files[com_select].data;
 };
 
 
@@ -2750,7 +2750,7 @@ static const char __pyx_k_tk_filedialog[] = "tk.filedialog";
 static const char __pyx_k_Generate_locals_run[] = "Generate.<locals>.run";
 static const char __pyx_k_Learn_locals_lambda[] = "Learn.<locals>.<lambda>";
 static const char __pyx_k_on_ask_window_close[] = "on_ask_window_close";
-static const char __pyx_k_com_file.data[] = "com_file.data";
+static const char __pyx_k_com_files[com_select].data[] = "com_files[com_select].data";
 static const char __pyx_k_translated_midi_json[] = "/translated_midi.json";
 static const char __pyx_k_Learn_locals_count_note[] = "Learn.<locals>.count_note";
 static const char __pyx_k_selected_noteconnection[] = "selected_note\343\201\256connection\343\201\257\350\246\213\343\201\244\343\201\213\343\202\212\343\201\276\343\201\233\343\202\223\343\201\247\343\201\227\343\201\237";
@@ -3073,7 +3073,7 @@ typedef struct {
   PyObject *__pyx_n_s_tracks;
   PyObject *__pyx_n_u_tracks;
   PyObject *__pyx_n_u_translated_midi;
-  PyObject *__pyx_n_s_com_file.data;
+  PyObject *__pyx_n_s_com_files[com_select].data;
   PyObject *__pyx_kp_u_translated_midi_json;
   PyObject *__pyx_n_s_ttk;
   PyObject *__pyx_n_u_type;
@@ -3418,7 +3418,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_tracks);
   Py_CLEAR(clear_module_state->__pyx_n_u_tracks);
   Py_CLEAR(clear_module_state->__pyx_n_u_translated_midi);
-  Py_CLEAR(clear_module_state->__pyx_n_s_com_file.data);
+  Py_CLEAR(clear_module_state->__pyx_n_s_com_files[com_select].data);
   Py_CLEAR(clear_module_state->__pyx_kp_u_translated_midi_json);
   Py_CLEAR(clear_module_state->__pyx_n_s_ttk);
   Py_CLEAR(clear_module_state->__pyx_n_u_type);
@@ -3741,7 +3741,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_tracks);
   Py_VISIT(traverse_module_state->__pyx_n_u_tracks);
   Py_VISIT(traverse_module_state->__pyx_n_u_translated_midi);
-  Py_VISIT(traverse_module_state->__pyx_n_s_com_file.data);
+  Py_VISIT(traverse_module_state->__pyx_n_s_com_files[com_select].data);
   Py_VISIT(traverse_module_state->__pyx_kp_u_translated_midi_json);
   Py_VISIT(traverse_module_state->__pyx_n_s_ttk);
   Py_VISIT(traverse_module_state->__pyx_n_u_type);
@@ -4074,7 +4074,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_tracks __pyx_mstate_global->__pyx_n_s_tracks
 #define __pyx_n_u_tracks __pyx_mstate_global->__pyx_n_u_tracks
 #define __pyx_n_u_translated_midi __pyx_mstate_global->__pyx_n_u_translated_midi
-#define __pyx_n_s_com_file.data __pyx_mstate_global->__pyx_n_s_com_file.data
+#define __pyx_n_s_com_files[com_select].data __pyx_mstate_global->__pyx_n_s_com_files[com_select].data
 #define __pyx_kp_u_translated_midi_json __pyx_mstate_global->__pyx_kp_u_translated_midi_json
 #define __pyx_n_s_ttk __pyx_mstate_global->__pyx_n_s_ttk
 #define __pyx_n_u_type __pyx_mstate_global->__pyx_n_u_type
@@ -4303,7 +4303,7 @@ static PyObject *__pyx_pf_5ComII_5Learn_read_midi_file(PyObject *__pyx_self, PyO
  *         #
  *         resolution = 1             # <<<<<<<<<<<<<<
  * 
- *         notes = com_file.data["tracks"][track_num]["notes"]
+ *         notes = com_files[com_select].data["tracks"][track_num]["notes"]
  */
   __Pyx_INCREF(__pyx_int_1);
   __pyx_v_resolution = __pyx_int_1;
@@ -4311,12 +4311,12 @@ static PyObject *__pyx_pf_5ComII_5Learn_read_midi_file(PyObject *__pyx_self, PyO
   /* "ComII.pyx":22
  *         resolution = 1
  * 
- *         notes = com_file.data["tracks"][track_num]["notes"]             # <<<<<<<<<<<<<<
+ *         notes = com_files[com_select].data["tracks"][track_num]["notes"]             # <<<<<<<<<<<<<<
  * 
  *         phrases = []
  */
-  if (unlikely(!__pyx_cur_scope->__pyx_v_com_file.data)) { __Pyx_RaiseClosureNameError("com_file.data"); __PYX_ERR(0, 22, __pyx_L1_error) }
-  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_com_file.data, __pyx_n_u_tracks); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (unlikely(!__pyx_cur_scope->__pyx_v_com_files[com_select].data)) { __Pyx_RaiseClosureNameError("com_files[com_select].data"); __PYX_ERR(0, 22, __pyx_L1_error) }
+  __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_com_files[com_select].data, __pyx_n_u_tracks); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_2 = __Pyx_PyObject_GetItem(__pyx_t_1, __pyx_v_track_num); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
@@ -4328,7 +4328,7 @@ static PyObject *__pyx_pf_5ComII_5Learn_read_midi_file(PyObject *__pyx_self, PyO
   __pyx_t_1 = 0;
 
   /* "ComII.pyx":24
- *         notes = com_file.data["tracks"][track_num]["notes"]
+ *         notes = com_files[com_select].data["tracks"][track_num]["notes"]
  * 
  *         phrases = []             # <<<<<<<<<<<<<<
  * 
@@ -7497,7 +7497,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
  * 
  *     if os.path.exists(path + "/translated_midi.json"):             # <<<<<<<<<<<<<<
  *         with open(path + "/translated_midi.json", "r") as f:
- *             com_file.data = json.load(f)
+ *             com_files[com_select].data = json.load(f)
  */
   __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_os); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -7543,7 +7543,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
  * 
  *     if os.path.exists(path + "/translated_midi.json"):
  *         with open(path + "/translated_midi.json", "r") as f:             # <<<<<<<<<<<<<<
- *             com_file.data = json.load(f)
+ *             com_files[com_select].data = json.load(f)
  *             combobox_track_num["values"] = list(
  */
     /*with:*/ {
@@ -7607,9 +7607,9 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
             /* "ComII.pyx":156
  *     if os.path.exists(path + "/translated_midi.json"):
  *         with open(path + "/translated_midi.json", "r") as f:
- *             com_file.data = json.load(f)             # <<<<<<<<<<<<<<
+ *             com_files[com_select].data = json.load(f)             # <<<<<<<<<<<<<<
  *             combobox_track_num["values"] = list(
- *                 range(len(com_file.data["tracks"]))
+ *                 range(len(com_files[com_select].data["tracks"]))
  */
             __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_json); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L8_error)
             __Pyx_GOTREF(__pyx_t_1);
@@ -7639,17 +7639,17 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
               __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
             }
             __Pyx_GIVEREF(__pyx_t_3);
-            __pyx_cur_scope->__pyx_v_com_file.data = __pyx_t_3;
+            __pyx_cur_scope->__pyx_v_com_files[com_select].data = __pyx_t_3;
             __pyx_t_3 = 0;
 
             /* "ComII.pyx":158
- *             com_file.data = json.load(f)
+ *             com_files[com_select].data = json.load(f)
  *             combobox_track_num["values"] = list(
- *                 range(len(com_file.data["tracks"]))             # <<<<<<<<<<<<<<
+ *                 range(len(com_files[com_select].data["tracks"]))             # <<<<<<<<<<<<<<
  *             )
- *             combobox_track_num.set(com_file.data["selected_track"])
+ *             combobox_track_num.set(com_files[com_select].data["selected_track"])
  */
-            __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_com_file.data, __pyx_n_u_tracks); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L8_error)
+            __pyx_t_3 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_com_files[com_select].data, __pyx_n_u_tracks); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L8_error)
             __Pyx_GOTREF(__pyx_t_3);
             __pyx_t_12 = PyObject_Length(__pyx_t_3); if (unlikely(__pyx_t_12 == ((Py_ssize_t)-1))) __PYX_ERR(0, 158, __pyx_L8_error)
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
@@ -7661,9 +7661,9 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
 
             /* "ComII.pyx":157
  *         with open(path + "/translated_midi.json", "r") as f:
- *             com_file.data = json.load(f)
+ *             com_files[com_select].data = json.load(f)
  *             combobox_track_num["values"] = list(             # <<<<<<<<<<<<<<
- *                 range(len(com_file.data["tracks"]))
+ *                 range(len(com_files[com_select].data["tracks"]))
  *             )
  */
             __pyx_t_3 = __Pyx_PySequence_ListKeepNew(__pyx_t_4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 157, __pyx_L8_error)
@@ -7673,15 +7673,15 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
             __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
             /* "ComII.pyx":160
- *                 range(len(com_file.data["tracks"]))
+ *                 range(len(com_files[com_select].data["tracks"]))
  *             )
- *             combobox_track_num.set(com_file.data["selected_track"])             # <<<<<<<<<<<<<<
+ *             combobox_track_num.set(com_files[com_select].data["selected_track"])             # <<<<<<<<<<<<<<
  *     else:
  *         addlog("translated_midi")
  */
             __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_combobox_track_num, __pyx_n_s_set); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 160, __pyx_L8_error)
             __Pyx_GOTREF(__pyx_t_4);
-            __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_com_file.data, __pyx_n_u_selected_track); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 160, __pyx_L8_error)
+            __pyx_t_1 = __Pyx_PyObject_Dict_GetItem(__pyx_cur_scope->__pyx_v_com_files[com_select].data, __pyx_n_u_selected_track); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 160, __pyx_L8_error)
             __Pyx_GOTREF(__pyx_t_1);
             __pyx_t_6 = NULL;
             __pyx_t_5 = 0;
@@ -7712,7 +7712,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
  * 
  *     if os.path.exists(path + "/translated_midi.json"):
  *         with open(path + "/translated_midi.json", "r") as f:             # <<<<<<<<<<<<<<
- *             com_file.data = json.load(f)
+ *             com_files[com_select].data = json.load(f)
  *             combobox_track_num["values"] = list(
  */
           }
@@ -7795,13 +7795,13 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
  * 
  *     if os.path.exists(path + "/translated_midi.json"):             # <<<<<<<<<<<<<<
  *         with open(path + "/translated_midi.json", "r") as f:
- *             com_file.data = json.load(f)
+ *             com_files[com_select].data = json.load(f)
  */
     goto __pyx_L3;
   }
 
   /* "ComII.pyx":162
- *             combobox_track_num.set(com_file.data["selected_track"])
+ *             combobox_track_num.set(com_files[com_select].data["selected_track"])
  *     else:
  *         addlog("translated_midi")             # <<<<<<<<<<<<<<
  *         return None
@@ -13440,7 +13440,7 @@ static void __pyx_tp_dealloc_5ComII___pyx_scope_struct__Learn(PyObject *o) {
   Py_CLEAR(p->__pyx_v_make_thread);
   Py_CLEAR(p->__pyx_v_read_midi_file);
   Py_CLEAR(p->__pyx_v_run);
-  Py_CLEAR(p->__pyx_v_com_file.data);
+  Py_CLEAR(p->__pyx_v_com_files[com_select].data);
   #if CYTHON_COMPILING_IN_CPYTHON
   if (((int)(__pyx_freecount_5ComII___pyx_scope_struct__Learn < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_5ComII___pyx_scope_struct__Learn)))) {
     __pyx_freelist_5ComII___pyx_scope_struct__Learn[__pyx_freecount_5ComII___pyx_scope_struct__Learn++] = ((struct __pyx_obj_5ComII___pyx_scope_struct__Learn *)o);
@@ -13482,8 +13482,8 @@ static int __pyx_tp_traverse_5ComII___pyx_scope_struct__Learn(PyObject *o, visit
   if (p->__pyx_v_run) {
     e = (*v)(p->__pyx_v_run, a); if (e) return e;
   }
-  if (p->__pyx_v_com_file.data) {
-    e = (*v)(p->__pyx_v_com_file.data, a); if (e) return e;
+  if (p->__pyx_v_com_files[com_select].data) {
+    e = (*v)(p->__pyx_v_com_files[com_select].data, a); if (e) return e;
   }
   return 0;
 }
@@ -13512,8 +13512,8 @@ static int __pyx_tp_clear_5ComII___pyx_scope_struct__Learn(PyObject *o) {
   tmp = ((PyObject*)p->__pyx_v_run);
   p->__pyx_v_run = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
-  tmp = ((PyObject*)p->__pyx_v_com_file.data);
-  p->__pyx_v_com_file.data = Py_None; Py_INCREF(Py_None);
+  tmp = ((PyObject*)p->__pyx_v_com_files[com_select].data);
+  p->__pyx_v_com_files[com_select].data = Py_None; Py_INCREF(Py_None);
   Py_XDECREF(tmp);
   return 0;
 }
@@ -15394,7 +15394,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_tracks, __pyx_k_tracks, sizeof(__pyx_k_tracks), 0, 0, 1, 1},
     {&__pyx_n_u_tracks, __pyx_k_tracks, sizeof(__pyx_k_tracks), 0, 1, 0, 1},
     {&__pyx_n_u_translated_midi, __pyx_k_translated_midi, sizeof(__pyx_k_translated_midi), 0, 1, 0, 1},
-    {&__pyx_n_s_com_file.data, __pyx_k_com_file.data, sizeof(__pyx_k_com_file.data), 0, 0, 1, 1},
+    {&__pyx_n_s_com_files[com_select].data, __pyx_k_com_files[com_select].data, sizeof(__pyx_k_com_files[com_select].data), 0, 0, 1, 1},
     {&__pyx_kp_u_translated_midi_json, __pyx_k_translated_midi_json, sizeof(__pyx_k_translated_midi_json), 0, 1, 0, 0},
     {&__pyx_n_s_ttk, __pyx_k_ttk, sizeof(__pyx_k_ttk), 0, 0, 1, 1},
     {&__pyx_n_u_type, __pyx_k_type, sizeof(__pyx_k_type), 0, 1, 0, 1},
@@ -15668,7 +15668,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     # midi
  *     def read_midi_file(track_num: int):
  */
-  __pyx_tuple__45 = PyTuple_Pack(16, __pyx_n_s_read_midi_file, __pyx_n_s_read_midi_file, __pyx_n_s_count_note, __pyx_n_s_count_note, __pyx_n_s_on_ask_window_close, __pyx_n_s_on_ask_window_close, __pyx_n_s_make_thread, __pyx_n_s_make_thread, __pyx_n_s_run, __pyx_n_s_run, __pyx_n_s_ask_window, __pyx_n_s_combobox_track_num, __pyx_n_s_combobox_weight, __pyx_n_s_button_run, __pyx_n_s_f, __pyx_n_s_com_file.data); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_tuple__45 = PyTuple_Pack(16, __pyx_n_s_read_midi_file, __pyx_n_s_read_midi_file, __pyx_n_s_count_note, __pyx_n_s_count_note, __pyx_n_s_on_ask_window_close, __pyx_n_s_on_ask_window_close, __pyx_n_s_make_thread, __pyx_n_s_make_thread, __pyx_n_s_run, __pyx_n_s_run, __pyx_n_s_ask_window, __pyx_n_s_combobox_track_num, __pyx_n_s_combobox_weight, __pyx_n_s_button_run, __pyx_n_s_f, __pyx_n_s_com_files[com_select].data); if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__45);
   __Pyx_GIVEREF(__pyx_tuple__45);
   __pyx_codeobj__46 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 16, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__45, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_ComII_pyx, __pyx_n_s_Learn, 16, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__46)) __PYX_ERR(0, 16, __pyx_L1_error)

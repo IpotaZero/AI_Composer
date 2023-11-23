@@ -1706,7 +1706,7 @@ static PyObject *__pyx_pf_5ComII_Learn(CYTHON_UNUSED PyObject *__pyx_self) {
   return __pyx_r;
 }
 /* … */
-  __pyx_tuple__45 = <span class='py_c_api'>PyTuple_Pack</span>(16, __pyx_n_s_read_midi_file, __pyx_n_s_read_midi_file, __pyx_n_s_count_note, __pyx_n_s_count_note, __pyx_n_s_on_ask_window_close, __pyx_n_s_on_ask_window_close, __pyx_n_s_make_thread, __pyx_n_s_make_thread, __pyx_n_s_run, __pyx_n_s_run, __pyx_n_s_ask_window, __pyx_n_s_combobox_track_num, __pyx_n_s_combobox_weight, __pyx_n_s_button_run, __pyx_n_s_f, __pyx_n_s_com_file.data);<span class='error_goto'> if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 16, __pyx_L1_error)</span>
+  __pyx_tuple__45 = <span class='py_c_api'>PyTuple_Pack</span>(16, __pyx_n_s_read_midi_file, __pyx_n_s_read_midi_file, __pyx_n_s_count_note, __pyx_n_s_count_note, __pyx_n_s_on_ask_window_close, __pyx_n_s_on_ask_window_close, __pyx_n_s_make_thread, __pyx_n_s_make_thread, __pyx_n_s_run, __pyx_n_s_run, __pyx_n_s_ask_window, __pyx_n_s_combobox_track_num, __pyx_n_s_combobox_weight, __pyx_n_s_button_run, __pyx_n_s_f, __pyx_n_s_com_files[com_select].data);<span class='error_goto'> if (unlikely(!__pyx_tuple__45)) __PYX_ERR(0, 16, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__45);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__45);
 /* … */
@@ -1725,7 +1725,7 @@ struct __pyx_obj_5ComII___pyx_scope_struct__Learn {
   PyObject *__pyx_v_make_thread;
   PyObject *__pyx_v_read_midi_file;
   PyObject *__pyx_v_run;
-  PyObject *__pyx_v_com_file.data;
+  PyObject *__pyx_v_com_files[com_select].data;
 };
 
 </pre>
@@ -1894,9 +1894,9 @@ static PyObject *__pyx_pf_5ComII_5Learn_read_midi_file(PyObject *__pyx_self, PyO
 </pre>
     <pre class="cython line score-0">&#xA0;<span class="">021</span>: </pre>
     <pre class="cython line score-10"
-      onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">022</span>:         <span class="n">notes</span> <span class="o">=</span> <span class="n">com_file.data</span><span class="p">[</span><span class="s">&quot;tracks&quot;</span><span class="p">][</span><span class="n">track_num</span><span class="p">][</span><span class="s">&quot;notes&quot;</span><span class="p">]</span></pre>
-    <pre class='cython code score-10 '>  if (unlikely(!__pyx_cur_scope-&gt;__pyx_v_com_file.data)) { <span class='pyx_c_api'>__Pyx_RaiseClosureNameError</span>("com_file.data"); <span class='error_goto'>__PYX_ERR(0, 22, __pyx_L1_error)</span> }
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Dict_GetItem</span>(__pyx_cur_scope-&gt;__pyx_v_com_file.data, __pyx_n_u_tracks);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)</span>
+      onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">022</span>:         <span class="n">notes</span> <span class="o">=</span> <span class="n">com_files[com_select].data</span><span class="p">[</span><span class="s">&quot;tracks&quot;</span><span class="p">][</span><span class="n">track_num</span><span class="p">][</span><span class="s">&quot;notes&quot;</span><span class="p">]</span></pre>
+    <pre class='cython code score-10 '>  if (unlikely(!__pyx_cur_scope-&gt;__pyx_v_com_files[com_select].data)) { <span class='pyx_c_api'>__Pyx_RaiseClosureNameError</span>("com_files[com_select].data"); <span class='error_goto'>__PYX_ERR(0, 22, __pyx_L1_error)</span> }
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Dict_GetItem</span>(__pyx_cur_scope-&gt;__pyx_v_com_files[com_select].data, __pyx_n_u_tracks);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_t_2 = <span class='pyx_c_api'>__Pyx_PyObject_GetItem</span>(__pyx_t_1, __pyx_v_track_num);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 22, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
@@ -4583,7 +4583,7 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self) {
     }
 </pre>
     <pre class="cython line score-19"
-      onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">156</span>:             <span class="n">com_file.data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></pre>
+      onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">156</span>:             <span class="n">com_files[com_select].data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></pre>
     <pre class='cython code score-19 '>            <span class='pyx_c_api'>__Pyx_GetModuleGlobalName</span>(__pyx_t_1, __pyx_n_s_json);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 156, __pyx_L8_error)</span>
             <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
             __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(__pyx_t_1, __pyx_n_s_load);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 156, __pyx_L8_error)</span>
@@ -4612,7 +4612,7 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self) {
               <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_4); __pyx_t_4 = 0;
             }
             <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_3);
-            __pyx_cur_scope-&gt;__pyx_v_com_file.data = __pyx_t_3;
+            __pyx_cur_scope-&gt;__pyx_v_com_files[com_select].data = __pyx_t_3;
             __pyx_t_3 = 0;
 </pre>
     <pre class="cython line score-9"
@@ -4624,8 +4624,8 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self) {
             <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
 </pre>
     <pre class="cython line score-16"
-      onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">158</span>:                 <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">com_file.data</span><span class="p">[</span><span class="s">&quot;tracks&quot;</span><span class="p">]))</span></pre>
-    <pre class='cython code score-16 '>            __pyx_t_3 = <span class='pyx_c_api'>__Pyx_PyObject_Dict_GetItem</span>(__pyx_cur_scope-&gt;__pyx_v_com_file.data, __pyx_n_u_tracks);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L8_error)</span>
+      onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">158</span>:                 <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">com_files[com_select].data</span><span class="p">[</span><span class="s">&quot;tracks&quot;</span><span class="p">]))</span></pre>
+    <pre class='cython code score-16 '>            __pyx_t_3 = <span class='pyx_c_api'>__Pyx_PyObject_Dict_GetItem</span>(__pyx_cur_scope-&gt;__pyx_v_com_files[com_select].data, __pyx_n_u_tracks);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L8_error)</span>
             <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
             __pyx_t_12 = <span class='py_c_api'>PyObject_Length</span>(__pyx_t_3);<span class='error_goto'> if (unlikely(__pyx_t_12 == ((Py_ssize_t)-1))) __PYX_ERR(0, 158, __pyx_L8_error)</span>
             <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
@@ -4637,10 +4637,10 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self) {
 </pre>
     <pre class="cython line score-0">&#xA0;<span class="">159</span>:             <span class="p">)</span></pre>
     <pre class="cython line score-20"
-      onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">160</span>:             <span class="n">combobox_track_num</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">com_file.data</span><span class="p">[</span><span class="s">&quot;selected_track&quot;</span><span class="p">])</span></pre>
+      onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">160</span>:             <span class="n">combobox_track_num</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">com_files[com_select].data</span><span class="p">[</span><span class="s">&quot;selected_track&quot;</span><span class="p">])</span></pre>
     <pre class='cython code score-20 '>            __pyx_t_4 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(__pyx_cur_scope-&gt;__pyx_v_combobox_track_num, __pyx_n_s_set);<span class='error_goto'> if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 160, __pyx_L8_error)</span>
             <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_4);
-            __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Dict_GetItem</span>(__pyx_cur_scope-&gt;__pyx_v_com_file.data, __pyx_n_u_selected_track);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 160, __pyx_L8_error)</span>
+            __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_Dict_GetItem</span>(__pyx_cur_scope-&gt;__pyx_v_com_files[com_select].data, __pyx_n_u_selected_track);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 160, __pyx_L8_error)</span>
             <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
             __pyx_t_6 = NULL;
             __pyx_t_5 = 0;
