@@ -11,18 +11,80 @@ import tkinterdnd2
 import mido
 
 
+class Midi_Player:
+    def __init__(self):
+        self.is_playing = False
+        self.current_time = 0
+        self.midi = None
+        self.tempo = 120
+        ports = mido.get_output_names()
+        self.outport = mido.open_output(ports[0])
+
+    def reset_time(self):
+        self.current_time = 0
+
+    def stop(self):
+        self.is_playing = False
+        button0["text"] = "▶"
+
+        for i in range(128):
+            self.outport.send(mido.Message(type="note_off", note=i, time=0))
+        addlog("再生を終了したのだ")
+
+    def play(self):
+        def midi_play():
+            midi_file = self.midi
+
+            current_position = (
+                self.current_time
+                * self.tempo
+                / (midi_file.ticks_per_beat * 1000 * 1000)
+            )
+
+            messages = []
+            sum_time = 0
+            for msg in midi_file:
+                sum_time += msg.time
+                if sum_time >= current_position:
+                    messages.append(msg)
+
+            if len(messages) > 0:
+                i = 0
+                while i < len(messages) - 1 and self.is_playing:
+                    msg = messages[i]
+                    if not msg.is_meta:
+                        self.outport.send(msg)
+                    time.sleep(messages[i + 1].time)
+                    i += 1
+
+                self.outport.send(messages[-1])
+
+            self.stop()
+
+        if self.midi is None:
+            addlog("no midi")
+            return
+
+        if self.is_playing:
+            self.stop()
+            return
+
+        addlog("再生を開始するのだ")
+        button0["text"] = "■"
+
+        self.is_playing = True
+
+        thread_play = threading.Thread(target=midi_play)
+        thread_play.start()
+
+
 class Com_file:
     def __init__(self):
         self.data = None
-        self.midi_player = {"is_playing": False, "current_time": 0, "port": 0}
         self.midi = None
         self.com_changed = True
 
     def save(self):
-        if self.data is None:
-            addlog("no data")
-            return
-
         file_path = self.data["path"]
         if file_path is None:
             file_path = tk.filedialog.asksaveasfilename(filetypes=[("Com", ".comcom")])
@@ -35,68 +97,11 @@ class Com_file:
         with open(file_path, "wt") as f:
             json.dump(self.data, f)
 
-        addlog("saved")
+        addlog(".comcomを保存したのだ")
 
     def load(self, path):
         with open(path, "r") as f:
             self.data = json.load(f)
-
-    def reset_time(self):
-        self.midi_player["current_time"] = 0
-
-    def play(self):
-        def midi_play():
-            midi_file = self.get_midi()
-            # midi_file = mido.MidiFile("./test.mid")
-
-            current_position = (
-                self.midi_player["current_time"]
-                # * self.data["tempo"]
-                # / (self.data["resolution"] * 1000 * 1000)
-            )
-
-            messages = []
-            sum_time = 0
-            for msg in midi_file:
-                sum_time += msg.time
-                if sum_time >= current_position:
-                    messages.append(msg)
-
-            if len(messages) > 0:
-                ports = mido.get_output_names()
-                with mido.open_output(ports[self.midi_player["port"]]) as outport:
-                    i = 0
-                    while i < len(messages) - 1 and self.midi_player["is_playing"]:
-                        msg = messages[i]
-                        if not msg.is_meta:
-                            outport.send(msg)
-                        time.sleep(messages[i + 1].time)
-                        i += 1
-
-                    outport.send(messages[-1])
-
-            self.stop()
-
-        if self.midi_player["is_playing"]:
-            self.stop()
-
-        addlog("再生を開始するのだ")
-        button0["text"] = "_"
-
-        self.midi_player["is_playing"] = True
-
-        thread_play = threading.Thread(target=midi_play)
-        thread_play.start()
-
-    def stop(self):
-        self.midi_player["is_playing"] = False
-        button0["text"] = ">"
-
-        ports = mido.get_output_names()
-        with mido.open_output(ports[midi_player["port"]]) as outport:
-            for i in range(128):
-                outport.send(mido.Message(type="note_off", note=i, time=0))
-        addlog("再生を終了したのだ")
 
     def write(self):
         file_path = tk.filedialog.asksaveasfilename(filetypes=[("MIDI", ".mid")])
@@ -162,11 +167,16 @@ class Com_file:
 
         addlog("変換が終了したのだ")
 
-        temp_path = "./temp.mid"
+        temp_path = "./temp/temp.mid"
+
+        if not os.path.exists("./temp"):
+            os.makedirs("./temp")
         with open(temp_path, "wt"):
             midi_file.save(temp_path)
-
         midi_file = mido.MidiFile(temp_path)
+
+        os.remove(temp_path)
+
         return midi_file
 
 
@@ -234,6 +244,21 @@ def get_file_extension(file_path):
 
 
 # ----------------------------------------------------------
+def click_canvas(event):
+    x = canvas.canvasx(int(event.x)) * 24
+    x = x - x % 120
+    label1["text"] = x
+    midi_player.current_time = x
+
+    canvas.moveto("sequencer_line", x, 0)
+    canvas.lift("sequencer_line")
+
+
+def play():
+    midi_player.midi = com_file.get_midi()
+    midi_player.tempo = com_file.data["tempo"]
+
+    midi_player.play()
 
 
 def read_midi_file(file_path: str):
@@ -253,8 +278,10 @@ def read_midi_file(file_path: str):
 
 # midiファイルを読み込み、描画用の形式に変換する
 def translate_midi_file(midi_file: mido.MidiFile, name: str):
-    if midi_player["is_playing"]:
-        com_file.stop()
+    if midi_player.is_playing:
+        midi_player.stop()
+
+    channel_error = False
 
     com = {
         "tracks": [],
@@ -265,10 +292,9 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
         "path": None,
         "start": float("inf"),
         "tempo": 0,
-        "resolution": midi_file.ticks_per_beat,
     }
 
-    mlt = int(480 / com["resolution"])
+    mlt = int(480 / midi_file.ticks_per_beat)
 
     # 扱いやすい形に変換
     for track in midi_file.tracks:
@@ -283,17 +309,18 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
         time = 0  # ノートの絶対時刻
 
         for message in track:
+            message.time *= mlt
+
             time += message.time
             start = None
-
-            message.time *= mlt
 
             if hasattr(message, "channel"):
                 if tra["channel"] is None:
                     tra["channel"] = message.channel
-                elif tra["channel"] != message.channel:
-                    print("1トラックに異なるチャネルが混じっております!")
-                    print("とりあえず無理やり読み込んでみますが元データとちょっと異なっちゃうかもです!")
+                elif tra["channel"] != message.channel and not channel_error:
+                    addlog("1トラックに異なるチャネルが混じっております!")
+                    addlog("とりあえず無理やり読み込んでみますが元データとちょっと異なっちゃうかもです!")
+                    channel_error = True
 
             # on命令
             if message.type == "note_on":
@@ -338,7 +365,7 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
     com["length"] = max(track["length"] for track in com["tracks"])
     com["selected_track"] = 0
 
-    midi_player["current_time"] = 0
+    midi_player.current_time = 0
 
     return com
 
@@ -454,20 +481,10 @@ def key_action(event):
 
 def on_window_closed():
     addlog("終了処理を開始するのだ...")
-    com_file.stop()
+    midi_player.stop()
     for p in processes:
         p.kill()
     root.destroy()
-
-
-def click_canvas(event):
-    x = canvas.canvasx(event.x) * 24
-    label1["text"] = x
-    label1["text"] = int(x) - int(x) % 120
-    com_file.midi_player["current_time"] = x
-
-    canvas.moveto("sequencer_line", canvas.canvasx(event.x), 0)
-    canvas.lift("sequencer_line")
 
 
 # ---------------------------------------------------------------------------
@@ -478,15 +495,14 @@ can_drop_file = {}
 can_drop_file["mid"] = read_midi_file
 
 com_file = Com_file()
+midi_player = Midi_Player()
 
 # listeners = {"key": function}
 key_listener = {}
-key_listener["space"] = com_file.play
+key_listener["space"] = play
 
 # 作業しているところ
 path = os.getcwd()
-
-midi_player = {"is_playing": False, "current_time": 0, "port": 0}
 
 midi_file = None
 
@@ -542,10 +558,10 @@ combobox0.set(0)
 combobox0.bind("<<ComboboxSelected>>", track_select)
 combobox0.place(x=80, y=0, width=120, height=20)
 
-button0 = tk.Button(frame0, text=">", command=com_file.play)
+button0 = tk.Button(frame0, text="▶", command=play)
 button0.place(x=240, y=0, width=20, height=20)
 
-button_reset = tk.Button(frame0, text="<", command=com_file.reset_time)
+button_reset = tk.Button(frame0, text="◀", command=midi_player.reset_time)
 button_reset.place(x=220, y=0, width=20, height=20)
 
 label1 = tk.Label(frame0, text="0")
