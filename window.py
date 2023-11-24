@@ -6,7 +6,7 @@ import time
 import zipfile
 
 import tkinter as tk
-import tkinter.ttk
+import tkinter.ttk as ttk
 import tkinterdnd2
 
 import mido
@@ -24,15 +24,14 @@ class Midi_Player:
 
     def reset_time(self):
         self.current_time = 0
-        label1["text"] = 0
+        label_sequencer["text"] = 0
         canvas.moveto("sequencer_line", 0, 0)
 
     def stop(self):
         self.is_playing = False
         button_play["text"] = "▶"
 
-        for i in range(128):
-            self.outport.send(mido.Message(type="note_off", note=i, time=0))
+        self.outport.reset()
         addlog("再生を終了したのだ")
 
     def play(self):
@@ -82,8 +81,8 @@ class Midi_Player:
 
 
 class Com_file:
-    def __init__(self):
-        self.data = None
+    def __init__(self, data):
+        self.data = data
         self.midi = None
         self.com_changed = True
 
@@ -176,9 +175,9 @@ class Com_file:
                 neo_message.pop("tick")
 
                 try:
-                    m = mido.Message(**neo_message)
+                    m = mido.Message.from_dict(neo_message)
                 except:
-                    m = mido.MetaMessage(**neo_message)
+                    m = mido.MetaMessage.from_dict(neo_message)
 
                 if hasattr(m, "channel"):
                     m.channel = channel
@@ -267,7 +266,7 @@ def get_file_extension(file_path):
 def click_canvas(event):
     x = canvas.canvasx(int(event.x)) * 24
     x = x - x % 120
-    label1["text"] = x
+    label_sequencer["text"] = x
     midi_player.current_time = x
 
     canvas.moveto("sequencer_line", canvas.canvasx(int(event.x)), 0)
@@ -284,8 +283,6 @@ def play():
 
 
 def get_com_from_path(path):
-    C = Com_file()
-
     if not os.path.exists("./temp"):
         os.makedirs("./temp")
 
@@ -293,7 +290,7 @@ def get_com_from_path(path):
         zf.extractall("./")
 
     with open("./temp/temp.json", "r") as f:
-        C.data = json.load(f)
+        C = Com_file(json.load(f))
 
     os.remove("./temp/temp.json")
 
@@ -311,8 +308,8 @@ def read_com(com_file: Com_file):
     com_select = len(com_files) - 1
     combobox_com.set(names[com_select])
 
-    combobox0["values"] = list(range(len(com_file.data["tracks"])))
-    combobox0.set(0)
+    combobox_track["values"] = list(range(len(com_file.data["tracks"])))
+    combobox_track.set(0)
 
     draw_all_notes()
 
@@ -328,8 +325,7 @@ def read_midi_file(file_path: str):
         addlog("読み込めないみたいなのだ!")
         return
 
-    C = Com_file()
-    C.data = translate_midi_file(midi_file, os.path.basename(file_path))
+    C = Com_file(translate_midi_file(midi_file, os.path.basename(file_path)))
 
     read_com(C)
 
@@ -410,7 +406,7 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
                 if message.type == "track_name":
                     tra["track_name"] = message.name
 
-                e = vars(message)
+                e = message.dict()
                 e["tick"] = time
                 e.pop("time")
                 tra["events"].append(e)
@@ -521,7 +517,7 @@ def draw_notes(track_num: int, colour: str):
 
             if com_file.data["tracks"][track_num]["channel"] == 9:
                 canvas.create_oval(
-                    x1 - 6, y1, x2 + 2, y2, fill=colour, tags=f"track:{track_num}"
+                    x1 - 4, y1, x1 + 4, y2, fill=colour, tags=f"track:{track_num}"
                 )
             else:
                 canvas.create_rectangle(
@@ -608,8 +604,8 @@ processes = []
 root = tkinterdnd2.Tk()
 root.title("AIこんぽ～ざ～")
 root.geometry("960x320")
-
 root.bind("<Key>", key_action)
+root.protocol("WM_DELETE_WINDOW", on_window_closed)
 
 menubar = tk.Menu(root)
 root.config(menu=menubar)
@@ -623,54 +619,73 @@ menubar.add_cascade(label="Edit", menu=edit)
 exe = tk.Menu(menubar, tearoff=0)
 menubar.add_cascade(label="exe", menu=exe)
 
-frame0 = tk.Frame(root, width=360)
-frame0.pack(side="left", anchor="n", fill="y")
-
-log = tk.Text(frame0, state="disabled")
-log.place(x=0, y=20, width=360, relheight=1)
-# Scrollbarを生成してCanvasに配置処理
-scroll_log = tk.Scrollbar(log, orient=tk.VERTICAL)
-scroll_log.pack(side=tk.RIGHT, fill=tk.Y)
-scroll_log.config(command=log.yview)
-log.config(yscrollcommand=scroll_log.set)
-
-# ---------------------------------------------------------------------------
-
-root.protocol("WM_DELETE_WINDOW", on_window_closed)
 
 file.add_command(label="open_midi...", command=click_fileselect)
-file.add_command(label="save_translated_midi", command=save)
-file.add_command(label="write_to_midi", command=write)
+file.add_command(label="save_cmcm...", command=save)
+file.add_command(label="write_to_midi...", command=write)
+# --------------------------------------------------------------------------
+
+root.columnconfigure(0, weight=0)
+root.columnconfigure(1, weight=1)
+root.rowconfigure(0, weight=1)
+
+frame_green = tk.Frame(root, width=360, height=540, bg="green")
+frame_green.propagate(False)
+frame_green.grid(row=0, column=0, sticky="nsew")
+
+frame_black = tk.Frame(root, width=360, height=540, bg="black")
+frame_black.propagate(False)
+frame_black.grid(row=0, column=1, sticky="nsew")
+
+frame_yellow = tk.Frame(frame_green, width=360, height=40, bg="yellow")
+frame_yellow.propagate(False)
+frame_yellow.grid(row=0, column=0)
+
+label_track = tk.Label(frame_yellow, width=6, height=4, text="Track:")
+label_track.pack(side="left")
+
+combobox_track = ttk.Combobox(frame_yellow, values=[0], state="readonly")
+combobox_track.set(0)
+combobox_track.bind("<<ComboboxSelected>>", track_select)
+combobox_track.pack(side="left", fill="both", expand=True)
+
+label_sequencer = tk.Label(frame_yellow, width=6, height=4, text="0")
+label_sequencer.pack(side="left")
+
+button_play = tk.Button(frame_yellow, height=4, text="▶", command=play)
+button_play.pack(side="right")
+
+button_reset = tk.Button(
+    frame_yellow, height=4, text="◀", command=midi_player.reset_time
+)
+button_reset.pack(side="right")
+
+
+combobox_com = ttk.Combobox(frame_yellow, values=[0], state="readonly")
+combobox_com.set(0)
+combobox_com.bind("<<ComboboxSelected>>", com_file_select)
+# combobox_com.pack(side=tk.LEFT, anchor=tk.N)
+
+frame_green.rowconfigure(0, weight=0)
+frame_green.rowconfigure(1, weight=1)
+
+notebook_left = ttk.Notebook(frame_green)
+notebook_left.grid(row=1, column=0, sticky="nsew")
+
+
+log = tk.Text(notebook_left, width=36, state="disabled")
+log.pack(fill="both")
+scroll_log = tk.Scrollbar(log, orient=tk.VERTICAL)
+scroll_log.config(command=log.yview)
+log.config(yscrollcommand=scroll_log.set)
+scroll_log.pack(side="right", fill="y")
+
+notebook_left.add(log, text="LOG")
 
 # ---------------------------------------------------------------------------
 
-label_track_num = tk.Label(frame0, text="Track_Num:")
-label_track_num.place(x=0, y=0, width=80, height=20)
 
-combobox0 = tk.ttk.Combobox(frame0, values=[0], state="readonly")
-combobox0.set(0)
-combobox0.bind("<<ComboboxSelected>>", track_select)
-combobox0.place(x=80, y=0, width=120, height=20)
-
-combobox_com = tk.ttk.Combobox(frame0, values=[0], state="readonly")
-combobox_com.set(0)
-combobox_com.bind("<<ComboboxSelected>>", com_file_select)
-combobox_com.place(x=80, y=20, width=120, height=20)
-
-button_play = tk.Button(frame0, text="▶", command=play)
-button_play.place(x=240, y=0, width=20, height=20)
-
-button_reset = tk.Button(frame0, text="◀", command=midi_player.reset_time)
-button_reset.place(x=220, y=0, width=20, height=20)
-
-label1 = tk.Label(frame0, text="0")
-label1.place(x=260, y=0, width=100, height=20)
-
-frame1 = tk.Frame(root)
-frame1.pack(side="left", anchor="n", fill="both", expand=True)
-
-
-canvas = tk.Canvas(frame1, bg="#151515")
+canvas = tk.Canvas(frame_black, bg="#151515")
 canvas.pack(side="left", anchor="n", fill="both", expand=True)
 
 # Scrollbarを生成してCanvasに配置処理
@@ -681,8 +696,7 @@ bar_x.pack(side=tk.BOTTOM, fill=tk.X)
 bar_y.config(command=canvas.yview)
 bar_x.config(command=canvas.xview)
 canvas.config(yscrollcommand=bar_y.set, xscrollcommand=bar_x.set)
-# Canvasのスクロール範囲を設定
-canvas.config(scrollregion=(0, 0, 480, 640))
+canvas.config(scrollregion=(0, 0, 480, 640))  # Canvasのスクロール範囲を設定
 
 canvas.drop_target_register(tkinterdnd2.DND_FILES)
 canvas.dnd_bind("<<Drop>>", drop_file)
