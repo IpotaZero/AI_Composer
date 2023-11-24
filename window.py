@@ -3,6 +3,7 @@ import json
 import os
 import threading
 import time
+import zipfile
 
 import tkinter as tk
 import tkinter.ttk
@@ -89,15 +90,28 @@ class Com_file:
     def save(self):
         file_path = self.data["path"]
         if file_path is None:
-            file_path = tk.filedialog.asksaveasfilename(filetypes=[("Com", ".comcom")])
+            file_path = tk.filedialog.asksaveasfilename(filetypes=[("Com", ".cmcm")])
             self.data["path"] = file_path
 
         if len(file_path) == 0:
             addlog("canceled")
             return
 
-        with open(file_path, "wt") as f:
+        if get_file_extension(file_path) != "cmcm":
+            file_path += ".cmcm"
+
+        if not os.path.exists("./temp"):
+            os.makedirs("./temp")
+
+        with open("./temp/temp.json", "wt") as f:
             json.dump(self.data, f)
+
+        with zipfile.ZipFile(
+            file_path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9
+        ) as zf:
+            zf.write("./temp/temp.json")
+
+        os.remove("./temp/temp.json")
 
         addlog(".comcomを保存したのだ")
 
@@ -109,6 +123,9 @@ class Com_file:
         file_path = tk.filedialog.asksaveasfilename(filetypes=[("MIDI", ".mid")])
         if len(file_path) == 0:
             return
+
+        if get_file_extension(file_path) != "mid":
+            file_path += ".mid"
         self.get_midi().save(file_path)
         addlog("midiファイルを作成したのだ")
 
@@ -269,8 +286,16 @@ def play():
 def get_com_from_path(path):
     C = Com_file()
 
-    with open(path, "r") as f:
+    if not os.path.exists("./temp"):
+        os.makedirs("./temp")
+
+    with zipfile.ZipFile(path) as zf:
+        zf.extractall("./")
+
+    with open("./temp/temp.json", "r") as f:
         C.data = json.load(f)
+
+    os.remove("./temp/temp.json")
 
     read_com(C)
 
@@ -280,9 +305,7 @@ def read_com(com_file: Com_file):
 
     com_files.append(com_file)
 
-    print(com_files)
-
-    names = [com.data["name"] for com in com_files]
+    names = [com.data["name"] or "NoTitle" for com in com_files]
 
     combobox_com["value"] = names
     com_select = len(com_files) - 1
@@ -293,7 +316,7 @@ def read_com(com_file: Com_file):
 
     draw_all_notes()
 
-    addlog("comcomファイルを読み込んだのだ")
+    addlog("cmcmファイルを読み込んだのだ")
 
 
 def read_midi_file(file_path: str):
@@ -498,7 +521,7 @@ def draw_notes(track_num: int, colour: str):
 
             if com_file.data["tracks"][track_num]["channel"] == 9:
                 canvas.create_oval(
-                    x1 - 4, y1, x2 + 4, y2, fill=colour, tags=f"track:{track_num}"
+                    x1 - 6, y1, x2 + 2, y2, fill=colour, tags=f"track:{track_num}"
                 )
             else:
                 canvas.create_rectangle(
@@ -564,7 +587,7 @@ def write():
 # can_drop_file = {"ex": function}
 can_drop_file = {}
 can_drop_file["mid"] = read_midi_file
-can_drop_file["comcom"] = get_com_from_path
+can_drop_file["cmcm"] = get_com_from_path
 
 com_files = []
 com_select = 0
@@ -666,10 +689,8 @@ canvas.dnd_bind("<<Drop>>", drop_file)
 
 canvas.bind("<Button-1>", click_canvas)
 
-default_path = "./d.comcom"
+default_path = "./d.cmcm"
 
 if os.path.exists(default_path):
     with open(default_path, "r") as f:
-        C = Com_file()
-        C.data = json.load(f)
-        read_com(C)
+        get_com_from_path(default_path)
