@@ -22,6 +22,8 @@ def load_module():
 
         load_com()
 
+        com.com_changed = True
+
         addlog("track_nameを変更したのだ")
 
     def menu_rename_cmcm():
@@ -40,7 +42,9 @@ def load_module():
 
         load_com()
 
-        addlog("cmcm_fileの名前を変更したのだ")
+        com.com_changed = True
+
+        addlog("cmcmの名前を変更したのだ")
 
     edit.add_command(label="rename_track...", command=menu_rename_track)
     edit.add_command(label="rename_cmcm...", command=menu_rename_cmcm)

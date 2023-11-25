@@ -32,7 +32,6 @@ class Midi_Player:
         button_play["text"] = "▶"
 
         self.outport.reset()
-        addlog("再生を終了したのだ")
 
     def play(self):
         def midi_play():
@@ -68,8 +67,6 @@ class Midi_Player:
         if self.is_playing:
             self.stop()
             return
-
-        addlog("再生を開始するのだ")
 
         self.is_playing = True
 
@@ -273,8 +270,15 @@ def get_file_extension(file_path):
 
 # ----------------------------------------------------------
 def on_click_canvas(event):
-    start = com_files[com_select].data["start"]
-    x = canvas.canvasx(int(event.x)) * 24 - start
+    if len(com_files) == 0:
+        return
+    com = com_files[com_select]
+
+    start = com.data["start"]
+
+    mlt = 480 / com.data["beat_length"]
+
+    x = canvas.canvasx(int(event.x)) * mlt - start
 
     marks = [240 * i for i in range(int(x / 240) + 2)]
     x = min(marks, key=lambda m: (m - x) ** 2)
@@ -282,11 +286,11 @@ def on_click_canvas(event):
     label_sequencer["text"] = str(int(x / 1920)) + ":" + str(x % 1920)
     midi_player.current_time = x + start
 
-    canvas.moveto("sequencer_line", (x + start) / 24 - 2, 0)
+    canvas.moveto("sequencer_line", (x + start) / mlt - 2, 0)
     canvas.lift("sequencer_line")
 
 
-def button_play():
+def on_button_play():
     com_file = com_files[com_select]
     midi_player.midi = com_file.get_midi()
 
@@ -338,8 +342,12 @@ def load_com():
         name = track["track_name"] or "NoName"
         names.append(f"{i}: " + name)
 
+    t = com.data["selected_track"]
+
     combobox_track["values"] = names
-    combobox_track.set(combobox_track["values"][com.data["selected_track"]])
+    combobox_track.set(combobox_track["values"][t])
+
+    update_log_message(t)
 
 
 def read_midi_file(file_path: str):
@@ -490,35 +498,40 @@ def draw_all_notes():
     # キャンバスをクリア
     canvas.delete("all")
 
-    mlt = com_file.data["beat_length"] / 480
+    beat = com_file.data["beat_length"]
+
+    mlt = beat / 480
+
+    length = com_file.data["length"] * mlt + 4 * beat
 
     scale = [0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0]
 
+    # 白鍵黒鍵
     for y in range(128):
         colour = "#ddddff"
         if scale[(y + 9) % 12] == 0:
             colour = "#ffffff"
 
-        canvas.create_rectangle(
-            0, y * 8, com_file.data["length"] * mlt, (y + 1) * 8, fill=colour
-        )
+        canvas.create_rectangle(0, y * 8, length, (y + 1) * 8, fill=colour)
     off_set_x = com_file.data["start"]
 
+    # C
     for y in range(int(128 / 12)):
         canvas.create_line(
             0,
             (y * 12 + 8) * 8,
-            com_file.data["length"] * mlt,
+            length,
             (y * 12 + 8) * 8,
             fill="#000000",
             width=2,
         )
 
-    for x in range(int(com_file.data["length"] / 1920)):
+    # 小節
+    for x in range(int(com_file.data["length"] / 1920) + 1):
         canvas.create_line(
-            x * 80 + off_set_x * mlt,
+            x * 4 * beat + off_set_x * mlt,
             0,
-            x * 80 + off_set_x * mlt,
+            x * 4 * beat + off_set_x * mlt,
             canvas["height"] * 3,
             fill="#636363",
         )
@@ -531,7 +544,7 @@ def draw_all_notes():
     canvas.create_line(0, 0, 0, 8 * 128, fill="#000000", width=2, tags="sequencer_line")
     canvas.lift("sequencer_line")
 
-    canvas.config(scrollregion=(0, 0, 480 + com_file.data["length"] * mlt, 8 * 128))
+    canvas.config(scrollregion=(0, 0, length, 8 * 128))
 
 
 def draw_notes(track_num: int, colour: str):
@@ -565,29 +578,31 @@ def draw_notes(track_num: int, colour: str):
 
 
 def on_select_track(event):
+    t = event.widget.current()
+    update_log_message(t)
+
+
+def update_log_message(t):
+    if len(com_files) == 0:
+        return
     com_file = com_files[com_select]
 
-    if com_file.data is not None:
-        t = event.widget.current()
+    canvas.itemconfig(f"track:{com_file.data['selected_track']}", fill="#777777")
+    com_file.data["selected_track"] = t
+    canvas.itemconfig(f"track:{t}", fill="#7777ff")
 
-        canvas.itemconfig(f"track:{com_file.data['selected_track']}", fill="#777777")
+    log_messages["state"] = "normal"
+    log_messages.delete("1.0", "end")
 
-        com_file.data["selected_track"] = t
+    tra = com_file.data["tracks"][t]
 
-        canvas.itemconfig(f"track:{t}", fill="#7777ff")
+    for msg in sorted(tra["notes"] + tra["events"], key=lambda x: x["tick"]):
+        log_messages.insert(tk.END, str(msg) + "\n")
 
-        log_messages.delete("1.0", "end")
-        log_messages["state"] = "normal"
+    log_messages["state"] = "disabled"
+    log_messages.update()
 
-        tra = com_file.data["tracks"][t]
-
-        for msg in sorted(tra["notes"] + tra["events"], key=lambda x: x["tick"]):
-            log_messages.insert(tk.END, str(msg) + "\n")
-
-        log_messages["state"] = "disabled"
-        log_messages.update()
-
-        addlog(str(t) + "番にトラックを変更したのだ")
+    addlog(str(t) + "番にトラックを変更したのだ")
 
 
 def on_select_com_file(event):
@@ -628,6 +643,26 @@ def menu_write_to_midi():
         com_files[com_select].write()
 
 
+def on_button_zoom(key):
+    if len(com_files) == 0:
+        return
+
+    com = com_files[com_select]
+
+    if key == "reset":
+        com.data["beat_length"] = 20
+    elif key == "+":
+        com.data["beat_length"] *= 2
+    elif key == "-":
+        com.data["beat_length"] /= 2
+
+    print(key)
+
+    com.changed_com = True
+
+    draw_all_notes()
+
+
 # ---------------------------------------------------------------------------
 
 
@@ -643,7 +678,7 @@ midi_player = Midi_Player()
 
 # listeners = {"key": function}
 key_listener = {}
-key_listener["space"] = button_play
+key_listener["space"] = on_button_play
 
 midi_file = None
 
@@ -704,7 +739,7 @@ combobox_track.pack(side="left", fill="both", expand=True)
 label_sequencer = tk.Label(frame_yellow, width=6, height=4, text="0")
 label_sequencer.pack(side="left")
 
-button_play = tk.Button(frame_yellow, height=4, text="▶", command=button_play)
+button_play = tk.Button(frame_yellow, height=4, text="▶", command=on_button_play)
 button_play.pack(side="right")
 
 button_reset = tk.Button(
@@ -769,6 +804,34 @@ combobox_com = ttk.Combobox(frame_red, height=40, values=[0], state="readonly")
 combobox_com.set(0)
 combobox_com.bind("<<ComboboxSelected>>", on_select_com_file)
 combobox_com.pack(side="right", fill="y")
+
+button_zoom0 = tk.Button(
+    frame_red,
+    width=4,
+    height=40,
+    text="reset\nzoom",
+    command=lambda: on_button_zoom("reset"),
+)
+button_zoom1 = tk.Button(
+    frame_red,
+    width=4,
+    height=40,
+    text="-",
+    font=("normal", 16),
+    command=lambda: on_button_zoom("-"),
+)
+button_zoom2 = tk.Button(
+    frame_red,
+    width=4,
+    height=40,
+    text="+",
+    font=("normal", 16),
+    command=lambda: on_button_zoom("+"),
+)
+button_zoom0.pack(side="left")
+button_zoom2.pack(side="left")
+button_zoom1.pack(side="left")
+
 # # ---------------------------------------------------------------------------
 
 default_path = "./d.cmcm"
