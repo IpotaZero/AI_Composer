@@ -3,6 +3,7 @@ import json
 import os
 import threading
 import time
+from tkinter import simpledialog
 import zipfile
 
 import tkinter as tk
@@ -29,8 +30,6 @@ class Midi_Player:
 
     def stop(self):
         self.is_playing = False
-        button_play["text"] = "▶"
-
         self.outport.reset()
 
     def play(self):
@@ -269,6 +268,23 @@ def get_file_extension(file_path):
 
 
 # ----------------------------------------------------------
+def get_mark(x):
+    if len(com_files) == 0:
+        return
+    com = com_files[com_select]
+
+    start = com.data["start"]
+
+    mlt = 480 / com.data["beat_length"]
+
+    x = x * mlt - start
+
+    marks = [240 * i for i in range(int(x / 240) + 2)]
+    x = min(marks, key=lambda m: (m - x) ** 2)
+
+    return x
+
+
 def on_click_canvas(event):
     if len(com_files) == 0:
         return
@@ -278,11 +294,7 @@ def on_click_canvas(event):
 
     mlt = 480 / com.data["beat_length"]
 
-    x = canvas.canvasx(int(event.x)) * mlt - start
-
-    marks = [240 * i for i in range(int(x / 240) + 2)]
-    x = min(marks, key=lambda m: (m - x) ** 2)
-
+    x = get_mark(canvas.canvasx(event.x))
     label_sequencer["text"] = str(int(x / 1920)) + ":" + str(x % 1920)
     midi_player.current_time = x + start
 
@@ -290,12 +302,29 @@ def on_click_canvas(event):
     canvas.lift("sequencer_line")
 
 
-def on_button_play():
-    com_file = com_files[com_select]
-    midi_player.midi = com_file.get_midi()
+def on_move_on_canvas(event):
+    x = get_mark(canvas.canvasx(event.x))
+    y = 127 - int(canvas.canvasy(event.y) / 8)
 
-    button_play["text"] = "■"
-    midi_player.play()
+    notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+
+    label = notes[y % 12] + str(int(y / 12) - 1) + "=" + str(y)
+
+    label += "\n" + str(int(x / 1920)) + ":" + str(x % 1920)
+
+    label_coordinate["text"] = label
+
+
+def on_button_play():
+    if midi_player.is_playing:
+        button_play["text"] = "▶"
+        midi_player.stop()
+    else:
+        com_file = com_files[com_select]
+        midi_player.midi = com_file.get_midi()
+
+        button_play["text"] = "■"
+        midi_player.play()
 
 
 def get_com_from_path(path):
@@ -319,6 +348,8 @@ def read_com(com_file: Com_file):
     com_files.append(com_file)
 
     com_select = len(com_files) - 1
+
+    midi_player.stop()
 
     load_com()
 
@@ -348,6 +379,7 @@ def load_com():
     combobox_track.set(combobox_track["values"][t])
 
     update_log_message(t)
+    draw_all_notes()
 
 
 def read_midi_file(file_path: str):
@@ -419,9 +451,9 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
                 tra["notes"].append(
                     {
                         "pitch": message.note,
-                        "tick": time,
                         "length": None,
                         "velocity": message.velocity,
+                        "tick": time,
                     }
                 )
 
@@ -537,14 +569,14 @@ def draw_all_notes():
         )
 
     for t in range(len(com_file.data["tracks"])):
-        draw_notes(t, "#777777")
+        draw_notes(t, "#aaaaaa")
 
     draw_notes(com_file.data["selected_track"], "#7777ff")
 
     canvas.create_line(0, 0, 0, 8 * 128, fill="#000000", width=2, tags="sequencer_line")
     canvas.lift("sequencer_line")
 
-    canvas.config(scrollregion=(0, 0, length, 8 * 128))
+    canvas.config(scrollregion=(0, 0, length, int(8 * 129.5)))
 
 
 def draw_notes(track_num: int, colour: str):
@@ -580,6 +612,7 @@ def draw_notes(track_num: int, colour: str):
 def on_select_track(event):
     t = event.widget.current()
     update_log_message(t)
+    addlog(str(t) + "番にトラックを変更したのだ")
 
 
 def update_log_message(t):
@@ -587,22 +620,23 @@ def update_log_message(t):
         return
     com_file = com_files[com_select]
 
-    canvas.itemconfig(f"track:{com_file.data['selected_track']}", fill="#777777")
+    canvas.itemconfig(f"track:{com_file.data['selected_track']}", fill="#aaaaaa")
     com_file.data["selected_track"] = t
     canvas.itemconfig(f"track:{t}", fill="#7777ff")
-
-    log_messages["state"] = "normal"
-    log_messages.delete("1.0", "end")
+    canvas.lift(f"track:{t}")
 
     tra = com_file.data["tracks"][t]
 
-    for msg in sorted(tra["notes"] + tra["events"], key=lambda x: x["tick"]):
-        log_messages.insert(tk.END, str(msg) + "\n")
+    log_notes.delete(0, "end")
+    for msg in tra["notes"]:
+        log_notes.insert(tk.END, str(msg) + "\n")
 
-    log_messages["state"] = "disabled"
-    log_messages.update()
+    log_events.delete(0, "end")
+    for msg in tra["events"]:
+        log_events.insert(tk.END, str(msg) + "\n")
 
-    addlog(str(t) + "番にトラックを変更したのだ")
+    log_notes.update()
+    log_events.update()
 
 
 def on_select_com_file(event):
@@ -612,6 +646,8 @@ def on_select_com_file(event):
         com_select = c
         draw_all_notes()
         midi_player.stop()
+        update_log_message(com_files[com_select].data["selected_track"])
+        load_com()
 
 
 def on_key_action(event):
@@ -655,8 +691,6 @@ def on_button_zoom(key):
         com.data["beat_length"] *= 2
     elif key == "-":
         com.data["beat_length"] /= 2
-
-    print(key)
 
     com.changed_com = True
 
@@ -736,14 +770,13 @@ combobox_track.set(0)
 combobox_track.bind("<<ComboboxSelected>>", on_select_track)
 combobox_track.pack(side="left", fill="both", expand=True)
 
-label_sequencer = tk.Label(frame_yellow, width=6, height=4, text="0")
-label_sequencer.pack(side="left")
-
-button_play = tk.Button(frame_yellow, height=4, text="▶", command=on_button_play)
+button_play = tk.Button(
+    frame_yellow, width=6, height=4, text="▶", command=on_button_play
+)
 button_play.pack(side="right")
 
 button_reset = tk.Button(
-    frame_yellow, height=4, text="◀", command=midi_player.reset_time
+    frame_yellow, width=6, height=4, text="◀", command=midi_player.reset_time
 )
 button_reset.pack(side="right")
 
@@ -761,15 +794,23 @@ scroll_log.config(command=log.yview)
 log.config(yscrollcommand=scroll_log.set)
 scroll_log.pack(side="right", fill="y")
 
-log_messages = tk.Text(notebook_left, width=36, state="disabled", wrap=tk.NONE)
-log_messages.pack(fill="both")
-scroll_log_messages = tk.Scrollbar(log_messages, orient=tk.VERTICAL)
-scroll_log_messages.config(command=log_messages.yview)
-log_messages.config(yscrollcommand=scroll_log_messages.set)
-scroll_log_messages.pack(side="right", fill="y")
+log_notes = tk.Listbox(notebook_left, width=36)
+log_notes.pack(fill="both")
+scroll_log_notes = tk.Scrollbar(log_notes, orient=tk.VERTICAL)
+scroll_log_notes.config(command=log_notes.yview)
+log_notes.config(yscrollcommand=scroll_log_notes.set)
+scroll_log_notes.pack(side="right", fill="y")
+
+log_events = tk.Listbox(notebook_left, width=36)
+log_events.pack(fill="both")
+scroll_log_events = tk.Scrollbar(log_events, orient=tk.VERTICAL)
+scroll_log_events.config(command=log_events.yview)
+log_events.config(yscrollcommand=scroll_log_events.set)
+scroll_log_events.pack(side="right", fill="y")
 
 notebook_left.add(log, text="LOG")
-notebook_left.add(log_messages, text="MESSAGES")
+notebook_left.add(log_notes, text="NOTES")
+notebook_left.add(log_events, text="EVENTS")
 
 # ---------------------------------------------------------------------------
 
@@ -799,11 +840,18 @@ canvas.drop_target_register(tkinterdnd2.DND_FILES)
 canvas.dnd_bind("<<Drop>>", on_drop_file)
 
 canvas.bind("<Button-1>", on_click_canvas)
+canvas.bind("<Motion>", on_move_on_canvas)
 
 combobox_com = ttk.Combobox(frame_red, height=40, values=[0], state="readonly")
 combobox_com.set(0)
 combobox_com.bind("<<ComboboxSelected>>", on_select_com_file)
 combobox_com.pack(side="right", fill="y")
+
+label_coordinate = tk.Label(frame_red, width=6, text="")
+label_coordinate.pack(side="right")
+
+label_sequencer = tk.Label(frame_red, width=6, text="")
+label_sequencer.pack(side="right")
 
 button_zoom0 = tk.Button(
     frame_red,
