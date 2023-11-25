@@ -111,10 +111,6 @@ class Com_file:
 
         addlog(".comcomを保存したのだ")
 
-    def load(self, path):
-        with open(path, "r") as f:
-            self.data = json.load(f)
-
     def write(self):
         file_path = tk.filedialog.asksaveasfilename(filetypes=[("MIDI", ".mid")])
         if len(file_path) == 0:
@@ -161,6 +157,12 @@ class Com_file:
                         "tick": note["tick"] + note["length"],
                     }
                 )
+
+            event_messages = track["events"]
+
+            event_messages.append(
+                {"type": "track_name", "name": track["track_name"], "tick": 0}
+            )
 
             messages = sorted(track["events"] + note_massages, key=lambda x: x["tick"])
 
@@ -312,23 +314,32 @@ def read_com(com_file: Com_file):
 
     com_files.append(com_file)
 
-    names = [com.data["name"] or "NoTitle" for com in com_files]
-
-    combobox_com["value"] = names
     com_select = len(com_files) - 1
-    combobox_com.set(names[com_select])
 
-    names = []
-    for i, track in enumerate(com_file.data["tracks"]):
-        name = track["track_name"] or "NoName"
-        names.append(f"{i}: " + name)
-
-    combobox_track["values"] = names
-    combobox_track.set(combobox_track["values"][com_file.data["selected_track"]])
+    load_com()
 
     draw_all_notes()
 
     addlog("cmcmファイルを読み込んだのだ")
+
+
+def load_com():
+    if len(com_files) == 0:
+        return
+
+    com = com_files[com_select]
+    names = [com.data["name"] or "NoTitle" for com in com_files]
+
+    combobox_com["value"] = names
+    combobox_com.set(names[com_select])
+
+    names = []
+    for i, track in enumerate(com.data["tracks"]):
+        name = track["track_name"] or "NoName"
+        names.append(f"{i}: " + name)
+
+    combobox_track["values"] = names
+    combobox_track.set(combobox_track["values"][com.data["selected_track"]])
 
 
 def read_midi_file(file_path: str):
@@ -371,18 +382,18 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
         tra = {
             "channel": None,
             "length": 0,
-            "track_name": None,
+            "track_name": "NoName",
             "events": [],
             "notes": [],
         }
 
         time = 0  # ノートの絶対時刻
+        start = None
 
         for message in track:
             message.time *= mlt
 
             time += message.time
-            start = None
 
             if hasattr(message, "channel"):
                 if tra["channel"] is None:
@@ -415,16 +426,18 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
                         break
 
             else:
+                # track_nameはcomが管理する。midi書き出し時に再び追加する
                 if message.type == "track_name":
                     tra["track_name"] = message.name
+                    continue
 
                 e = message.dict()
                 e["tick"] = time
                 e.pop("time")
                 tra["events"].append(e)
 
-            if start is not None:
-                com["start"] = min(com["start"], start)
+        if start is not None:
+            com["start"] = min(com["start"], start)
 
         tra["length"] = time
 
@@ -445,7 +458,7 @@ def menu_select_cmcm():
         addlog("cmcmが選択されなかったのだ")
         return None
 
-    if get_file_extension(file_path) != ("mid" or "midi"):
+    if get_file_extension(file_path) != "cmcm":
         addlog("cmcmファイルを選択して、なのだ")
         return None
 
@@ -468,11 +481,11 @@ def menu_select_midi():
 
 
 def draw_all_notes():
-    com_file = com_files[com_select]
+    if len(com_files) == 0:
+        addlog("cmcmが選択されていないのだ")
+        return
 
-    if com_file.data is None:
-        addlog("MIDIが選択されていないのだ")
-        return None
+    com_file = com_files[com_select]
 
     # キャンバスをクリア
     canvas.delete("all")
@@ -522,11 +535,11 @@ def draw_all_notes():
 
 
 def draw_notes(track_num: int, colour: str):
-    com_file = com_files[com_select]
+    if len(com_files) == 0:
+        addlog("cmcmが選択されていないのだ")
+        return
 
-    if com_file.data is None:
-        addlog("MIDIが選択されていないのだ")
-        return None
+    com_file = com_files[com_select]
 
     mlt = com_file.data["beat_length"] / 480
 
@@ -572,7 +585,6 @@ def on_select_track(event):
             log_messages.insert(tk.END, str(msg) + "\n")
 
         log_messages["state"] = "disabled"
-        log_messages.see("end")
         log_messages.update()
 
         addlog(str(t) + "番にトラックを変更したのだ")

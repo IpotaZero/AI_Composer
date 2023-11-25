@@ -23,7 +23,9 @@ def main():
         ex = get_file_extension(ppath)
         name = os.path.split(ppath)[1].split(".")[0]
 
-        if ex == "pyd":
+        print(ex)
+
+        if ex == "pyd" or ex == "py":
             plugins[name] = importlib.import_module(name)
         elif ex == "exe":
             exes[name]["path"] = ppath
