@@ -136,8 +136,11 @@ class Com_file:
 
             channel = track["channel"]
 
+            # 重なり検出
+            notes = resolve_overlapping(track["notes"])
+
             note_massages = []
-            for note in track["notes"]:
+            for note in notes:
                 note_massages.append(
                     {
                         "type": "note_on",
@@ -154,7 +157,7 @@ class Com_file:
                     }
                 )
 
-            event_messages = track["events"]
+            event_messages = [*track["events"]]
 
             event_messages.append(
                 {"type": "track_name", "name": track["track_name"], "tick": 0}
@@ -192,6 +195,34 @@ class Com_file:
         os.remove(temp_path)
 
         return midi_file
+
+
+def resolve_overlapping(notes):
+    super_notes = []
+    for note in notes:
+        overlapping_notes_index = [
+            index
+            for index in range(len(super_notes))
+            if super_notes[index]["pitch"] == note["pitch"]
+            and super_notes[index]["tick"]
+            <= note["tick"]
+            < super_notes[index]["tick"] + super_notes[index]["length"]
+        ]
+
+        flag = False
+        for j in overlapping_notes_index:
+            o_note = super_notes[j]
+            if o_note["tick"] == note["tick"]:
+                flag = True
+                break
+            else:
+                o_note["length"] = note["tick"] - o_note["tick"]
+
+        if flag:
+            continue
+
+        super_notes.append(note)
+    return super_notes
 
 
 # ファイルをドロップする
@@ -744,6 +775,9 @@ file.add_command(label="open_cmcm...", command=menu_select_cmcm)
 file.add_command(label="open_midi...", command=menu_select_midi)
 file.add_command(label="save_cmcm...", command=menu_save_cmcm)
 file.add_command(label="write_to_midi...", command=menu_write_to_midi)
+
+edit.add_command(label="reload", command=load_com)
+
 # --------------------------------------------------------------------------
 
 root.columnconfigure(0, weight=0)

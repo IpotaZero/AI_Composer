@@ -3,7 +3,15 @@ import tkinter as tk
 import mido
 import json
 
-from window import edit, load_com, addlog, log_notes, log_events, root
+from window import (
+    edit,
+    load_com,
+    addlog,
+    log_notes,
+    log_events,
+    root,
+    resolve_overlapping,
+)
 
 
 def load_module():
@@ -60,6 +68,9 @@ def load_module():
         com = com_files[com_select]
         t = com.data["selected_track"]
 
+        if new_message_type == ("note_on" or "note_off"):
+            return
+
         try:
             m = mido.Message.from_dict({"type": new_message_type}).dict()
         except:
@@ -74,6 +85,12 @@ def load_module():
         load_com()
 
     def on_select_message(event):
+        def on_click_delete():
+            com.data["tracks"][com.data["selected_track"]][key].pop(index)
+            com.com_changed = True
+            load_com()
+            window_ask.destroy()
+
         def on_click_ok():
             for naiyou in naiyous:
                 if naiyou == "type":
@@ -85,17 +102,6 @@ def load_module():
                         continue
 
                     default_value[naiyou] = g
-
-            from window import com_files, com_select
-
-            if len(com_files) == 0:
-                return
-            com = com_files[com_select]
-
-            if event.widget == log_notes:
-                key = "notes"
-            else:
-                key = "events"
 
             messages = com.data["tracks"][com.data["selected_track"]][key]
             messages.pop(index)
@@ -111,10 +117,20 @@ def load_module():
 
             window_ask.destroy()
 
+        from window import com_files, com_select
+
+        if len(com_files) == 0:
+            return
+        com = com_files[com_select]
+
         index = event.widget.curselection()[0]
         default_value = json.loads(event.widget.get(index).replace("'", '"'))
-
         naiyous = default_value.keys()
+
+        if event.widget == log_notes:
+            key = "notes"
+        else:
+            key = "events"
 
         window_ask = tk.Toplevel(root)
         window_ask.geometry("240x240")
@@ -131,13 +147,35 @@ def load_module():
             t[naiyou]["label"].place(x=20, y=20 * i)
             t[naiyou]["entry"].place(x=100, y=20 * i)
 
-        button_ok = tk.Button(window_ask, width=12, text="OK", command=on_click_ok)
-        button_ok.place(x=70, y=20 * (i + 2))
+        button_ok = tk.Button(window_ask, width=6, text="OK", command=on_click_ok)
+        button_ok.place(x=55, y=20 * (i + 2))
+
+        button_delete = tk.Button(
+            window_ask, width=6, text="Delete", command=on_click_delete
+        )
+        button_delete.place(x=130, y=20 * (i + 2))
+
         window_ask.bind("<Key-Return>", lambda event: on_click_ok())
+
+    def menu_resolve_overlapping():
+        from window import com_files, com_select
+
+        if len(com_files) == 0:
+            return
+
+        com = com_files[com_select]
+
+        notes = com.data["tracks"][com.data["selected_track"]]["notes"]
+        notes = resolve_overlapping(notes)
+
+        com.com_changed = True
+        addlog("重複を解消したのだ")
+        load_com()
 
     edit.add_command(label="rename_track...", command=menu_rename_track)
     edit.add_command(label="rename_cmcm...", command=menu_rename_cmcm)
     edit.add_command(label="add_message...", command=menu_add_message)
+    edit.add_command(label="resolve overlapping", command=menu_resolve_overlapping)
 
     log_notes.bind("<Double-Button-1>", on_select_message)
     log_events.bind("<Double-Button-1>", on_select_message)
