@@ -890,7 +890,7 @@ label_coordinate.pack(side="right")
 label_sequencer = tk.Label(frame_red, width=6, text="0:0")
 label_sequencer.pack(side="right")
 
-label_bpm = tk.Label(frame_red, width=6, text="bgm:120")
+label_bpm = tk.Label(frame_red, width=6, text="bpm:120")
 label_bpm.pack(side="right")
 
 button_zoom0 = tk.Button(
