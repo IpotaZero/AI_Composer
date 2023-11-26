@@ -3,10 +3,10 @@ import json
 import os
 import threading
 import time
-from tkinter import simpledialog
 import zipfile
 
 import tkinter as tk
+from tkinter import filedialog
 import tkinter.ttk as ttk
 import tkinterdnd2
 
@@ -50,6 +50,9 @@ class Midi_Player:
                 i = 0
                 while i < len(messages) - 1 and self.is_playing:
                     msg = messages[i]
+                    if msg.type == "set_tempo":
+                        label_bpm["text"] = "bpm:" + str(int(mido.tempo2bpm(msg.tempo)))
+                        label_bpm.update()
                     if not msg.is_meta:
                         self.outport.send(msg)
                     time.sleep(messages[i + 1].time)
@@ -82,7 +85,7 @@ class Com_file:
     def save(self):
         file_path = self.data["path"]
         if file_path is None:
-            file_path = tk.filedialog.asksaveasfilename(filetypes=[("Com", ".cmcm")])
+            file_path = filedialog.asksaveasfilename(filetypes=[("Com", ".cmcm")])
             self.data["path"] = file_path
 
         if len(file_path) == 0:
@@ -108,7 +111,7 @@ class Com_file:
         addlog(".comcomを保存したのだ")
 
     def write(self):
-        file_path = tk.filedialog.asksaveasfilename(filetypes=[("MIDI", ".mid")])
+        file_path = filedialog.asksaveasfilename(filetypes=[("MIDI", ".mid")])
         if len(file_path) == 0:
             return
 
@@ -523,7 +526,7 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
 
 
 def menu_select_cmcm():
-    file_path = tk.filedialog.askopenfilename(filetypes=[("cmcm", ".cmcm")])
+    file_path = filedialog.askopenfilename(filetypes=[("cmcm", ".cmcm")])
 
     if len(file_path) == 0:
         addlog("cmcmが選択されなかったのだ")
@@ -538,7 +541,7 @@ def menu_select_cmcm():
 
 # midiファイルを選択する
 def menu_select_midi():
-    file_path = tk.filedialog.askopenfilename(filetypes=[("midi", ".mid")])
+    file_path = filedialog.askopenfilename(filetypes=[("midi", ".mid")])
 
     if len(file_path) == 0:
         addlog("MIDIが選択されなかったのだ")
@@ -881,11 +884,14 @@ combobox_com.set(0)
 combobox_com.bind("<<ComboboxSelected>>", on_select_com_file)
 combobox_com.pack(side="right", fill="y")
 
-label_coordinate = tk.Label(frame_red, width=6, text="")
+label_coordinate = tk.Label(frame_red, width=6, text="C-1=0\n0:0")
 label_coordinate.pack(side="right")
 
-label_sequencer = tk.Label(frame_red, width=6, text="")
+label_sequencer = tk.Label(frame_red, width=6, text="0:0")
 label_sequencer.pack(side="right")
+
+label_bpm = tk.Label(frame_red, width=6, text="bgm:120")
+label_bpm.pack(side="right")
 
 button_zoom0 = tk.Button(
     frame_red,
