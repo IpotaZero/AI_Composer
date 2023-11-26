@@ -3,4 +3,6 @@ __pycache__
 /build
 /module
 
-!*.py
+!/module/AI/AI.py
+!/module/Edit/Edit.py
+!/module/ComIII/ComIII.py
