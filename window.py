@@ -1,5 +1,6 @@
 import inspect
 import json
+import math
 import os
 import threading
 import time
@@ -13,20 +14,60 @@ import tkinterdnd2
 import mido
 import mido.backends.rtmidi
 
+default_data = {
+    "tracks": [
+        {
+            "channel": None,
+            "track_name": "Conductor",
+            "events": [
+                {
+                    "type": "time_signature",
+                    "numerator": 1,
+                    "denominator": 8,
+                    "clocks_per_click": 24,
+                    "notated_32nd_notes_per_beat": 8,
+                    "tick": 0,
+                },
+                {"type": "set_tempo", "tempo": 500000, "tick": 240},
+                {
+                    "type": "time_signature",
+                    "numerator": 4,
+                    "denominator": 4,
+                    "clocks_per_click": 24,
+                    "notated_32nd_notes_per_beat": 8,
+                    "tick": 240,
+                },
+                {"type": "end_of_track", "tick": 240},
+            ],
+            "notes": [],
+        },
+    ],
+    "beat_length": 20.0,
+    "format": 0,
+    "name": "NoTitle",
+    "path": None,
+    "start": 240,
+    "selected_track": 1,
+}
+
+default_track = {
+    "channel": 0,
+    "track_name": "NoName",
+    "events": [],
+    "notes": [],
+}
+
 
 class Midi_Player:
     def __init__(self):
         self.is_playing = False
-        self.current_time = 0
+        self.current_tick = 0
         self.midi = None
         ports = mido.get_output_names()
         self.outport = mido.open_output(ports[0])
 
     def reset_time(self):
-        self.current_time = 0
-        label_sequencer["text"] = "0:0"
-        canvas.moveto("sequencer_line", 0, 0)
-        canvas.xview_moveto(0)
+        self.current_tick = 0
 
     def stop(self):
         self.is_playing = False
@@ -43,7 +84,7 @@ class Midi_Player:
                 if msg.type == "set_tempo":
                     bpm = msg.tempo
                 sum_time += msg.time * midi_file.ticks_per_beat * 1000 * 1000 / bpm
-                if sum_time >= self.current_time:
+                if sum_time >= self.current_tick:
                     messages.append(msg)
 
             if len(messages) > 0:
@@ -77,10 +118,82 @@ class Midi_Player:
 
 
 class Com_file:
-    def __init__(self, data):
+    def __init__(self, data=None):
         self.data = data
         self.midi = None
         self.com_changed = True
+        self.metres = None
+
+        if self.data is None:
+            self.data = default_data
+
+    def reload(self):
+        self.com_changed = False
+        self.midi = self.make_midi()
+        self.metres = self.make_metres()
+
+    def add_track(self):
+        self.data["tracks"].append(default_track)
+
+    def get_lengths(self):
+        l = []
+        for t in self.data["tracks"]:
+            neo_t = sorted(t["notes"] + t["events"], key=lambda m: m["tick"])
+            l.append(neo_t[-1]["tick"])
+
+        return l
+
+    def tick_to_metre(self, tick: int):
+        tick_sum = 0
+        for i, m in enumerate(self.get_metres()):
+            if tick < tick_sum + m[0]:
+                break
+
+            tick_sum += m[0]
+
+        return i, tick - tick_sum
+
+    def metre_to_tick(self, m: int):
+        return sum([m[0] for m in self.get_metres()[:m]])
+
+    def get_metres(self):
+        if self.metres is None or self.com_changed:
+            self.reload()
+        return self.metres
+
+    def make_metres(self):
+        metres = []
+        current_metre = [1920, 4]
+        current_tick = 0
+
+        event = [
+            m for m in self.data["tracks"][0]["events"] if m["type"] == "time_signature"
+        ]
+
+        for m in event:
+            current_metre = [
+                int(1920 * m["numerator"] / m["denominator"]),
+                m["numerator"],
+            ]
+
+            while current_tick <= m["tick"]:
+                metres.append(current_metre)
+                current_tick += current_metre[0]
+
+        while current_tick <= max(self.get_lengths()):
+            metres.append(current_metre)
+            current_tick += current_metre[0]
+
+        return metres
+
+    def get_tempo_from_tick(self, tick: int):
+        tempos = [
+            m
+            for m in self.data["tracks"][0]["events"]
+            if m["type"] == "set_tempo" and m["tick"] <= tick
+        ]
+
+        return tempos[-1]["tempo"]
 
     def save(self):
         file_path = self.data["path"]
@@ -122,9 +235,7 @@ class Com_file:
 
     def get_midi(self):
         if self.com_changed or self.midi is None:
-            self.midi = self.make_midi()
-            self.com_changed = False
-
+            self.reload()
         return self.midi
 
     def make_midi(self):
@@ -185,8 +296,6 @@ class Com_file:
 
                 midi_track.append(m)
 
-        addlog("変換が終了したのだ")
-
         temp_path = "./temp/temp.mid"
 
         if not os.path.exists("./temp"):
@@ -196,6 +305,8 @@ class Com_file:
         midi_file = mido.MidiFile(temp_path)
 
         os.remove(temp_path)
+
+        addlog("変換が終了したのだ")
 
         return midi_file
 
@@ -244,7 +355,16 @@ def on_drop_file(event):
 
 # logに表示+print
 def addlog(text):
-    print(text)
+    output = (
+        "file: "
+        + str(os.path.basename(inspect.currentframe().f_back.f_code.co_filename))
+        + ", line: "
+        + str(inspect.currentframe().f_back.f_lineno)
+        + ", "
+        + text
+    )
+    print(output)
+
     log["state"] = "normal"
     log.insert(tk.END, text + "\n")
     log["state"] = "disabled"
@@ -267,13 +387,11 @@ terminal_row = 0
 
 # 呼び出し位置を確認できる、lineで位置を指定して上書きする
 # 使い始める前にresetをTrueにする
-def debug(text="", line=0, reset=False):
+def debug(text="", line=0, reset=False, newline=False):
     global terminal_row
     if reset:
         terminal_row = 0
         return None
-
-    print("\n" * line)
 
     output = (
         "file: "
@@ -284,12 +402,17 @@ def debug(text="", line=0, reset=False):
         + text
     )
 
-    print(
-        "\033[" + str(terminal_row + 1) + "A\r",
-        output + "-" * (100 - len(output)),
-        end="",
-    )
-    terminal_row = line
+    if newline:
+        print(output + "-" * (100 - len(output)))
+    else:
+        print("\n" * line)
+
+        print(
+            "\033[" + str(terminal_row + 1) + "A\r",
+            output + "-" * (100 - len(output)),
+            end="",
+        )
+        terminal_row = line
 
 
 # 拡張子を得る
@@ -302,21 +425,23 @@ def get_file_extension(file_path):
 
 
 # ----------------------------------------------------------
-def get_mark(x):
+def get_mark(tick):
     if len(com_files) == 0:
         return
     com = com_files[com_select]
 
-    start = com.data["start"]
+    metre, neo_tick = com.tick_to_metre(tick)
 
-    mlt = 480 / com.data["beat_length"]
+    l = com.get_metres()[metre][0]
 
-    x = x * mlt - start
+    marks = [240 * i for i in range(int(l / 240) + 1)]
+    tick = min(marks, key=lambda m: (m - neo_tick) ** 2)
 
-    marks = [240 * i for i in range(int(x / 240) + 2)]
-    x = min(marks, key=lambda m: (m - x) ** 2)
+    if tick == l:
+        tick = 0
+        metre += 1
 
-    return x
+    return metre, tick
 
 
 def on_click_canvas(event):
@@ -324,29 +449,78 @@ def on_click_canvas(event):
         return
     com = com_files[com_select]
 
-    start = com.data["start"]
-
     mlt = 480 / com.data["beat_length"]
 
-    x = get_mark(canvas.canvasx(event.x))
-    label_sequencer["text"] = str(int(x / 1920)) + ":" + str(x % 1920)
-    midi_player.current_time = x + start
+    tick = canvas.canvasx(event.x) * mlt
 
-    canvas.moveto("sequencer_line", (x + start) / mlt - 2, 0)
+    m = get_mark(tick)
+    label_sequencer["text"] = f"{m[0]}:{m[1]}"
+    midi_player.current_tick = com.metre_to_tick(m[0]) + m[1]
+
+    bpm = int(mido.tempo2bpm(com.get_tempo_from_tick(tick)))
+
+    label_bpm["text"] = "bpm:" + str(bpm)
+
+    canvas.moveto("sequencer_line", midi_player.current_tick / mlt - 2, 0)
     canvas.lift("sequencer_line")
 
 
 def on_move_on_canvas(event):
-    x = get_mark(canvas.canvasx(event.x))
+    if len(com_files) == 0:
+        return
+
+    com = com_files[com_select]
+
+    mlt = 480 / com.data["beat_length"]
+
+    tick = canvas.canvasx(event.x) * mlt
+
+    m = get_mark(tick)
     y = 127 - int(canvas.canvasy(event.y) / 8)
 
     notes = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 
     label = notes[y % 12] + str(int(y / 12) - 1) + "=" + str(y)
 
-    label += "\n" + str(int(x / 1920)) + ":" + str(x % 1920)
+    label += f"\n{m[0]}:{m[1]}"
 
     label_coordinate["text"] = label
+
+
+def on_button_reset_time():
+    midi_player.reset_time()
+    label_sequencer["text"] = "0:0"
+    canvas.moveto("sequencer_line", -2, 0)
+    canvas.xview_moveto(0)
+
+
+def on_ctrl_arrow(event):
+    if len(com_files) == 0:
+        return
+
+    com = com_files[com_select]
+    mlt = 480 / com.data["beat_length"]
+    tick = midi_player.current_tick
+
+    metre = com.tick_to_metre(tick)
+
+    neo_tick = 0
+    if event.keysym == "Right":
+        new_metre = metre[0] + 1
+
+    elif event.keysym == "Left":
+        new_metre = metre[0]
+        if metre[1] == 0:
+            new_metre = max(metre[0] - 1, 0)
+
+    neo_tick = com.metre_to_tick(new_metre)
+
+    midi_player.current_tick = neo_tick
+
+    canvas.moveto("sequencer_line", neo_tick / mlt - 2, 0)
+    canvas.lift("sequencer_line")
+
+    label_sequencer["text"] = str(new_metre) + ":0"
 
 
 def on_button_play():
@@ -361,7 +535,7 @@ def on_button_play():
         midi_player.play()
 
 
-def get_com_from_path(path):
+def get_com_from_path(path: str):
     if not os.path.exists("./temp"):
         os.makedirs("./temp")
 
@@ -386,8 +560,6 @@ def read_com(com_file: Com_file):
     midi_player.stop()
 
     load_com()
-
-    draw_all_notes()
 
     addlog("cmcmファイルを読み込んだのだ")
 
@@ -443,7 +615,6 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
         "tracks": [],
         "beat_length": 20,
         "format": 0,
-        "length": 0,
         "name": name,
         "path": None,
         "start": float("inf"),
@@ -455,7 +626,6 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
     for track in midi_file.tracks:
         tra = {
             "channel": None,
-            "length": 0,
             "track_name": "NoName",
             "events": [],
             "notes": [],
@@ -513,14 +683,11 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
         if start is not None:
             com["start"] = min(com["start"], start)
 
-        tra["length"] = time
-
         com["tracks"].append(tra)
 
-    com["length"] = max(track["length"] for track in com["tracks"])
     com["selected_track"] = 0
 
-    midi_player.current_time = 0
+    midi_player.current_tick = 0
 
     return com
 
@@ -568,7 +735,7 @@ def draw_all_notes():
 
     mlt = beat / 480
 
-    length = com_file.data["length"] * mlt + 4 * beat
+    length = max(com_file.get_lengths()) * mlt + 4 * beat
 
     scale = [0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1, 0]
 
@@ -579,7 +746,6 @@ def draw_all_notes():
             colour = "#ffffff"
 
         canvas.create_rectangle(0, y * 8, length, (y + 1) * 8, fill=colour)
-    off_set_x = com_file.data["start"]
 
     # C
     for y in range(int(128 / 12)):
@@ -593,14 +759,20 @@ def draw_all_notes():
         )
 
     # 小節
-    for x in range(int(com_file.data["length"] / 1920) + 1):
-        canvas.create_line(
-            x * 4 * beat + off_set_x * mlt,
-            0,
-            x * 4 * beat + off_set_x * mlt,
-            canvas["height"] * 3,
-            fill="#636363",
-        )
+    current_tick = 0
+    for m in com_file.get_metres():
+        x = current_tick * mlt
+        canvas.create_line(x, 0, x, canvas["height"] * 3, fill="#636363")
+        for i in range(1, m[1]):
+            canvas.create_line(
+                x + m[0] / m[1] * i * mlt,
+                0,
+                x + m[0] / m[1] * i * mlt,
+                canvas["height"] * 3,
+                fill="#999999",
+            )
+
+        current_tick += m[0]
 
     for t in range(len(com_file.data["tracks"])):
         draw_notes(t, "#aaaaaa")
@@ -731,6 +903,12 @@ def on_button_zoom(key):
     draw_all_notes()
 
 
+def some():
+    if len(com_files) == 0:
+        return
+    print(com_files[com_select].tick_to_metre(120 + 1920))
+
+
 # ---------------------------------------------------------------------------
 
 
@@ -739,7 +917,7 @@ can_drop_file = {}
 can_drop_file["mid"] = read_midi_file
 can_drop_file["cmcm"] = get_com_from_path
 
-com_files = []
+com_files: list[Com_file] = []
 com_select = 0
 
 midi_player = Midi_Player()
@@ -761,6 +939,9 @@ root.geometry("960x320")
 root.bind("<Key>", on_key_action)
 root.protocol("WM_DELETE_WINDOW", on_window_closed)
 
+root.bind("<Control-Right>", on_ctrl_arrow)
+root.bind("<Control-Left>", on_ctrl_arrow)
+
 menubar = tk.Menu(root)
 root.config(menu=menubar)
 
@@ -780,6 +961,7 @@ file.add_command(label="save_cmcm...", command=menu_save_cmcm)
 file.add_command(label="write_to_midi...", command=menu_write_to_midi)
 
 edit.add_command(label="reload", command=load_com)
+edit.add_command(label="get", command=some)
 
 # --------------------------------------------------------------------------
 
@@ -813,7 +995,7 @@ button_play = tk.Button(
 button_play.pack(side="right")
 
 button_reset = tk.Button(
-    frame_yellow, width=6, height=4, text="◀", command=midi_player.reset_time
+    frame_yellow, width=6, height=4, text="◀", command=on_button_reset_time
 )
 button_reset.pack(side="right")
 

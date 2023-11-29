@@ -4,9 +4,14 @@ import os
 import subprocess
 import sys
 
-from window import root, get_file_extension, addlog, exe
+from window import root, get_file_extension, addlog, exe, processes
+
 
 # ----------------------------------------------------------------------------------------
+def add_process(path):
+    processes.append(subprocess.Popen(path))
+
+    print(processes)
 
 
 def main():
@@ -26,8 +31,9 @@ def main():
         if ex == "pyd" or ex == "py":
             plugins[name] = importlib.import_module(name)
         elif ex == "exe":
+            exes[name] = {}
             exes[name]["path"] = ppath
-            exes[name]["function"] = lambda: subprocess.Popen(ppath)
+            exes[name]["function"] = lambda: add_process(ppath)
             exe.add_command(label=name, command=exes[name]["function"])
 
     addlog("プラグインのロード開始...")
