@@ -5,7 +5,7 @@
     "distutils": {
         "name": "Edit",
         "sources": [
-            "C:\\Ipota\\programs\\ongaku\\module\\Edit\\Edit.pyx"
+            "C:\\Ipota\\programs\\ongaku\\b0\\module\\Edit\\Edit.pyx"
         ]
     },
     "module_name": "Edit"
@@ -2323,7 +2323,7 @@ static const char __pyx_k_load_module[] = "load_module";
 static const char __pyx_k_midi_player[] = "midi_player";
 static const char __pyx_k_on_click_ok[] = "on_click_ok";
 static const char __pyx_k_rename_cmcm[] = "rename_cmcm...";
-static const char __pyx_k_current_time[] = "current_time";
+static const char __pyx_k_current_tick[] = "current_tick";
 static const char __pyx_k_curselection[] = "curselection";
 static const char __pyx_k_initializing[] = "_initializing";
 static const char __pyx_k_is_coroutine[] = "_is_coroutine";
@@ -2443,7 +2443,7 @@ typedef struct {
   PyObject *__pyx_n_s_com_files;
   PyObject *__pyx_n_s_com_select;
   PyObject *__pyx_n_s_command;
-  PyObject *__pyx_n_s_current_time;
+  PyObject *__pyx_n_s_current_tick;
   PyObject *__pyx_n_s_curselection;
   PyObject *__pyx_n_s_data;
   PyObject *__pyx_n_s_default_value;
@@ -2655,7 +2655,7 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_com_files);
   Py_CLEAR(clear_module_state->__pyx_n_s_com_select);
   Py_CLEAR(clear_module_state->__pyx_n_s_command);
-  Py_CLEAR(clear_module_state->__pyx_n_s_current_time);
+  Py_CLEAR(clear_module_state->__pyx_n_s_current_tick);
   Py_CLEAR(clear_module_state->__pyx_n_s_curselection);
   Py_CLEAR(clear_module_state->__pyx_n_s_data);
   Py_CLEAR(clear_module_state->__pyx_n_s_default_value);
@@ -2845,7 +2845,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_com_files);
   Py_VISIT(traverse_module_state->__pyx_n_s_com_select);
   Py_VISIT(traverse_module_state->__pyx_n_s_command);
-  Py_VISIT(traverse_module_state->__pyx_n_s_current_time);
+  Py_VISIT(traverse_module_state->__pyx_n_s_current_tick);
   Py_VISIT(traverse_module_state->__pyx_n_s_curselection);
   Py_VISIT(traverse_module_state->__pyx_n_s_data);
   Py_VISIT(traverse_module_state->__pyx_n_s_default_value);
@@ -3045,7 +3045,7 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_com_files __pyx_mstate_global->__pyx_n_s_com_files
 #define __pyx_n_s_com_select __pyx_mstate_global->__pyx_n_s_com_select
 #define __pyx_n_s_command __pyx_mstate_global->__pyx_n_s_command
-#define __pyx_n_s_current_time __pyx_mstate_global->__pyx_n_s_current_time
+#define __pyx_n_s_current_tick __pyx_mstate_global->__pyx_n_s_current_tick
 #define __pyx_n_s_curselection __pyx_mstate_global->__pyx_n_s_curselection
 #define __pyx_n_s_data __pyx_mstate_global->__pyx_n_s_data
 #define __pyx_n_s_default_value __pyx_mstate_global->__pyx_n_s_default_value
@@ -4096,7 +4096,7 @@ static PyObject *__pyx_pf_4Edit_11load_module_4menu_add_message(CYTHON_UNUSED Py
  *         except:
  *             m = mido.MetaMessage.from_dict({"type": new_message_type}).dict()             # <<<<<<<<<<<<<<
  * 
- *         m["tick"] = midi_player.current_time
+ *         m["tick"] = midi_player.current_tick
  */
       __Pyx_GetModuleGlobalName(__pyx_t_12, __pyx_n_s_mido); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 77, __pyx_L7_except_error)
       __Pyx_GOTREF(__pyx_t_12);
@@ -4189,18 +4189,18 @@ static PyObject *__pyx_pf_4Edit_11load_module_4menu_add_message(CYTHON_UNUSED Py
   /* "Edit.pyx":79
  *             m = mido.MetaMessage.from_dict({"type": new_message_type}).dict()
  * 
- *         m["tick"] = midi_player.current_time             # <<<<<<<<<<<<<<
+ *         m["tick"] = midi_player.current_tick             # <<<<<<<<<<<<<<
  *         print(m)
  *         com.data["tracks"][t]["events"].append(m)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_midi_player, __pyx_n_s_current_time); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(__pyx_v_midi_player, __pyx_n_s_current_tick); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (unlikely((PyObject_SetItem(__pyx_v_m, __pyx_n_u_tick, __pyx_t_2) < 0))) __PYX_ERR(0, 79, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "Edit.pyx":80
  * 
- *         m["tick"] = midi_player.current_time
+ *         m["tick"] = midi_player.current_tick
  *         print(m)             # <<<<<<<<<<<<<<
  *         com.data["tracks"][t]["events"].append(m)
  * 
@@ -4210,7 +4210,7 @@ static PyObject *__pyx_pf_4Edit_11load_module_4menu_add_message(CYTHON_UNUSED Py
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "Edit.pyx":81
- *         m["tick"] = midi_player.current_time
+ *         m["tick"] = midi_player.current_tick
  *         print(m)
  *         com.data["tracks"][t]["events"].append(m)             # <<<<<<<<<<<<<<
  * 
@@ -7187,7 +7187,7 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_com_files, __pyx_k_com_files, sizeof(__pyx_k_com_files), 0, 0, 1, 1},
     {&__pyx_n_s_com_select, __pyx_k_com_select, sizeof(__pyx_k_com_select), 0, 0, 1, 1},
     {&__pyx_n_s_command, __pyx_k_command, sizeof(__pyx_k_command), 0, 0, 1, 1},
-    {&__pyx_n_s_current_time, __pyx_k_current_time, sizeof(__pyx_k_current_time), 0, 0, 1, 1},
+    {&__pyx_n_s_current_tick, __pyx_k_current_tick, sizeof(__pyx_k_current_tick), 0, 0, 1, 1},
     {&__pyx_n_s_curselection, __pyx_k_curselection, sizeof(__pyx_k_curselection), 0, 0, 1, 1},
     {&__pyx_n_s_data, __pyx_k_data, sizeof(__pyx_k_data), 0, 0, 1, 1},
     {&__pyx_n_s_default_value, __pyx_k_default_value, sizeof(__pyx_k_default_value), 0, 0, 1, 1},

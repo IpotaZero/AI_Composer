@@ -76,7 +76,7 @@ def load_module():
         except:
             m = mido.MetaMessage.from_dict({"type": new_message_type}).dict()
 
-        m["tick"] = midi_player.current_time
+        m["tick"] = midi_player.current_tick
         print(m)
         com.data["tracks"][t]["events"].append(m)
 

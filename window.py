@@ -139,7 +139,10 @@ class Com_file:
         l = []
         for t in self.data["tracks"]:
             neo_t = sorted(t["notes"] + t["events"], key=lambda m: m["tick"])
-            l.append(neo_t[-1]["tick"])
+            length = neo_t[-1]["tick"]
+            if "length" in neo_t[-1]:
+                length += neo_t[-1]["length"]
+            l.append(length)
 
         return l
 
@@ -762,7 +765,7 @@ def draw_all_notes():
     current_tick = 0
     for m in com_file.get_metres():
         x = current_tick * mlt
-        canvas.create_line(x, 0, x, canvas["height"] * 3, fill="#636363")
+        canvas.create_line(x, 0, x, canvas["height"] * 3, fill="#000000", width=1)
         for i in range(1, m[1]):
             canvas.create_line(
                 x + m[0] / m[1] * i * mlt,
