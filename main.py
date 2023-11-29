@@ -4,14 +4,14 @@ import os
 import subprocess
 import sys
 
-from window import root, get_file_extension, addlog, exe, processes
+from window import root, get_file_extension, addlog, menu_exe, processes
 
 
 # ----------------------------------------------------------------------------------------
 def add_process(path):
     processes.append(subprocess.Popen(path))
 
-    print(processes)
+    # print(processes)
 
 
 def main():
@@ -34,7 +34,7 @@ def main():
             exes[name] = {}
             exes[name]["path"] = ppath
             exes[name]["function"] = lambda: add_process(ppath)
-            exe.add_command(label=name, command=exes[name]["function"])
+            menu_exe.add_command(label=name, command=exes[name]["function"])
 
     addlog("プラグインのロード開始...")
     addlog(str(plugins.keys()))

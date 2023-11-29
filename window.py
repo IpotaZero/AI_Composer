@@ -692,7 +692,7 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
     return com
 
 
-def menu_select_cmcm():
+def on_menu_select_cmcm():
     file_path = filedialog.askopenfilename(filetypes=[("cmcm", ".cmcm")])
 
     if len(file_path) == 0:
@@ -707,7 +707,7 @@ def menu_select_cmcm():
 
 
 # midiファイルを選択する
-def menu_select_midi():
+def on_menu_select_midi():
     file_path = filedialog.askopenfilename(filetypes=[("midi", ".mid")])
 
     if len(file_path) == 0:
@@ -871,14 +871,14 @@ def on_window_closed():
     root.destroy()
 
 
-def menu_save_cmcm():
+def on_menu_save_cmcm():
     if len(com_files) == 0:
         addlog("comないのだ")
     else:
         com_files[com_select].save()
 
 
-def menu_write_to_midi():
+def on_menu_write_to_midi():
     if len(com_files) == 0:
         addlog("comないのだ")
     else:
@@ -945,23 +945,23 @@ root.bind("<Control-Left>", on_ctrl_arrow)
 menubar = tk.Menu(root)
 root.config(menu=menubar)
 
-file = tk.Menu(menubar, tearoff=0)
-menubar.add_cascade(label="File", menu=file)
+menu_file = tk.Menu(menubar, tearoff=0)
+menubar.add_cascade(label="File", menu=menu_file)
 
-edit = tk.Menu(menubar, tearoff=0)
-menubar.add_cascade(label="Edit", menu=edit)
+menu_edit = tk.Menu(menubar, tearoff=0)
+menubar.add_cascade(label="Edit", menu=menu_edit)
 
-exe = tk.Menu(menubar, tearoff=0)
-menubar.add_cascade(label="exe", menu=exe)
+menu_exe = tk.Menu(menubar, tearoff=0)
+menubar.add_cascade(label="exe", menu=menu_exe)
 
 
-file.add_command(label="open_cmcm...", command=menu_select_cmcm)
-file.add_command(label="open_midi...", command=menu_select_midi)
-file.add_command(label="save_cmcm...", command=menu_save_cmcm)
-file.add_command(label="write_to_midi...", command=menu_write_to_midi)
+menu_file.add_command(label="open_cmcm...", command=on_menu_select_cmcm)
+menu_file.add_command(label="open_midi...", command=on_menu_select_midi)
+menu_file.add_command(label="save_cmcm...", command=on_menu_save_cmcm)
+menu_file.add_command(label="write_to_midi...", command=on_menu_write_to_midi)
 
-edit.add_command(label="reload", command=load_com)
-edit.add_command(label="get", command=some)
+menu_edit.add_command(label="reload", command=load_com)
+menu_edit.add_command(label="get", command=some)
 
 # --------------------------------------------------------------------------
 
