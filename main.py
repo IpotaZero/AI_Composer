@@ -36,12 +36,12 @@ def main():
             exes[name]["function"] = lambda: add_process(ppath)
             menu_exe.add_command(label=name, command=exes[name]["function"])
 
-    addlog("プラグインのロード開始...")
+    addlog("start_loading_plugins")
     addlog(str(plugins.keys()))
     for name in plugins.keys():
         plugins[name].load_module()
 
-    addlog("プラグインをロードしたのだ")
+    addlog("plugins_are_loaded")
 
     # import関係
     # window -> plugin -> main

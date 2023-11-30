@@ -77,7 +77,7 @@ def Learn():
     # midiファイルを学習用データに変換
     def print_midi(translated_midi):
         track_num = translated_midi["selected_track"]
-        notes = translated_midi["tracks"][track_num]["notes"]
+        notes = translated_midi.get_notes(track_num)
 
         # 長さの最小単位
         resolution = 1
@@ -271,14 +271,15 @@ def Generate():
         return melody
 
     def make_com(melody):
-        l = sum([note[1] for note in melody])
+        C = Com_file()
 
         notes = []
-        current_time = 0
+        current_time = C.data["start"]
         for note in melody:
             if note[0] != -1:
                 notes.append(
                     {
+                        "type": "note",
                         "pitch": note[0],
                         "tick": current_time,
                         "length": note[1],
@@ -288,28 +289,11 @@ def Generate():
 
             current_time += note[1]
 
-        com = {
-            "tracks": [],
-            "beat_length": 20,
-            "format": 0,
-            "length": l,
-            "name": None,
-            "path": None,
-            "start": 0,
-            "selected_track": 0,
-        }
-
-        track = {
-            "channel": 1,
-            "length": l,
-            "track_name": "",
-            "events": [{"type": "set_tempo", "tempo": 1000000, "tick": 0}],
-            "notes": notes,
-        }
-
-        com["tracks"].append(track)
-
-        C = Com_file(com)
+        C.add_track()
+        C.data["tracks"][-1]["channel"] = 0
+        C.data["tracks"][-1]["messages"] = sorted(
+            C.get_events(-1) + notes, key=lambda m: m["tick"]
+        )
 
         return C
 

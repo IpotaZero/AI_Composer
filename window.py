@@ -14,12 +14,31 @@ import tkinterdnd2
 import mido
 import mido.backends.rtmidi
 
+
+tone_list = {
+    "start_loading_plugins": "プラグインのロード開始...",
+    "plugins_are_loaded": "プラグインをロードしたのです!",
+    "canceled": "キャンセルされたのです!",
+    "cmcm_is_saved": "cmcmファイルを保存したのです!",
+    "midi_is_created": "midiファイルを作成したのです!",
+    "start_translating_cmcm_to_midi": "cmcmファイルをmidiファイルに変換開始...",
+    "start_translating_midi_to_cmcm": "midiファイルをcmcmファイルに変換開始...",
+    "translated": "変換が終了したのです!",
+    "cmcm_is_loaded": "cmcmファイルを読み込んだのです!",
+    "error": "エラーなのです!",
+    "channel_error": "1トラックに異なるチャネルが混じっております!\nとりあえず無理やり読み込んでみますが元データとちょっと異なっちゃうかもです!",
+    "no_cmcm": "cmcmファイルが存在しないのです!",
+    "ending": "終了処理開始...",
+    "not_supported_file": "読み込み登録されてないのです!",
+    "change_track_to": "%s番にトラックを変更したのです!",
+}
+
 default_data = {
     "tracks": [
         {
             "channel": None,
             "track_name": "Conductor",
-            "events": [
+            "messages": [
                 {
                     "type": "time_signature",
                     "numerator": 1,
@@ -39,7 +58,6 @@ default_data = {
                 },
                 {"type": "end_of_track", "tick": 240},
             ],
-            "notes": [],
         },
     ],
     "beat_length": 20.0,
@@ -51,10 +69,9 @@ default_data = {
 }
 
 default_track = {
-    "channel": 0,
+    "channel": None,
     "track_name": "NoName",
-    "events": [],
-    "notes": [],
+    "messages": [],
 }
 
 
@@ -103,10 +120,6 @@ class Midi_Player:
 
             self.stop()
 
-        if self.midi is None:
-            addlog("midiが読み込まれてないのだ")
-            return
-
         if self.is_playing:
             self.stop()
             return
@@ -127,6 +140,16 @@ class Com_file:
         if self.data is None:
             self.data = default_data
 
+    def get_notes(self, track_num: int):
+        return [
+            m for m in self.data["tracks"][track_num]["messages"] if m["type"] == "note"
+        ]
+
+    def get_events(self, track_num: int):
+        return [
+            m for m in self.data["tracks"][track_num]["messages"] if m["type"] != "note"
+        ]
+
     def reload(self):
         self.com_changed = False
         self.midi = self.make_midi()
@@ -138,9 +161,9 @@ class Com_file:
     def get_lengths(self):
         l = []
         for t in self.data["tracks"]:
-            neo_t = sorted(t["notes"] + t["events"], key=lambda m: m["tick"])
+            neo_t = sorted(t["messages"], key=lambda m: m["tick"])
             length = neo_t[-1]["tick"]
-            if "length" in neo_t[-1]:
+            if neo_t[-1]["type"] == "note":
                 length += neo_t[-1]["length"]
             l.append(length)
 
@@ -169,9 +192,7 @@ class Com_file:
         current_metre = [1920, 4]
         current_tick = 0
 
-        event = [
-            m for m in self.data["tracks"][0]["events"] if m["type"] == "time_signature"
-        ]
+        event = [m for m in self.get_events(0) if m["type"] == "time_signature"]
 
         for m in event:
             current_metre = [
@@ -192,7 +213,7 @@ class Com_file:
     def get_tempo_from_tick(self, tick: int):
         tempos = [
             m
-            for m in self.data["tracks"][0]["events"]
+            for m in self.get_events(0)
             if m["type"] == "set_tempo" and m["tick"] <= tick
         ]
 
@@ -224,7 +245,7 @@ class Com_file:
 
         os.remove("./temp/temp.json")
 
-        addlog(".comcomを保存したのだ")
+        addlog("cmcm_is_saved")
 
     def write(self):
         file_path = filedialog.asksaveasfilename(filetypes=[("MIDI", ".mid")])
@@ -234,7 +255,7 @@ class Com_file:
         if get_file_extension(file_path) != "mid":
             file_path += ".mid"
         self.get_midi().save(file_path)
-        addlog("midiファイルを作成したのだ")
+        addlog("midi_is_created")
 
     def get_midi(self):
         if self.com_changed or self.midi is None:
@@ -242,19 +263,19 @@ class Com_file:
         return self.midi
 
     def make_midi(self):
-        addlog("comcomをmidiに変換開始")
+        addlog("start_translating_cmcm_to_midi")
         midi_file = mido.MidiFile(type=1)
 
         midi_file.ticks_per_beat = 480
 
-        for track in self.data["tracks"]:
+        for i, track in enumerate(self.data["tracks"]):
             midi_track = mido.MidiTrack()
             midi_file.tracks.append(midi_track)
 
             channel = track["channel"]
 
             # 重なり検出
-            notes = resolve_overlapping(track["notes"])
+            notes = resolve_overlapping(self.get_notes(i))
 
             note_massages = []
             for note in notes:
@@ -274,13 +295,13 @@ class Com_file:
                     }
                 )
 
-            event_messages = [*track["events"]]
+            event_messages = self.get_events(i)
 
             event_messages.append(
                 {"type": "track_name", "name": track["track_name"], "tick": 0}
             )
 
-            messages = sorted(track["events"] + note_massages, key=lambda x: x["tick"])
+            messages = sorted(event_messages + note_massages, key=lambda x: x["tick"])
 
             current_time = 0
             for message in messages:
@@ -309,7 +330,7 @@ class Com_file:
 
         os.remove(temp_path)
 
-        addlog("変換が終了したのだ")
+        addlog("translated")
 
         return midi_file
 
@@ -353,11 +374,14 @@ def on_drop_file(event):
         can_drop_file[ex](path)
 
     else:
-        addlog("これは" + ex + "なのだ、読み込み登録されてないのだ")
+        addlog("not_supported_file")
 
 
 # logに表示+print
 def addlog(text):
+    if text in tone_list.keys():
+        text = tone_list[text]
+
     output = (
         "file: "
         + str(os.path.basename(inspect.currentframe().f_back.f_code.co_filename))
@@ -564,7 +588,7 @@ def read_com(com_file: Com_file):
 
     load_com()
 
-    addlog("cmcmファイルを読み込んだのだ")
+    addlog("cmcm_is_loaded")
 
 
 def load_com():
@@ -592,22 +616,22 @@ def load_com():
 
 
 def read_midi_file(file_path: str):
-    addlog("MIDIデータ読み込み開始...")
+    addlog("start_translate_midi_to_cmcm")
 
     try:
         midi_file = mido.MidiFile(file_path)
     except:
-        addlog("読み込めないみたいなのだ!")
+        addlog("error")
         return
 
     C = Com_file(translate_midi_file(midi_file, os.path.basename(file_path)))
 
     read_com(C)
 
-    addlog(os.path.basename(file_path) + "を読み込んだのだ")
+    addlog(os.path.basename(file_path) + "を読み込んだのです!")
 
 
-# midiファイルを読み込み、描画用の形式に変換する
+# midiファイルを読み込み、cmcmに変換
 def translate_midi_file(midi_file: mido.MidiFile, name: str):
     if midi_player.is_playing:
         midi_player.stop()
@@ -627,15 +651,13 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
 
     # 扱いやすい形に変換
     for track in midi_file.tracks:
-        tra = {
-            "channel": None,
-            "track_name": "NoName",
-            "events": [],
-            "notes": [],
-        }
+        tra = {**default_track}
 
         time = 0  # ノートの絶対時刻
         start = None
+
+        notes = []
+        events = []
 
         for message in track:
             message.time *= mlt
@@ -646,8 +668,7 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
                 if tra["channel"] is None:
                     tra["channel"] = message.channel
                 elif tra["channel"] != message.channel and not channel_error:
-                    addlog("1トラックに異なるチャネルが混じっております!")
-                    addlog("とりあえず無理やり読み込んでみますが元データとちょっと異なっちゃうかもです!")
+                    addlog("channel_error")
                     channel_error = True
 
             # on命令
@@ -655,8 +676,9 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
                 if start == None:
                     start = time
 
-                tra["notes"].append(
+                notes.append(
                     {
+                        "type": "note",
                         "pitch": message.note,
                         "length": None,
                         "velocity": message.velocity,
@@ -667,7 +689,7 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
             # off命令
             elif message.type == "note_off":
                 # 後ろから探索して音程が同じかつまだ長さが設定されていないものを探す
-                for note in tra["notes"][::-1]:
+                for note in notes[::-1]:
                     if note["pitch"] == message.note and note["length"] is None:
                         note["length"] = time - note["tick"]
                         break
@@ -681,7 +703,9 @@ def translate_midi_file(midi_file: mido.MidiFile, name: str):
                 e = message.dict()
                 e["tick"] = time
                 e.pop("time")
-                tra["events"].append(e)
+                events.append(e)
+
+            tra["messages"] = sorted(events + notes, key=lambda m: m["tick"])
 
         if start is not None:
             com["start"] = min(com["start"], start)
@@ -699,11 +723,11 @@ def on_menu_select_cmcm():
     file_path = filedialog.askopenfilename(filetypes=[("cmcm", ".cmcm")])
 
     if len(file_path) == 0:
-        addlog("cmcmが選択されなかったのだ")
+        addlog("canceled")
         return None
 
     if get_file_extension(file_path) != "cmcm":
-        addlog("cmcmファイルを選択して、なのだ")
+        addlog("is_not_cmcm")
         return None
 
     get_com_from_path(file_path)
@@ -714,11 +738,11 @@ def on_menu_select_midi():
     file_path = filedialog.askopenfilename(filetypes=[("midi", ".mid")])
 
     if len(file_path) == 0:
-        addlog("MIDIが選択されなかったのだ")
+        addlog("canceled")
         return None
 
     if get_file_extension(file_path) != ("mid" or "midi"):
-        addlog("MIDIファイルを選択して、なのだ")
+        addlog("is_not_midi")
         return None
 
     read_midi_file(file_path)
@@ -726,7 +750,7 @@ def on_menu_select_midi():
 
 def draw_all_notes():
     if len(com_files) == 0:
-        addlog("cmcmが選択されていないのだ")
+        addlog("no_cmcm")
         return
 
     com_file = com_files[com_select]
@@ -790,17 +814,15 @@ def draw_all_notes():
 
 def draw_notes(track_num: int, colour: str):
     if len(com_files) == 0:
-        addlog("cmcmが選択されていないのだ")
+        addlog("no_cmcm")
         return
 
     com_file = com_files[com_select]
 
     mlt = com_file.data["beat_length"] / 480
 
-    t = com_file.data
-
     # ノートの描画
-    for note in t["tracks"][track_num]["notes"]:
+    for note in com_file.get_notes(track_num):
         if note["length"] is not None:
             # ノートの長さを計算
             x1 = note["tick"] * mlt
@@ -821,27 +843,25 @@ def draw_notes(track_num: int, colour: str):
 def on_select_track(event):
     t = event.widget.current()
     update_log_message(t)
-    addlog(str(t) + "番にトラックを変更したのだ")
+    addlog(tone_list["change_track_to"] % str(t))
 
 
-def update_log_message(t):
+def update_log_message(track_num: int):
     if len(com_files) == 0:
         return
     com_file = com_files[com_select]
 
     canvas.itemconfig(f"track:{com_file.data['selected_track']}", fill="#aaaaaa")
-    com_file.data["selected_track"] = t
-    canvas.itemconfig(f"track:{t}", fill="#7777ff")
-    canvas.lift(f"track:{t}")
-
-    tra = com_file.data["tracks"][t]
+    com_file.data["selected_track"] = track_num
+    canvas.itemconfig(f"track:{track_num}", fill="#7777ff")
+    canvas.lift(f"track:{track_num}")
 
     log_notes.delete(0, "end")
-    for msg in tra["notes"]:
+    for msg in com_file.get_notes(track_num):
         log_notes.insert(tk.END, str(msg) + "\n")
 
     log_events.delete(0, "end")
-    for msg in tra["events"]:
+    for msg in com_file.get_events(track_num):
         log_events.insert(tk.END, str(msg) + "\n")
 
     log_notes.update()
@@ -867,7 +887,7 @@ def on_key_action(event):
 
 
 def on_window_closed():
-    addlog("終了処理を開始するのだ...")
+    addlog("ending")
     midi_player.stop()
     for p in processes:
         p.kill()
@@ -876,14 +896,14 @@ def on_window_closed():
 
 def on_menu_save_cmcm():
     if len(com_files) == 0:
-        addlog("comないのだ")
+        addlog("no_cmcm")
     else:
         com_files[com_select].save()
 
 
 def on_menu_write_to_midi():
     if len(com_files) == 0:
-        addlog("comないのだ")
+        addlog("no_cmcm")
     else:
         com_files[com_select].write()
 
