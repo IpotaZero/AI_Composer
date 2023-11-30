@@ -362,25 +362,25 @@ body.cython { font-family: courier; font-size: 12; }
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
 </pre><pre class="cython line score-0">&#xA0;<span class="">10</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">11</span>: </pre>
-<pre class="cython line score-33" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">12</span>: def load_module():</pre>
+<pre class="cython line score-33" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">12</span>: def main():</pre>
 <pre class='cython code score-33 '>/* Python wrapper */
-static PyObject *__pyx_pw_2AI_1load_module(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_2AI_1load_module = {"load_module", (PyCFunction)__pyx_pw_2AI_1load_module, METH_NOARGS, 0};
-static PyObject *__pyx_pw_2AI_1load_module(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_2AI_1main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_2AI_1main = {"main", (PyCFunction)__pyx_pw_2AI_1main, METH_NOARGS, 0};
+static PyObject *__pyx_pw_2AI_1main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
-  <span class='refnanny'>__Pyx_RefNannySetupContext</span>("load_module (wrapper)", 0);
+  <span class='refnanny'>__Pyx_RefNannySetupContext</span>("main (wrapper)", 0);
   __pyx_kwvalues = <span class='pyx_c_api'>__Pyx_KwValues_VARARGS</span>(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_2AI_load_module(__pyx_self);
+  __pyx_r = __pyx_pf_2AI_main(__pyx_self);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 /* … */
-static PyObject *__pyx_pf_2AI_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *__pyx_cur_scope;
+static PyObject *__pyx_pf_2AI_main(CYTHON_UNUSED PyObject *__pyx_self) {
+  struct __pyx_obj_2AI___pyx_scope_struct__main *__pyx_cur_scope;
   PyObject *__pyx_v_ai_path = NULL;
   PyObject *__pyx_v_ppath = NULL;
   PyObject *__pyx_v_ex = NULL;
@@ -390,9 +390,9 @@ static PyObject *__pyx_pf_2AI_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_v_ai_name = NULL;
   PyObject *__pyx_v_f_name = NULL;
   PyObject *__pyx_r = NULL;
-  __pyx_cur_scope = (struct __pyx_obj_2AI___pyx_scope_struct__load_module *)__pyx_tp_new_2AI___pyx_scope_struct__load_module(__pyx_ptype_2AI___pyx_scope_struct__load_module, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_2AI___pyx_scope_struct__main *)__pyx_tp_new_2AI___pyx_scope_struct__main(__pyx_ptype_2AI___pyx_scope_struct__main, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_2AI___pyx_scope_struct__load_module *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_2AI___pyx_scope_struct__main *)Py_None);
     <span class='pyx_macro_api'>__Pyx_INCREF</span>(Py_None);
     <span class='error_goto'>__PYX_ERR(0, 12, __pyx_L1_error)</span>
   } else {
@@ -408,7 +408,7 @@ static PyObject *__pyx_pf_2AI_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_4);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_5);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_11);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("AI.load_module", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("AI.main", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_v_ai_path);
@@ -429,21 +429,21 @@ static PyObject *__pyx_pf_2AI_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__7);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__7);
 /* … */
-  __pyx_t_3 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_2AI_1load_module, 0, __pyx_n_s_load_module, NULL, __pyx_n_s_AI, __pyx_d, ((PyObject *)__pyx_codeobj__8));<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)</span>
+  __pyx_t_3 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_2AI_1main, 0, __pyx_n_s_main_2, NULL, __pyx_n_s_AI, __pyx_d, ((PyObject *)__pyx_codeobj__8));<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
-  if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_d, __pyx_n_s_load_module, __pyx_t_3) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 12, __pyx_L1_error)</span>
+  if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_d, __pyx_n_s_main_2, __pyx_t_3) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 12, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
 </pre><pre class="cython line score-67" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">13</span>:     def run(a, b):</pre>
 <pre class='cython code score-67 '>/* Python wrapper */
-static PyObject *__pyx_pw_2AI_11load_module_1run(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_2AI_4main_1run(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_2AI_11load_module_1run = {"run", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_2AI_11load_module_1run, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_2AI_11load_module_1run(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_2AI_4main_1run = {"run", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_2AI_4main_1run, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_2AI_4main_1run(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -525,11 +525,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       <span class='pyx_c_api'>__Pyx_Arg_XDECREF_FASTCALL</span>(values[__pyx_temp]);
     }
   }
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("AI.load_module.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("AI.main.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_2AI_11load_module_run(__pyx_self, __pyx_v_a, __pyx_v_b);
+  __pyx_r = __pyx_pf_2AI_4main_run(__pyx_self, __pyx_v_a, __pyx_v_b);
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -545,13 +545,13 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_2AI_11load_module_run(PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b) {
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *__pyx_cur_scope;
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *__pyx_outer_scope;
+static PyObject *__pyx_pf_2AI_4main_run(PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b) {
+  struct __pyx_obj_2AI___pyx_scope_struct__main *__pyx_cur_scope;
+  struct __pyx_obj_2AI___pyx_scope_struct__main *__pyx_outer_scope;
   PyObject *__pyx_v_fn = NULL;
   PyObject *__pyx_v_thread_learn = NULL;
   PyObject *__pyx_r = NULL;
-  __pyx_outer_scope = (struct __pyx_obj_2AI___pyx_scope_struct__load_module *) <span class='pyx_c_api'>__Pyx_CyFunction_GetClosure</span>(__pyx_self);
+  __pyx_outer_scope = (struct __pyx_obj_2AI___pyx_scope_struct__main *) <span class='pyx_c_api'>__Pyx_CyFunction_GetClosure</span>(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 /* … */
   /* function exit code */
@@ -561,7 +561,7 @@ static PyObject *__pyx_pf_2AI_11load_module_run(PyObject *__pyx_self, PyObject *
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_3);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("AI.load_module.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("AI.main.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_v_fn);
@@ -575,7 +575,7 @@ static PyObject *__pyx_pf_2AI_11load_module_run(PyObject *__pyx_self, PyObject *
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple_);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple_);
 /* … */
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_2AI_11load_module_1run, 0, __pyx_n_s_load_module_locals_run, ((PyObject*)__pyx_cur_scope), __pyx_n_s_AI, __pyx_d, ((PyObject *)__pyx_codeobj__2));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_2AI_4main_1run, 0, __pyx_n_s_main_locals_run, ((PyObject*)__pyx_cur_scope), __pyx_n_s_AI, __pyx_d, ((PyObject *)__pyx_codeobj__2));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_1);
   __pyx_cur_scope-&gt;__pyx_v_run = __pyx_t_1;
@@ -1225,15 +1225,15 @@ static PyObject *__pyx_pf_2AI_11load_module_run(PyObject *__pyx_self, PyObject *
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_2AI_11load_module_2lambda(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_2AI_4main_2lambda(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_2AI_11load_module_2lambda = {"lambda", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_2AI_11load_module_2lambda, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_2AI_11load_module_2lambda(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_2AI_4main_2lambda = {"lambda", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_2AI_4main_2lambda, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_2AI_4main_2lambda(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -1318,7 +1318,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       <span class='pyx_c_api'>__Pyx_Arg_XDECREF_FASTCALL</span>(values[__pyx_temp]);
     }
   }
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("AI.load_module.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("AI.main.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -1339,14 +1339,14 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 
 static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__pyx_v_ai_name, PyObject *__pyx_v_f_name) {
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *__pyx_cur_scope;
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *__pyx_outer_scope;
+  struct __pyx_obj_2AI___pyx_scope_struct__main *__pyx_cur_scope;
+  struct __pyx_obj_2AI___pyx_scope_struct__main *__pyx_outer_scope;
   PyObject *__pyx_r = NULL;
-  __pyx_outer_scope = (struct __pyx_obj_2AI___pyx_scope_struct__load_module *) <span class='pyx_c_api'>__Pyx_CyFunction_GetClosure</span>(__pyx_self);
+  __pyx_outer_scope = (struct __pyx_obj_2AI___pyx_scope_struct__main *) <span class='pyx_c_api'>__Pyx_CyFunction_GetClosure</span>(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
   if (unlikely(!__pyx_cur_scope-&gt;__pyx_v_run)) { <span class='pyx_c_api'>__Pyx_RaiseClosureNameError</span>("run"); <span class='error_goto'>__PYX_ERR(0, 50, __pyx_L1_error)</span> }
-  __pyx_t_1 = __pyx_pf_2AI_11load_module_run(__pyx_cur_scope-&gt;__pyx_v_run, __pyx_v_ai_name, __pyx_v_f_name);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)</span>
+  __pyx_t_1 = __pyx_pf_2AI_4main_run(__pyx_cur_scope-&gt;__pyx_v_run, __pyx_v_ai_name, __pyx_v_f_name);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1355,7 +1355,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
   /* function exit code */
   __pyx_L1_error:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("AI.load_module.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("AI.main.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
@@ -1363,7 +1363,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
   return __pyx_r;
 }
 /* … */
-      __pyx_t_5 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_2AI_11load_module_2lambda, 0, __pyx_n_s_load_module_locals_lambda, ((PyObject*)__pyx_cur_scope), __pyx_n_s_AI, __pyx_d, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)</span>
+      __pyx_t_5 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_2AI_4main_2lambda, 0, __pyx_n_s_main_locals_lambda, ((PyObject*)__pyx_cur_scope), __pyx_n_s_AI, __pyx_d, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)</span>
       <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
       if (!<span class='pyx_c_api'>__Pyx_CyFunction_InitDefaults</span>(__pyx_t_5, sizeof(__pyx_defaults), 2)) <span class='error_goto'>__PYX_ERR(0, 50, __pyx_L1_error)</span>
       <span class='pyx_macro_api'>__Pyx_INCREF</span>(__pyx_v_ai_name);

@@ -9,7 +9,7 @@ import tkinter as tk
 import os
 
 
-def load_module():
+def main():
     def run(a, b):
         fn = ais[a]["function"][b]
         # スレッドの生成とスタート

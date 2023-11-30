@@ -399,24 +399,24 @@ body.cython { font-family: courier; font-size: 12; }
 <pre class="cython line score-0">&#xA0;<span class="">015</span>: )</pre>
 <pre class="cython line score-0">&#xA0;<span class="">016</span>: </pre>
 <pre class="cython line score-0">&#xA0;<span class="">017</span>: </pre>
-<pre class="cython line score-26" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">018</span>: def load_module():</pre>
+<pre class="cython line score-26" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">018</span>: def main():</pre>
 <pre class='cython code score-26 '>/* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_1load_module(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_1load_module = {"load_module", (PyCFunction)__pyx_pw_9Remodeler_1load_module, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_1load_module(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_1main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_1main = {"main", (PyCFunction)__pyx_pw_9Remodeler_1main, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_1main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
-  <span class='refnanny'>__Pyx_RefNannySetupContext</span>("load_module (wrapper)", 0);
+  <span class='refnanny'>__Pyx_RefNannySetupContext</span>("main (wrapper)", 0);
   __pyx_kwvalues = <span class='pyx_c_api'>__Pyx_KwValues_VARARGS</span>(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_load_module(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_main(__pyx_self);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 /* … */
-static PyObject *__pyx_pf_9Remodeler_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_main(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_v_on_menu_rename_track = 0;
   PyObject *__pyx_v_on_menu_rename_cmcm = 0;
   PyObject *__pyx_v_on_menu_add_message = 0;
@@ -431,7 +431,7 @@ static PyObject *__pyx_pf_9Remodeler_load_module(CYTHON_UNUSED PyObject *__pyx_s
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_3);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_v_on_menu_rename_track);
@@ -448,28 +448,28 @@ static PyObject *__pyx_pf_9Remodeler_load_module(CYTHON_UNUSED PyObject *__pyx_s
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__24);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__24);
 /* … */
-  __pyx_t_3 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_1load_module, 0, __pyx_n_s_load_module, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__25));<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)</span>
+  __pyx_t_3 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_1main, 0, __pyx_n_s_main_2, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__25));<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
-  if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_d, __pyx_n_s_load_module, __pyx_t_3) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 18, __pyx_L1_error)</span>
+  if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_d, __pyx_n_s_main_2, __pyx_t_3) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 18, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_3); __pyx_t_3 = 0;
 </pre><pre class="cython line score-22" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">019</span>:     def on_menu_rename_track():</pre>
 <pre class='cython code score-22 '>/* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_1on_menu_rename_track(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_1on_menu_rename_track = {"on_menu_rename_track", (PyCFunction)__pyx_pw_9Remodeler_11load_module_1on_menu_rename_track, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_1on_menu_rename_track(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_4main_1on_menu_rename_track(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_4main_1on_menu_rename_track = {"on_menu_rename_track", (PyCFunction)__pyx_pw_9Remodeler_4main_1on_menu_rename_track, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_1on_menu_rename_track(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("on_menu_rename_track (wrapper)", 0);
   __pyx_kwvalues = <span class='pyx_c_api'>__Pyx_KwValues_VARARGS</span>(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_on_menu_rename_track(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_4main_on_menu_rename_track(__pyx_self);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9Remodeler_11load_module_on_menu_rename_track(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_4main_on_menu_rename_track(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_v_com_files = NULL;
   PyObject *__pyx_v_com_select = NULL;
   PyObject *__pyx_v_new_name = NULL;
@@ -484,7 +484,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_on_menu_rename_track(CYTHON_U
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_5);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_menu_rename_track", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_menu_rename_track", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_v_com_files);
@@ -501,7 +501,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_on_menu_rename_track(CYTHON_U
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__12);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__12);
 /* … */
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_11load_module_1on_menu_rename_track, 0, __pyx_n_s_load_module_locals_on_menu_renam, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__13));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_4main_1on_menu_rename_track, 0, __pyx_n_s_main_locals_on_menu_rename_track, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__13));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_v_on_menu_rename_track = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -652,22 +652,22 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_on_menu_rename_track(CYTHON_U
 </pre><pre class="cython line score-0">&#xA0;<span class="">040</span>: </pre>
 <pre class="cython line score-21" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">041</span>:     def on_menu_rename_cmcm():</pre>
 <pre class='cython code score-21 '>/* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_3on_menu_rename_cmcm(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_3on_menu_rename_cmcm = {"on_menu_rename_cmcm", (PyCFunction)__pyx_pw_9Remodeler_11load_module_3on_menu_rename_cmcm, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_3on_menu_rename_cmcm(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_4main_3on_menu_rename_cmcm(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_4main_3on_menu_rename_cmcm = {"on_menu_rename_cmcm", (PyCFunction)__pyx_pw_9Remodeler_4main_3on_menu_rename_cmcm, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_3on_menu_rename_cmcm(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("on_menu_rename_cmcm (wrapper)", 0);
   __pyx_kwvalues = <span class='pyx_c_api'>__Pyx_KwValues_VARARGS</span>(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_2on_menu_rename_cmcm(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_4main_2on_menu_rename_cmcm(__pyx_self);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9Remodeler_11load_module_2on_menu_rename_cmcm(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_4main_2on_menu_rename_cmcm(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_v_com_files = NULL;
   PyObject *__pyx_v_com_select = NULL;
   PyObject *__pyx_v_new_name = NULL;
@@ -681,7 +681,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_2on_menu_rename_cmcm(CYTHON_U
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_5);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_menu_rename_cmcm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_menu_rename_cmcm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_v_com_files);
@@ -697,7 +697,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_2on_menu_rename_cmcm(CYTHON_U
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__14);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__14);
 /* … */
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_11load_module_3on_menu_rename_cmcm, 0, __pyx_n_s_load_module_locals_on_menu_renam_2, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__15));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_4main_3on_menu_rename_cmcm, 0, __pyx_n_s_main_locals_on_menu_rename_cmcm, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__15));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_v_on_menu_rename_cmcm = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -829,22 +829,22 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_2on_menu_rename_cmcm(CYTHON_U
 </pre><pre class="cython line score-0">&#xA0;<span class="">060</span>: </pre>
 <pre class="cython line score-29" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">061</span>:     def on_menu_add_message():</pre>
 <pre class='cython code score-29 '>/* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_5on_menu_add_message(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_5on_menu_add_message = {"on_menu_add_message", (PyCFunction)__pyx_pw_9Remodeler_11load_module_5on_menu_add_message, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_5on_menu_add_message(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_4main_5on_menu_add_message(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_4main_5on_menu_add_message = {"on_menu_add_message", (PyCFunction)__pyx_pw_9Remodeler_4main_5on_menu_add_message, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_5on_menu_add_message(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("on_menu_add_message (wrapper)", 0);
   __pyx_kwvalues = <span class='pyx_c_api'>__Pyx_KwValues_VARARGS</span>(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_4on_menu_add_message(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_4main_4on_menu_add_message(__pyx_self);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9Remodeler_11load_module_4on_menu_add_message(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_4main_4on_menu_add_message(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_v_com_files = NULL;
   PyObject *__pyx_v_com_select = NULL;
   PyObject *__pyx_v_midi_player = NULL;
@@ -866,7 +866,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_4on_menu_add_message(CYTHON_U
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_12);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_13);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_14);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_menu_add_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_menu_add_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_v_com_files);
@@ -885,7 +885,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_4on_menu_add_message(CYTHON_U
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__16);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__16);
 /* … */
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_11load_module_5on_menu_add_message, 0, __pyx_n_s_load_module_locals_on_menu_add_m, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__17));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_4main_5on_menu_add_message, 0, __pyx_n_s_main_locals_on_menu_add_message, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__17));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_v_on_menu_add_message = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1066,7 +1066,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_4on_menu_add_message(CYTHON_U
       __pyx_t_1 = 0;
 </pre><pre class="cython line score-4" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">077</span>:         except:</pre>
 <pre class='cython code score-4 '>    /*except:*/ {
-      <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_menu_add_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_menu_add_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
       if (<span class='pyx_c_api'>__Pyx_GetException</span>(&amp;__pyx_t_1, &amp;__pyx_t_8, &amp;__pyx_t_2) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 77, __pyx_L7_except_error)</span>
       <span class='refnanny'>__Pyx_XGOTREF</span>(__pyx_t_1);
       <span class='refnanny'>__Pyx_XGOTREF</span>(__pyx_t_8);
@@ -1195,15 +1195,15 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_4on_menu_add_message(CYTHON_U
 </pre><pre class="cython line score-0">&#xA0;<span class="">087</span>: </pre>
 <pre class="cython line score-60" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">088</span>:     def on_select_message(event):</pre>
 <pre class='cython code score-60 '>/* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_7on_select_message(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9Remodeler_4main_7on_select_message(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_7on_select_message = {"on_select_message", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_11load_module_7on_select_message, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_7on_select_message(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_9Remodeler_4main_7on_select_message = {"on_select_message", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_4main_7on_select_message, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_7on_select_message(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -1270,11 +1270,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       <span class='pyx_c_api'>__Pyx_Arg_XDECREF_FASTCALL</span>(values[__pyx_temp]);
     }
   }
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_select_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_select_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_6on_select_message(__pyx_self, __pyx_v_event);
+  __pyx_r = __pyx_pf_9Remodeler_4main_6on_select_message(__pyx_self, __pyx_v_event);
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
@@ -1290,7 +1290,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 /* … */
-static PyObject *__pyx_pf_9Remodeler_11load_module_6on_select_message(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_event) {
+static PyObject *__pyx_pf_9Remodeler_4main_6on_select_message(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_event) {
   struct __pyx_obj_9Remodeler___pyx_scope_struct__on_select_message *__pyx_cur_scope;
   PyObject *__pyx_v_on_click_delete = 0;
   PyObject *__pyx_v_com_files = NULL;
@@ -1319,7 +1319,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_6on_select_message(CYTHON_UNU
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_7);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_8);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_10);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_select_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_select_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_v_on_click_delete);
@@ -1339,29 +1339,29 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_6on_select_message(CYTHON_UNU
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__18);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__18);
 /* … */
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_11load_module_7on_select_message, 0, __pyx_n_s_load_module_locals_on_select_mes_6, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__19));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_4main_7on_select_message, 0, __pyx_n_s_main_locals_on_select_message, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__19));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_v_on_select_message = __pyx_t_1;
   __pyx_t_1 = 0;
   __pyx_codeobj__19 = (PyObject*)<span class='pyx_c_api'>__Pyx_PyCode_New</span>(1, 0, 0, 18, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__18, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Remodeler_pyx, __pyx_n_s_on_select_message, 88, __pyx_empty_bytes);<span class='error_goto'> if (unlikely(!__pyx_codeobj__19)) __PYX_ERR(0, 88, __pyx_L1_error)</span>
 </pre><pre class="cython line score-22" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">089</span>:         def on_click_delete():</pre>
 <pre class='cython code score-22 '>/* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_1on_click_delete(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_17on_select_message_1on_click_delete = {"on_click_delete", (PyCFunction)__pyx_pw_9Remodeler_11load_module_17on_select_message_1on_click_delete, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_1on_click_delete(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_1on_click_delete(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_4main_17on_select_message_1on_click_delete = {"on_click_delete", (PyCFunction)__pyx_pw_9Remodeler_4main_17on_select_message_1on_click_delete, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_1on_click_delete(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("on_click_delete (wrapper)", 0);
   __pyx_kwvalues = <span class='pyx_c_api'>__Pyx_KwValues_VARARGS</span>(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_17on_select_message_on_click_delete(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_4main_17on_select_message_on_click_delete(__pyx_self);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 /* … */
-static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_on_click_delete(PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_4main_17on_select_message_on_click_delete(PyObject *__pyx_self) {
   struct __pyx_obj_9Remodeler___pyx_scope_struct__on_select_message *__pyx_cur_scope;
   struct __pyx_obj_9Remodeler___pyx_scope_struct__on_select_message *__pyx_outer_scope;
   PyObject *__pyx_v_messages = NULL;
@@ -1378,7 +1378,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_on_click_
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_3);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_4);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_5);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_select_message.on_click_delete", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_select_message.on_click_delete", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_v_messages);
@@ -1392,7 +1392,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_on_click_
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__4);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__4);
 /* … */
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_11load_module_17on_select_message_1on_click_delete, 0, __pyx_n_s_load_module_locals_on_select_mes_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__5));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_4main_17on_select_message_1on_click_delete, 0, __pyx_n_s_main_locals_on_select_message_lo_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__5));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_v_on_click_delete = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -1647,15 +1647,15 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_on_click_
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
 </pre><pre class="cython line score-54" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">102</span>:                 other + messages, key=lambda x: x["tick"]</pre>
 <pre class='cython code score-54 '>/* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_15on_click_delete_lambda(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_15on_click_delete_lambda(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_17on_select_message_15on_click_delete_lambda = {"lambda", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_11load_module_17on_select_message_15on_click_delete_lambda, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_15on_click_delete_lambda(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_9Remodeler_4main_17on_select_message_15on_click_delete_lambda = {"lambda", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_4main_17on_select_message_15on_click_delete_lambda, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_15on_click_delete_lambda(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -1722,7 +1722,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       <span class='pyx_c_api'>__Pyx_Arg_XDECREF_FASTCALL</span>(values[__pyx_temp]);
     }
   }
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_select_message.on_click_delete.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_select_message.on_click_delete.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -1754,7 +1754,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self,
   /* function exit code */
   __pyx_L1_error:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_select_message.on_click_delete.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_select_message.on_click_delete.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
@@ -1767,7 +1767,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self,
 /* … */
   __pyx_t_3 = <span class='pyx_c_api'>__Pyx_PyDict_NewPresized</span>(1);<span class='error_goto'> if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_3);
-  __pyx_t_5 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_11load_module_17on_select_message_15on_click_delete_lambda, 0, __pyx_n_s_load_module_locals_on_select_mes, NULL, __pyx_n_s_Remodeler, __pyx_d, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 102, __pyx_L1_error)</span>
+  __pyx_t_5 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_4main_17on_select_message_15on_click_delete_lambda, 0, __pyx_n_s_main_locals_on_select_message_lo, NULL, __pyx_n_s_Remodeler, __pyx_d, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 102, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
   if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_t_3, __pyx_n_s_key, __pyx_t_5) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 102, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
@@ -1831,22 +1831,22 @@ static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self,
 </pre><pre class="cython line score-0">&#xA0;<span class="">107</span>: </pre>
 <pre class="cython line score-24" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">108</span>:         def on_click_ok():</pre>
 <pre class='cython code score-24 '>/* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_3on_click_ok(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_17on_select_message_3on_click_ok = {"on_click_ok", (PyCFunction)__pyx_pw_9Remodeler_11load_module_17on_select_message_3on_click_ok, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_3on_click_ok(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_3on_click_ok(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_4main_17on_select_message_3on_click_ok = {"on_click_ok", (PyCFunction)__pyx_pw_9Remodeler_4main_17on_select_message_3on_click_ok, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_3on_click_ok(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("on_click_ok (wrapper)", 0);
   __pyx_kwvalues = <span class='pyx_c_api'>__Pyx_KwValues_VARARGS</span>(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click_ok(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_4main_17on_select_message_2on_click_ok(__pyx_self);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 /* … */
-static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click_ok(PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_4main_17on_select_message_2on_click_ok(PyObject *__pyx_self) {
   struct __pyx_obj_9Remodeler___pyx_scope_struct__on_select_message *__pyx_cur_scope;
   struct __pyx_obj_9Remodeler___pyx_scope_struct__on_select_message *__pyx_outer_scope;
   PyObject *__pyx_v_naiyou = NULL;
@@ -1865,7 +1865,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_4);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_6);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_7);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_select_message.on_click_ok", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_select_message.on_click_ok", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_v_naiyou);
@@ -1881,7 +1881,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__6);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__6);
 /* … */
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_11load_module_17on_select_message_3on_click_ok, 0, __pyx_n_s_load_module_locals_on_select_mes_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__7));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_4main_17on_select_message_3on_click_ok, 0, __pyx_n_s_main_locals_on_select_message_lo_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__7));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_t_1);
   __pyx_cur_scope-&gt;__pyx_v_on_click_ok = __pyx_t_1;
@@ -2267,15 +2267,15 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_6); __pyx_t_6 = 0;
 </pre><pre class="cython line score-54" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">131</span>:                 other + messages, key=lambda x: x["tick"]</pre>
 <pre class='cython code score-54 '>/* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_11on_click_ok_lambda1(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_11on_click_ok_lambda1(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_17on_select_message_11on_click_ok_lambda1 = {"lambda1", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_11load_module_17on_select_message_11on_click_ok_lambda1, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_11on_click_ok_lambda1(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_9Remodeler_4main_17on_select_message_11on_click_ok_lambda1 = {"lambda1", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_4main_17on_select_message_11on_click_ok_lambda1, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_11on_click_ok_lambda1(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -2342,7 +2342,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       <span class='pyx_c_api'>__Pyx_Arg_XDECREF_FASTCALL</span>(values[__pyx_temp]);
     }
   }
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_select_message.on_click_ok.lambda1", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_select_message.on_click_ok.lambda1", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -2374,7 +2374,7 @@ static PyObject *__pyx_lambda_funcdef_lambda1(CYTHON_UNUSED PyObject *__pyx_self
   /* function exit code */
   __pyx_L1_error:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_select_message.on_click_ok.lambda1", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_select_message.on_click_ok.lambda1", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
@@ -2387,7 +2387,7 @@ static PyObject *__pyx_lambda_funcdef_lambda1(CYTHON_UNUSED PyObject *__pyx_self
 /* … */
   __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyDict_NewPresized</span>(1);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-  __pyx_t_6 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_11load_module_17on_select_message_11on_click_ok_lambda1, 0, __pyx_n_s_load_module_locals_on_select_mes_2, NULL, __pyx_n_s_Remodeler, __pyx_d, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 131, __pyx_L1_error)</span>
+  __pyx_t_6 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_4main_17on_select_message_11on_click_ok_lambda1, 0, __pyx_n_s_main_locals_on_select_message_lo_2, NULL, __pyx_n_s_Remodeler, __pyx_d, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 131, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_6);
   if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_t_1, __pyx_n_s_key, __pyx_t_6) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 131, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_6); __pyx_t_6 = 0;
@@ -3053,15 +3053,15 @@ static PyObject *__pyx_lambda_funcdef_lambda1(CYTHON_UNUSED PyObject *__pyx_self
 </pre><pre class="cython line score-0">&#xA0;<span class="">177</span>: </pre>
 <pre class="cython line score-61" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">178</span>:         window_ask.bind("&lt;Key-Return&gt;", lambda event: on_click_ok())</pre>
 <pre class='cython code score-61 '>/* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_4lambda2(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_4lambda2(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_17on_select_message_4lambda2 = {"lambda2", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_11load_module_17on_select_message_4lambda2, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_4lambda2(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_9Remodeler_4main_17on_select_message_4lambda2 = {"lambda2", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_4main_17on_select_message_4lambda2, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_4lambda2(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3128,7 +3128,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       <span class='pyx_c_api'>__Pyx_Arg_XDECREF_FASTCALL</span>(values[__pyx_temp]);
     }
   }
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_select_message.lambda2", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_select_message.lambda2", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -3156,7 +3156,7 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, CYTHON_UNUSE
   __pyx_cur_scope = __pyx_outer_scope;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_r);
   if (unlikely(!__pyx_cur_scope-&gt;__pyx_v_on_click_ok)) { <span class='pyx_c_api'>__Pyx_RaiseClosureNameError</span>("on_click_ok"); <span class='error_goto'>__PYX_ERR(0, 178, __pyx_L1_error)</span> }
-  __pyx_t_1 = __pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click_ok(__pyx_cur_scope-&gt;__pyx_v_on_click_ok);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 178, __pyx_L1_error)</span>
+  __pyx_t_1 = __pyx_pf_9Remodeler_4main_17on_select_message_2on_click_ok(__pyx_cur_scope-&gt;__pyx_v_on_click_ok);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 178, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3165,7 +3165,7 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, CYTHON_UNUSE
   /* function exit code */
   __pyx_L1_error:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.on_select_message.lambda2", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.on_select_message.lambda2", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
@@ -3175,7 +3175,7 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, CYTHON_UNUSE
 /* … */
   __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyObject_GetAttrStr</span>(__pyx_cur_scope-&gt;__pyx_v_window_ask, __pyx_n_s_bind);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 178, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_11load_module_17on_select_message_4lambda2, 0, __pyx_n_s_load_module_locals_on_select_mes_5, ((PyObject*)__pyx_cur_scope), __pyx_n_s_Remodeler, __pyx_d, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)</span>
+  __pyx_t_2 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_4main_17on_select_message_4lambda2, 0, __pyx_n_s_main_locals_on_select_message_lo_5, ((PyObject*)__pyx_cur_scope), __pyx_n_s_Remodeler, __pyx_d, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_2);
   __pyx_t_5 = NULL;
   __pyx_t_6 = 0;
@@ -3204,22 +3204,22 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, CYTHON_UNUSE
 </pre><pre class="cython line score-0">&#xA0;<span class="">179</span>: </pre>
 <pre class="cython line score-25" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">180</span>:     def menu_resolve_overlapping():</pre>
 <pre class='cython code score-25 '>/* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_9menu_resolve_overlapping(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_9menu_resolve_overlapping = {"menu_resolve_overlapping", (PyCFunction)__pyx_pw_9Remodeler_11load_module_9menu_resolve_overlapping, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_9menu_resolve_overlapping(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_4main_9menu_resolve_overlapping(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_4main_9menu_resolve_overlapping = {"menu_resolve_overlapping", (PyCFunction)__pyx_pw_9Remodeler_4main_9menu_resolve_overlapping, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_9menu_resolve_overlapping(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   <span class='refnanny'>__Pyx_RefNannyDeclarations</span>
   <span class='refnanny'>__Pyx_RefNannySetupContext</span>("menu_resolve_overlapping (wrapper)", 0);
   __pyx_kwvalues = <span class='pyx_c_api'>__Pyx_KwValues_VARARGS</span>(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_8menu_resolve_overlapping(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_4main_8menu_resolve_overlapping(__pyx_self);
 
   /* function exit code */
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return __pyx_r;
 }
 /* … */
-static PyObject *__pyx_pf_9Remodeler_11load_module_8menu_resolve_overlapping(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_4main_8menu_resolve_overlapping(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_v_com_files = NULL;
   PyObject *__pyx_v_com_select = NULL;
   PyObject *__pyx_v_com = NULL;
@@ -3237,7 +3237,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_8menu_resolve_overlapping(CYT
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_2);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_5);
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_7);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.menu_resolve_overlapping", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.menu_resolve_overlapping", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_v_com_files);
@@ -3256,7 +3256,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_8menu_resolve_overlapping(CYT
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_tuple__20);
   <span class='refnanny'>__Pyx_GIVEREF</span>(__pyx_tuple__20);
 /* … */
-  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_11load_module_9menu_resolve_overlapping, 0, __pyx_n_s_load_module_locals_menu_resolve_2, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__21));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)</span>
+  __pyx_t_1 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_4main_9menu_resolve_overlapping, 0, __pyx_n_s_main_locals_menu_resolve_overlap_2, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__21));<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
   __pyx_v_menu_resolve_overlapping = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3430,15 +3430,15 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_8menu_resolve_overlapping(CYT
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;
 </pre><pre class="cython line score-54" onclick="(function(s){s.display=s.display==='block'?'none':'block'})(this.nextElementSibling.style)">+<span class="">198</span>:             events + neo_notes, key=lambda m: m["tick"]</pre>
 <pre class='cython code score-54 '>/* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_24menu_resolve_overlapping_lambda3(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9Remodeler_4main_24menu_resolve_overlapping_lambda3(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_24menu_resolve_overlapping_lambda3 = {"lambda3", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_11load_module_24menu_resolve_overlapping_lambda3, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_24menu_resolve_overlapping_lambda3(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_9Remodeler_4main_24menu_resolve_overlapping_lambda3 = {"lambda3", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_4main_24menu_resolve_overlapping_lambda3, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_24menu_resolve_overlapping_lambda3(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3505,7 +3505,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       <span class='pyx_c_api'>__Pyx_Arg_XDECREF_FASTCALL</span>(values[__pyx_temp]);
     }
   }
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.menu_resolve_overlapping.lambda3", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.menu_resolve_overlapping.lambda3", __pyx_clineno, __pyx_lineno, __pyx_filename);
   <span class='refnanny'>__Pyx_RefNannyFinishContext</span>();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -3537,7 +3537,7 @@ static PyObject *__pyx_lambda_funcdef_lambda3(CYTHON_UNUSED PyObject *__pyx_self
   /* function exit code */
   __pyx_L1_error:;
   <span class='pyx_macro_api'>__Pyx_XDECREF</span>(__pyx_t_1);
-  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.load_module.menu_resolve_overlapping.lambda3", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  <span class='pyx_c_api'>__Pyx_AddTraceback</span>("Remodeler.main.menu_resolve_overlapping.lambda3", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   <span class='refnanny'>__Pyx_XGIVEREF</span>(__pyx_r);
@@ -3550,7 +3550,7 @@ static PyObject *__pyx_lambda_funcdef_lambda3(CYTHON_UNUSED PyObject *__pyx_self
 /* … */
   __pyx_t_1 = <span class='pyx_c_api'>__Pyx_PyDict_NewPresized</span>(1);<span class='error_goto'> if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_1);
-  __pyx_t_5 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_11load_module_24menu_resolve_overlapping_lambda3, 0, __pyx_n_s_load_module_locals_menu_resolve, NULL, __pyx_n_s_Remodeler, __pyx_d, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 198, __pyx_L1_error)</span>
+  __pyx_t_5 = <span class='pyx_c_api'>__Pyx_CyFunction_New</span>(&amp;__pyx_mdef_9Remodeler_4main_24menu_resolve_overlapping_lambda3, 0, __pyx_n_s_main_locals_menu_resolve_overlap, NULL, __pyx_n_s_Remodeler, __pyx_d, NULL);<span class='error_goto'> if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 198, __pyx_L1_error)</span>
   <span class='refnanny'>__Pyx_GOTREF</span>(__pyx_t_5);
   if (<span class='py_c_api'>PyDict_SetItem</span>(__pyx_t_1, __pyx_n_s_key, __pyx_t_5) &lt; 0) <span class='error_goto'>__PYX_ERR(0, 198, __pyx_L1_error)</span>
   <span class='pyx_macro_api'>__Pyx_DECREF</span>(__pyx_t_5); __pyx_t_5 = 0;

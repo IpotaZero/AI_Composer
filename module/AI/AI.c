@@ -5,7 +5,7 @@
     "distutils": {
         "name": "AI",
         "sources": [
-            "C:\\Ipota\\programs\\ongaku\\module\\AI\\AI.pyx"
+            "C:\\Ipota\\programs\\ongaku\\b0\\module\\AI\\AI.pyx"
         ]
     },
     "module_name": "AI"
@@ -1474,7 +1474,7 @@ static const char *__pyx_f[] = {
 /* #### Code section: type_declarations ### */
 
 /*--- Type declarations ---*/
-struct __pyx_obj_2AI___pyx_scope_struct__load_module;
+struct __pyx_obj_2AI___pyx_scope_struct__main;
 struct __pyx_defaults;
 typedef struct __pyx_defaults __pyx_defaults;
 struct __pyx_defaults {
@@ -1485,11 +1485,11 @@ struct __pyx_defaults {
 /* "AI.pyx":12
  * 
  * 
- * def load_module():             # <<<<<<<<<<<<<<
+ * def main():             # <<<<<<<<<<<<<<
  *     def run(a, b):
  *         fn = ais[a]["function"][b]
  */
-struct __pyx_obj_2AI___pyx_scope_struct__load_module {
+struct __pyx_obj_2AI___pyx_scope_struct__main {
   PyObject_HEAD
   PyObject *__pyx_v_ais;
   PyObject *__pyx_v_run;
@@ -2243,6 +2243,7 @@ static const char __pyx_k_daemon[] = "daemon";
 static const char __pyx_k_enable[] = "enable";
 static const char __pyx_k_f_name[] = "f_name";
 static const char __pyx_k_import[] = "__import__";
+static const char __pyx_k_main_2[] = "main";
 static const char __pyx_k_module[] = "module";
 static const char __pyx_k_name_2[] = "name";
 static const char __pyx_k_target[] = "target";
@@ -2269,17 +2270,17 @@ static const char __pyx_k_is_coroutine[] = "_is_coroutine";
 static const char __pyx_k_thread_learn[] = "thread_learn";
 static const char __pyx_k_class_getitem[] = "__class_getitem__";
 static const char __pyx_k_import_module[] = "import_module";
+static const char __pyx_k_main_locals_run[] = "main.<locals>.run";
 static const char __pyx_k_asyncio_coroutines[] = "asyncio.coroutines";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_get_file_extension[] = "get_file_extension";
-static const char __pyx_k_load_module_locals_run[] = "load_module.<locals>.run";
-static const char __pyx_k_load_module_locals_lambda[] = "load_module.<locals>.<lambda>";
+static const char __pyx_k_main_locals_lambda[] = "main.<locals>.<lambda>";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_2AI_11load_module_run(PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b); /* proto */
+static PyObject *__pyx_pf_2AI_4main_run(PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b); /* proto */
 static PyObject *__pyx_pf_2AI_2__defaults__(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__pyx_v_ai_name, PyObject *__pyx_v_f_name); /* proto */
-static PyObject *__pyx_pf_2AI_load_module(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_tp_new_2AI___pyx_scope_struct__load_module(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_pf_2AI_main(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_tp_new_2AI___pyx_scope_struct__main(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
 typedef struct {
@@ -2308,9 +2309,9 @@ typedef struct {
   PyTypeObject *__pyx_CoroutineType;
   #endif
   #if CYTHON_USE_MODULE_STATE
-  PyObject *__pyx_type_2AI___pyx_scope_struct__load_module;
+  PyObject *__pyx_type_2AI___pyx_scope_struct__main;
   #endif
-  PyTypeObject *__pyx_ptype_2AI___pyx_scope_struct__load_module;
+  PyTypeObject *__pyx_ptype_2AI___pyx_scope_struct__main;
   PyObject *__pyx_n_s_AI;
   PyObject *__pyx_n_u_AI;
   PyObject *__pyx_kp_s_AI_pyx;
@@ -2354,9 +2355,10 @@ typedef struct {
   PyObject *__pyx_kp_u_isenabled;
   PyObject *__pyx_n_s_label;
   PyObject *__pyx_n_s_load_module;
-  PyObject *__pyx_n_s_load_module_locals_lambda;
-  PyObject *__pyx_n_s_load_module_locals_run;
   PyObject *__pyx_n_s_main;
+  PyObject *__pyx_n_s_main_2;
+  PyObject *__pyx_n_s_main_locals_lambda;
+  PyObject *__pyx_n_s_main_locals_run;
   PyObject *__pyx_n_s_menu;
   PyObject *__pyx_n_u_menu;
   PyObject *__pyx_n_s_menu_ai;
@@ -2431,8 +2433,8 @@ static int __pyx_m_clear(PyObject *m) {
   #ifdef __Pyx_FusedFunction_USED
   Py_CLEAR(clear_module_state->__pyx_FusedFunctionType);
   #endif
-  Py_CLEAR(clear_module_state->__pyx_ptype_2AI___pyx_scope_struct__load_module);
-  Py_CLEAR(clear_module_state->__pyx_type_2AI___pyx_scope_struct__load_module);
+  Py_CLEAR(clear_module_state->__pyx_ptype_2AI___pyx_scope_struct__main);
+  Py_CLEAR(clear_module_state->__pyx_type_2AI___pyx_scope_struct__main);
   Py_CLEAR(clear_module_state->__pyx_n_s_AI);
   Py_CLEAR(clear_module_state->__pyx_n_u_AI);
   Py_CLEAR(clear_module_state->__pyx_kp_s_AI_pyx);
@@ -2476,9 +2478,10 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_kp_u_isenabled);
   Py_CLEAR(clear_module_state->__pyx_n_s_label);
   Py_CLEAR(clear_module_state->__pyx_n_s_load_module);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_lambda);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_run);
   Py_CLEAR(clear_module_state->__pyx_n_s_main);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_2);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_lambda);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_run);
   Py_CLEAR(clear_module_state->__pyx_n_s_menu);
   Py_CLEAR(clear_module_state->__pyx_n_u_menu);
   Py_CLEAR(clear_module_state->__pyx_n_s_menu_ai);
@@ -2531,8 +2534,8 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   #ifdef __Pyx_FusedFunction_USED
   Py_VISIT(traverse_module_state->__pyx_FusedFunctionType);
   #endif
-  Py_VISIT(traverse_module_state->__pyx_ptype_2AI___pyx_scope_struct__load_module);
-  Py_VISIT(traverse_module_state->__pyx_type_2AI___pyx_scope_struct__load_module);
+  Py_VISIT(traverse_module_state->__pyx_ptype_2AI___pyx_scope_struct__main);
+  Py_VISIT(traverse_module_state->__pyx_type_2AI___pyx_scope_struct__main);
   Py_VISIT(traverse_module_state->__pyx_n_s_AI);
   Py_VISIT(traverse_module_state->__pyx_n_u_AI);
   Py_VISIT(traverse_module_state->__pyx_kp_s_AI_pyx);
@@ -2576,9 +2579,10 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_kp_u_isenabled);
   Py_VISIT(traverse_module_state->__pyx_n_s_label);
   Py_VISIT(traverse_module_state->__pyx_n_s_load_module);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_lambda);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_run);
   Py_VISIT(traverse_module_state->__pyx_n_s_main);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_2);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_lambda);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_run);
   Py_VISIT(traverse_module_state->__pyx_n_s_menu);
   Py_VISIT(traverse_module_state->__pyx_n_u_menu);
   Py_VISIT(traverse_module_state->__pyx_n_s_menu_ai);
@@ -2640,9 +2644,9 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_CoroutineType __pyx_mstate_global->__pyx_CoroutineType
 #endif
 #if CYTHON_USE_MODULE_STATE
-#define __pyx_type_2AI___pyx_scope_struct__load_module __pyx_mstate_global->__pyx_type_2AI___pyx_scope_struct__load_module
+#define __pyx_type_2AI___pyx_scope_struct__main __pyx_mstate_global->__pyx_type_2AI___pyx_scope_struct__main
 #endif
-#define __pyx_ptype_2AI___pyx_scope_struct__load_module __pyx_mstate_global->__pyx_ptype_2AI___pyx_scope_struct__load_module
+#define __pyx_ptype_2AI___pyx_scope_struct__main __pyx_mstate_global->__pyx_ptype_2AI___pyx_scope_struct__main
 #define __pyx_n_s_AI __pyx_mstate_global->__pyx_n_s_AI
 #define __pyx_n_u_AI __pyx_mstate_global->__pyx_n_u_AI
 #define __pyx_kp_s_AI_pyx __pyx_mstate_global->__pyx_kp_s_AI_pyx
@@ -2686,9 +2690,10 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_kp_u_isenabled __pyx_mstate_global->__pyx_kp_u_isenabled
 #define __pyx_n_s_label __pyx_mstate_global->__pyx_n_s_label
 #define __pyx_n_s_load_module __pyx_mstate_global->__pyx_n_s_load_module
-#define __pyx_n_s_load_module_locals_lambda __pyx_mstate_global->__pyx_n_s_load_module_locals_lambda
-#define __pyx_n_s_load_module_locals_run __pyx_mstate_global->__pyx_n_s_load_module_locals_run
 #define __pyx_n_s_main __pyx_mstate_global->__pyx_n_s_main
+#define __pyx_n_s_main_2 __pyx_mstate_global->__pyx_n_s_main_2
+#define __pyx_n_s_main_locals_lambda __pyx_mstate_global->__pyx_n_s_main_locals_lambda
+#define __pyx_n_s_main_locals_run __pyx_mstate_global->__pyx_n_s_main_locals_run
 #define __pyx_n_s_menu __pyx_mstate_global->__pyx_n_s_menu
 #define __pyx_n_u_menu __pyx_mstate_global->__pyx_n_u_menu
 #define __pyx_n_s_menu_ai __pyx_mstate_global->__pyx_n_s_menu_ai
@@ -2726,21 +2731,21 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 /* "AI.pyx":12
  * 
  * 
- * def load_module():             # <<<<<<<<<<<<<<
+ * def main():             # <<<<<<<<<<<<<<
  *     def run(a, b):
  *         fn = ais[a]["function"][b]
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_2AI_1load_module(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_2AI_1load_module = {"load_module", (PyCFunction)__pyx_pw_2AI_1load_module, METH_NOARGS, 0};
-static PyObject *__pyx_pw_2AI_1load_module(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_2AI_1main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_2AI_1main = {"main", (PyCFunction)__pyx_pw_2AI_1main, METH_NOARGS, 0};
+static PyObject *__pyx_pw_2AI_1main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("load_module (wrapper)", 0);
+  __Pyx_RefNannySetupContext("main (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_2AI_load_module(__pyx_self);
+  __pyx_r = __pyx_pf_2AI_main(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
@@ -2749,22 +2754,22 @@ static PyObject *__pyx_pw_2AI_1load_module(PyObject *__pyx_self, CYTHON_UNUSED P
 
 /* "AI.pyx":13
  * 
- * def load_module():
+ * def main():
  *     def run(a, b):             # <<<<<<<<<<<<<<
  *         fn = ais[a]["function"][b]
  *         #
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_2AI_11load_module_1run(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_2AI_4main_1run(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_2AI_11load_module_1run = {"run", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_2AI_11load_module_1run, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_2AI_11load_module_1run(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_2AI_4main_1run = {"run", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_2AI_4main_1run, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_2AI_4main_1run(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -2849,11 +2854,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("AI.load_module.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("AI.main.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_2AI_11load_module_run(__pyx_self, __pyx_v_a, __pyx_v_b);
+  __pyx_r = __pyx_pf_2AI_4main_run(__pyx_self, __pyx_v_a, __pyx_v_b);
 
   /* function exit code */
   {
@@ -2866,9 +2871,9 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_2AI_11load_module_run(PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b) {
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *__pyx_cur_scope;
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *__pyx_outer_scope;
+static PyObject *__pyx_pf_2AI_4main_run(PyObject *__pyx_self, PyObject *__pyx_v_a, PyObject *__pyx_v_b) {
+  struct __pyx_obj_2AI___pyx_scope_struct__main *__pyx_cur_scope;
+  struct __pyx_obj_2AI___pyx_scope_struct__main *__pyx_outer_scope;
   PyObject *__pyx_v_fn = NULL;
   PyObject *__pyx_v_thread_learn = NULL;
   PyObject *__pyx_r = NULL;
@@ -2881,11 +2886,11 @@ static PyObject *__pyx_pf_2AI_11load_module_run(PyObject *__pyx_self, PyObject *
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("run", 1);
-  __pyx_outer_scope = (struct __pyx_obj_2AI___pyx_scope_struct__load_module *) __Pyx_CyFunction_GetClosure(__pyx_self);
+  __pyx_outer_scope = (struct __pyx_obj_2AI___pyx_scope_struct__main *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
 
   /* "AI.pyx":14
- * def load_module():
+ * def main():
  *     def run(a, b):
  *         fn = ais[a]["function"][b]             # <<<<<<<<<<<<<<
  *         #
@@ -2965,7 +2970,7 @@ static PyObject *__pyx_pf_2AI_11load_module_run(PyObject *__pyx_self, PyObject *
 
   /* "AI.pyx":13
  * 
- * def load_module():
+ * def main():
  *     def run(a, b):             # <<<<<<<<<<<<<<
  *         fn = ais[a]["function"][b]
  *         #
@@ -2978,7 +2983,7 @@ static PyObject *__pyx_pf_2AI_11load_module_run(PyObject *__pyx_self, PyObject *
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("AI.load_module.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("AI.main.run", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_fn);
@@ -3039,15 +3044,15 @@ static PyObject *__pyx_pf_2AI_2__defaults__(CYTHON_UNUSED PyObject *__pyx_self) 
 }
 
 /* Python wrapper */
-static PyObject *__pyx_pw_2AI_11load_module_2lambda(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_2AI_4main_2lambda(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_2AI_11load_module_2lambda = {"lambda", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_2AI_11load_module_2lambda, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_2AI_11load_module_2lambda(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_2AI_4main_2lambda = {"lambda", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_2AI_4main_2lambda, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_2AI_4main_2lambda(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -3135,7 +3140,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("AI.load_module.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("AI.main.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -3153,8 +3158,8 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
 }
 
 static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__pyx_v_ai_name, PyObject *__pyx_v_f_name) {
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *__pyx_cur_scope;
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *__pyx_outer_scope;
+  struct __pyx_obj_2AI___pyx_scope_struct__main *__pyx_cur_scope;
+  struct __pyx_obj_2AI___pyx_scope_struct__main *__pyx_outer_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3162,11 +3167,11 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
   __Pyx_RefNannySetupContext("lambda", 1);
-  __pyx_outer_scope = (struct __pyx_obj_2AI___pyx_scope_struct__load_module *) __Pyx_CyFunction_GetClosure(__pyx_self);
+  __pyx_outer_scope = (struct __pyx_obj_2AI___pyx_scope_struct__main *) __Pyx_CyFunction_GetClosure(__pyx_self);
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(!__pyx_cur_scope->__pyx_v_run)) { __Pyx_RaiseClosureNameError("run"); __PYX_ERR(0, 50, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_pf_2AI_11load_module_run(__pyx_cur_scope->__pyx_v_run, __pyx_v_ai_name, __pyx_v_f_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_t_1 = __pyx_pf_2AI_4main_run(__pyx_cur_scope->__pyx_v_run, __pyx_v_ai_name, __pyx_v_f_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 50, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -3175,7 +3180,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("AI.load_module.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("AI.main.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3186,13 +3191,13 @@ static PyObject *__pyx_lambda_funcdef_lambda(PyObject *__pyx_self, PyObject *__p
 /* "AI.pyx":12
  * 
  * 
- * def load_module():             # <<<<<<<<<<<<<<
+ * def main():             # <<<<<<<<<<<<<<
  *     def run(a, b):
  *         fn = ais[a]["function"][b]
  */
 
-static PyObject *__pyx_pf_2AI_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *__pyx_cur_scope;
+static PyObject *__pyx_pf_2AI_main(CYTHON_UNUSED PyObject *__pyx_self) {
+  struct __pyx_obj_2AI___pyx_scope_struct__main *__pyx_cur_scope;
   PyObject *__pyx_v_ai_path = NULL;
   PyObject *__pyx_v_ppath = NULL;
   PyObject *__pyx_v_ex = NULL;
@@ -3221,10 +3226,10 @@ static PyObject *__pyx_pf_2AI_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("load_module", 0);
-  __pyx_cur_scope = (struct __pyx_obj_2AI___pyx_scope_struct__load_module *)__pyx_tp_new_2AI___pyx_scope_struct__load_module(__pyx_ptype_2AI___pyx_scope_struct__load_module, __pyx_empty_tuple, NULL);
+  __Pyx_RefNannySetupContext("main", 0);
+  __pyx_cur_scope = (struct __pyx_obj_2AI___pyx_scope_struct__main *)__pyx_tp_new_2AI___pyx_scope_struct__main(__pyx_ptype_2AI___pyx_scope_struct__main, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_2AI___pyx_scope_struct__load_module *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_2AI___pyx_scope_struct__main *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 12, __pyx_L1_error)
   } else {
@@ -3233,12 +3238,12 @@ static PyObject *__pyx_pf_2AI_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
 
   /* "AI.pyx":13
  * 
- * def load_module():
+ * def main():
  *     def run(a, b):             # <<<<<<<<<<<<<<
  *         fn = ais[a]["function"][b]
  *         #
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_2AI_11load_module_1run, 0, __pyx_n_s_load_module_locals_run, ((PyObject*)__pyx_cur_scope), __pyx_n_s_AI, __pyx_d, ((PyObject *)__pyx_codeobj__2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_2AI_4main_1run, 0, __pyx_n_s_main_locals_run, ((PyObject*)__pyx_cur_scope), __pyx_n_s_AI, __pyx_d, ((PyObject *)__pyx_codeobj__2)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_run = __pyx_t_1;
@@ -3947,7 +3952,7 @@ static PyObject *__pyx_pf_2AI_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
  *             )
  * 
  */
-      __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_2AI_11load_module_2lambda, 0, __pyx_n_s_load_module_locals_lambda, ((PyObject*)__pyx_cur_scope), __pyx_n_s_AI, __pyx_d, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_2AI_4main_2lambda, 0, __pyx_n_s_main_locals_lambda, ((PyObject*)__pyx_cur_scope), __pyx_n_s_AI, __pyx_d, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 50, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       if (!__Pyx_CyFunction_InitDefaults(__pyx_t_5, sizeof(__pyx_defaults), 2)) __PYX_ERR(0, 50, __pyx_L1_error)
       __Pyx_INCREF(__pyx_v_ai_name);
@@ -4022,7 +4027,7 @@ static PyObject *__pyx_pf_2AI_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
   /* "AI.pyx":12
  * 
  * 
- * def load_module():             # <<<<<<<<<<<<<<
+ * def main():             # <<<<<<<<<<<<<<
  *     def run(a, b):
  *         fn = ais[a]["function"][b]
  */
@@ -4036,7 +4041,7 @@ static PyObject *__pyx_pf_2AI_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_11);
-  __Pyx_AddTraceback("AI.load_module", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("AI.main", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_ai_path);
@@ -4053,19 +4058,19 @@ static PyObject *__pyx_pf_2AI_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
   return __pyx_r;
 }
 
-static struct __pyx_obj_2AI___pyx_scope_struct__load_module *__pyx_freelist_2AI___pyx_scope_struct__load_module[8];
-static int __pyx_freecount_2AI___pyx_scope_struct__load_module = 0;
+static struct __pyx_obj_2AI___pyx_scope_struct__main *__pyx_freelist_2AI___pyx_scope_struct__main[8];
+static int __pyx_freecount_2AI___pyx_scope_struct__main = 0;
 
-static PyObject *__pyx_tp_new_2AI___pyx_scope_struct__load_module(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+static PyObject *__pyx_tp_new_2AI___pyx_scope_struct__main(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
   PyObject *o;
   #if CYTHON_COMPILING_IN_LIMITED_API
   allocfunc alloc_func = (allocfunc)PyType_GetSlot(t, Py_tp_alloc);
   o = alloc_func(t, 0);
   #else
   #if CYTHON_COMPILING_IN_CPYTHON
-  if (likely((int)(__pyx_freecount_2AI___pyx_scope_struct__load_module > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_2AI___pyx_scope_struct__load_module)))) {
-    o = (PyObject*)__pyx_freelist_2AI___pyx_scope_struct__load_module[--__pyx_freecount_2AI___pyx_scope_struct__load_module];
-    memset(o, 0, sizeof(struct __pyx_obj_2AI___pyx_scope_struct__load_module));
+  if (likely((int)(__pyx_freecount_2AI___pyx_scope_struct__main > 0) & (int)(t->tp_basicsize == sizeof(struct __pyx_obj_2AI___pyx_scope_struct__main)))) {
+    o = (PyObject*)__pyx_freelist_2AI___pyx_scope_struct__main[--__pyx_freecount_2AI___pyx_scope_struct__main];
+    memset(o, 0, sizeof(struct __pyx_obj_2AI___pyx_scope_struct__main));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else
@@ -4078,11 +4083,11 @@ static PyObject *__pyx_tp_new_2AI___pyx_scope_struct__load_module(PyTypeObject *
   return o;
 }
 
-static void __pyx_tp_dealloc_2AI___pyx_scope_struct__load_module(PyObject *o) {
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *p = (struct __pyx_obj_2AI___pyx_scope_struct__load_module *)o;
+static void __pyx_tp_dealloc_2AI___pyx_scope_struct__main(PyObject *o) {
+  struct __pyx_obj_2AI___pyx_scope_struct__main *p = (struct __pyx_obj_2AI___pyx_scope_struct__main *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely((PY_VERSION_HEX >= 0x03080000 || __Pyx_PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE)) && __Pyx_PyObject_GetSlot(o, tp_finalize, destructor)) && !__Pyx_PyObject_GC_IsFinalized(o)) {
-    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_2AI___pyx_scope_struct__load_module) {
+    if (__Pyx_PyObject_GetSlot(o, tp_dealloc, destructor) == __pyx_tp_dealloc_2AI___pyx_scope_struct__main) {
       if (PyObject_CallFinalizerFromDealloc(o)) return;
     }
   }
@@ -4091,8 +4096,8 @@ static void __pyx_tp_dealloc_2AI___pyx_scope_struct__load_module(PyObject *o) {
   Py_CLEAR(p->__pyx_v_ais);
   Py_CLEAR(p->__pyx_v_run);
   #if CYTHON_COMPILING_IN_CPYTHON
-  if (((int)(__pyx_freecount_2AI___pyx_scope_struct__load_module < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_2AI___pyx_scope_struct__load_module)))) {
-    __pyx_freelist_2AI___pyx_scope_struct__load_module[__pyx_freecount_2AI___pyx_scope_struct__load_module++] = ((struct __pyx_obj_2AI___pyx_scope_struct__load_module *)o);
+  if (((int)(__pyx_freecount_2AI___pyx_scope_struct__main < 8) & (int)(Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_2AI___pyx_scope_struct__main)))) {
+    __pyx_freelist_2AI___pyx_scope_struct__main[__pyx_freecount_2AI___pyx_scope_struct__main++] = ((struct __pyx_obj_2AI___pyx_scope_struct__main *)o);
   } else
   #endif
   {
@@ -4107,9 +4112,9 @@ static void __pyx_tp_dealloc_2AI___pyx_scope_struct__load_module(PyObject *o) {
   }
 }
 
-static int __pyx_tp_traverse_2AI___pyx_scope_struct__load_module(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_2AI___pyx_scope_struct__main(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *p = (struct __pyx_obj_2AI___pyx_scope_struct__load_module *)o;
+  struct __pyx_obj_2AI___pyx_scope_struct__main *p = (struct __pyx_obj_2AI___pyx_scope_struct__main *)o;
   if (p->__pyx_v_ais) {
     e = (*v)(p->__pyx_v_ais, a); if (e) return e;
   }
@@ -4119,9 +4124,9 @@ static int __pyx_tp_traverse_2AI___pyx_scope_struct__load_module(PyObject *o, vi
   return 0;
 }
 
-static int __pyx_tp_clear_2AI___pyx_scope_struct__load_module(PyObject *o) {
+static int __pyx_tp_clear_2AI___pyx_scope_struct__main(PyObject *o) {
   PyObject* tmp;
-  struct __pyx_obj_2AI___pyx_scope_struct__load_module *p = (struct __pyx_obj_2AI___pyx_scope_struct__load_module *)o;
+  struct __pyx_obj_2AI___pyx_scope_struct__main *p = (struct __pyx_obj_2AI___pyx_scope_struct__main *)o;
   tmp = ((PyObject*)p->__pyx_v_ais);
   p->__pyx_v_ais = ((PyObject*)Py_None); Py_INCREF(Py_None);
   Py_XDECREF(tmp);
@@ -4131,28 +4136,28 @@ static int __pyx_tp_clear_2AI___pyx_scope_struct__load_module(PyObject *o) {
   return 0;
 }
 #if CYTHON_USE_TYPE_SPECS
-static PyType_Slot __pyx_type_2AI___pyx_scope_struct__load_module_slots[] = {
-  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_2AI___pyx_scope_struct__load_module},
-  {Py_tp_traverse, (void *)__pyx_tp_traverse_2AI___pyx_scope_struct__load_module},
-  {Py_tp_clear, (void *)__pyx_tp_clear_2AI___pyx_scope_struct__load_module},
-  {Py_tp_new, (void *)__pyx_tp_new_2AI___pyx_scope_struct__load_module},
+static PyType_Slot __pyx_type_2AI___pyx_scope_struct__main_slots[] = {
+  {Py_tp_dealloc, (void *)__pyx_tp_dealloc_2AI___pyx_scope_struct__main},
+  {Py_tp_traverse, (void *)__pyx_tp_traverse_2AI___pyx_scope_struct__main},
+  {Py_tp_clear, (void *)__pyx_tp_clear_2AI___pyx_scope_struct__main},
+  {Py_tp_new, (void *)__pyx_tp_new_2AI___pyx_scope_struct__main},
   {0, 0},
 };
-static PyType_Spec __pyx_type_2AI___pyx_scope_struct__load_module_spec = {
-  "AI.__pyx_scope_struct__load_module",
-  sizeof(struct __pyx_obj_2AI___pyx_scope_struct__load_module),
+static PyType_Spec __pyx_type_2AI___pyx_scope_struct__main_spec = {
+  "AI.__pyx_scope_struct__main",
+  sizeof(struct __pyx_obj_2AI___pyx_scope_struct__main),
   0,
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE,
-  __pyx_type_2AI___pyx_scope_struct__load_module_slots,
+  __pyx_type_2AI___pyx_scope_struct__main_slots,
 };
 #else
 
-static PyTypeObject __pyx_type_2AI___pyx_scope_struct__load_module = {
+static PyTypeObject __pyx_type_2AI___pyx_scope_struct__main = {
   PyVarObject_HEAD_INIT(0, 0)
-  "AI.""__pyx_scope_struct__load_module", /*tp_name*/
-  sizeof(struct __pyx_obj_2AI___pyx_scope_struct__load_module), /*tp_basicsize*/
+  "AI.""__pyx_scope_struct__main", /*tp_name*/
+  sizeof(struct __pyx_obj_2AI___pyx_scope_struct__main), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_2AI___pyx_scope_struct__load_module, /*tp_dealloc*/
+  __pyx_tp_dealloc_2AI___pyx_scope_struct__main, /*tp_dealloc*/
   #if PY_VERSION_HEX < 0x030800b4
   0, /*tp_print*/
   #endif
@@ -4179,8 +4184,8 @@ static PyTypeObject __pyx_type_2AI___pyx_scope_struct__load_module = {
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC|Py_TPFLAGS_HAVE_FINALIZE, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_2AI___pyx_scope_struct__load_module, /*tp_traverse*/
-  __pyx_tp_clear_2AI___pyx_scope_struct__load_module, /*tp_clear*/
+  __pyx_tp_traverse_2AI___pyx_scope_struct__main, /*tp_traverse*/
+  __pyx_tp_clear_2AI___pyx_scope_struct__main, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
   0, /*tp_iter*/
@@ -4197,7 +4202,7 @@ static PyTypeObject __pyx_type_2AI___pyx_scope_struct__load_module = {
   #endif
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_2AI___pyx_scope_struct__load_module, /*tp_new*/
+  __pyx_tp_new_2AI___pyx_scope_struct__main, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -4288,9 +4293,10 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_kp_u_isenabled, __pyx_k_isenabled, sizeof(__pyx_k_isenabled), 0, 1, 0, 0},
     {&__pyx_n_s_label, __pyx_k_label, sizeof(__pyx_k_label), 0, 0, 1, 1},
     {&__pyx_n_s_load_module, __pyx_k_load_module, sizeof(__pyx_k_load_module), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_lambda, __pyx_k_load_module_locals_lambda, sizeof(__pyx_k_load_module_locals_lambda), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_run, __pyx_k_load_module_locals_run, sizeof(__pyx_k_load_module_locals_run), 0, 0, 1, 1},
     {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
+    {&__pyx_n_s_main_2, __pyx_k_main_2, sizeof(__pyx_k_main_2), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_lambda, __pyx_k_main_locals_lambda, sizeof(__pyx_k_main_locals_lambda), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_run, __pyx_k_main_locals_run, sizeof(__pyx_k_main_locals_run), 0, 0, 1, 1},
     {&__pyx_n_s_menu, __pyx_k_menu, sizeof(__pyx_k_menu), 0, 0, 1, 1},
     {&__pyx_n_u_menu, __pyx_k_menu, sizeof(__pyx_k_menu), 0, 1, 0, 1},
     {&__pyx_n_s_menu_ai, __pyx_k_menu_ai, sizeof(__pyx_k_menu_ai), 0, 0, 1, 1},
@@ -4337,7 +4343,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
   /* "AI.pyx":13
  * 
- * def load_module():
+ * def main():
  *     def run(a, b):             # <<<<<<<<<<<<<<
  *         fn = ais[a]["function"][b]
  *         #
@@ -4350,14 +4356,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "AI.pyx":12
  * 
  * 
- * def load_module():             # <<<<<<<<<<<<<<
+ * def main():             # <<<<<<<<<<<<<<
  *     def run(a, b):
  *         fn = ais[a]["function"][b]
  */
   __pyx_tuple__7 = PyTuple_Pack(11, __pyx_n_s_run, __pyx_n_s_run, __pyx_n_s_ai_path, __pyx_n_s_ais, __pyx_n_s_ppath, __pyx_n_s_ex, __pyx_n_s_name_2, __pyx_n_s_f, __pyx_n_s_menu_ai, __pyx_n_s_ai_name, __pyx_n_s_f_name); if (unlikely(!__pyx_tuple__7)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__7);
   __Pyx_GIVEREF(__pyx_tuple__7);
-  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_AI_pyx, __pyx_n_s_load_module, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_codeobj__8 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 11, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__7, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_AI_pyx, __pyx_n_s_main_2, 12, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__8)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -4420,22 +4426,22 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   #if CYTHON_USE_TYPE_SPECS
-  __pyx_ptype_2AI___pyx_scope_struct__load_module = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_2AI___pyx_scope_struct__load_module_spec, NULL); if (unlikely(!__pyx_ptype_2AI___pyx_scope_struct__load_module)) __PYX_ERR(0, 12, __pyx_L1_error)
-  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_2AI___pyx_scope_struct__load_module_spec, __pyx_ptype_2AI___pyx_scope_struct__load_module) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_ptype_2AI___pyx_scope_struct__main = (PyTypeObject *) __Pyx_PyType_FromModuleAndSpec(__pyx_m, &__pyx_type_2AI___pyx_scope_struct__main_spec, NULL); if (unlikely(!__pyx_ptype_2AI___pyx_scope_struct__main)) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (__Pyx_fix_up_extension_type_from_spec(&__pyx_type_2AI___pyx_scope_struct__main_spec, __pyx_ptype_2AI___pyx_scope_struct__main) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   #else
-  __pyx_ptype_2AI___pyx_scope_struct__load_module = &__pyx_type_2AI___pyx_scope_struct__load_module;
+  __pyx_ptype_2AI___pyx_scope_struct__main = &__pyx_type_2AI___pyx_scope_struct__main;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
   #endif
   #if !CYTHON_USE_TYPE_SPECS
-  if (__Pyx_PyType_Ready(__pyx_ptype_2AI___pyx_scope_struct__load_module) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (__Pyx_PyType_Ready(__pyx_ptype_2AI___pyx_scope_struct__main) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   #endif
   #if PY_MAJOR_VERSION < 3
-  __pyx_ptype_2AI___pyx_scope_struct__load_module->tp_print = 0;
+  __pyx_ptype_2AI___pyx_scope_struct__main->tp_print = 0;
   #endif
   #if !CYTHON_COMPILING_IN_LIMITED_API
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_ptype_2AI___pyx_scope_struct__load_module->tp_dictoffset && __pyx_ptype_2AI___pyx_scope_struct__load_module->tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_ptype_2AI___pyx_scope_struct__load_module->tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_ptype_2AI___pyx_scope_struct__main->tp_dictoffset && __pyx_ptype_2AI___pyx_scope_struct__main->tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_ptype_2AI___pyx_scope_struct__main->tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
   #endif
   __Pyx_RefNannyFinishContext();
@@ -4855,13 +4861,13 @@ if (!__Pyx_RefNanny) {
   /* "AI.pyx":12
  * 
  * 
- * def load_module():             # <<<<<<<<<<<<<<
+ * def main():             # <<<<<<<<<<<<<<
  *     def run(a, b):
  *         fn = ais[a]["function"][b]
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_2AI_1load_module, 0, __pyx_n_s_load_module, NULL, __pyx_n_s_AI, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_2AI_1main, 0, __pyx_n_s_main_2, NULL, __pyx_n_s_AI, __pyx_d, ((PyObject *)__pyx_codeobj__8)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_load_module, __pyx_t_3) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_main_2, __pyx_t_3) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "AI.pyx":1

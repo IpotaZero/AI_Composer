@@ -3,6 +3,7 @@ import importlib
 import os
 import subprocess
 import sys
+import ctypes
 
 from window import root, get_file_extension, addlog, menu_exe, processes
 
@@ -35,11 +36,13 @@ def main():
             exes[name]["path"] = ppath
             exes[name]["function"] = lambda: add_process(ppath)
             menu_exe.add_command(label=name, command=exes[name]["function"])
+        elif ex == "dll":
+            plugins[name] = ctypes.cdll.LoadLibrary(ppath)
 
     addlog("start_loading_plugins")
     addlog(str(plugins.keys()))
     for name in plugins.keys():
-        plugins[name].load_module()
+        plugins[name].main()
 
     addlog("plugins_are_loaded")
 

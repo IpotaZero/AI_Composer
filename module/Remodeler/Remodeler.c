@@ -2278,6 +2278,7 @@ static const char __pyx_k_enable[] = "enable";
 static const char __pyx_k_events[] = "events";
 static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_insert[] = "insert";
+static const char __pyx_k_main_2[] = "main";
 static const char __pyx_k_naiyou[] = "naiyou";
 static const char __pyx_k_name_2[] = "__name__";
 static const char __pyx_k_sorted[] = "sorted";
@@ -2324,7 +2325,6 @@ static const char __pyx_k_MetaMessage[] = "MetaMessage";
 static const char __pyx_k_add_command[] = "add_command";
 static const char __pyx_k_add_message[] = "add_message...";
 static const char __pyx_k_com_changed[] = "com_changed";
-static const char __pyx_k_load_module[] = "load_module";
 static const char __pyx_k_midi_player[] = "midi_player";
 static const char __pyx_k_on_click_ok[] = "on_click_ok";
 static const char __pyx_k_rename_cmcm[] = "rename_cmcm...";
@@ -2356,30 +2356,30 @@ static const char __pyx_k_on_menu_rename_track[] = "on_menu_rename_track";
 static const char __pyx_k_tkinter_simpledialog[] = "tkinter.simpledialog";
 static const char __pyx_k_resolve_overlapping_2[] = "resolve overlapping";
 static const char __pyx_k_menu_resolve_overlapping[] = "menu_resolve_overlapping";
-static const char __pyx_k_load_module_locals_menu_resolve[] = "load_module.<locals>.menu_resolve_overlapping.<locals>.<lambda>";
-static const char __pyx_k_load_module_locals_on_menu_add_m[] = "load_module.<locals>.on_menu_add_message";
-static const char __pyx_k_load_module_locals_on_menu_renam[] = "load_module.<locals>.on_menu_rename_track";
-static const char __pyx_k_load_module_locals_on_select_mes[] = "load_module.<locals>.on_select_message.<locals>.on_click_delete.<locals>.<lambda>";
-static const char __pyx_k_load_module_locals_menu_resolve_2[] = "load_module.<locals>.menu_resolve_overlapping";
-static const char __pyx_k_load_module_locals_on_menu_renam_2[] = "load_module.<locals>.on_menu_rename_cmcm";
-static const char __pyx_k_load_module_locals_on_select_mes_2[] = "load_module.<locals>.on_select_message.<locals>.on_click_ok.<locals>.<lambda>";
-static const char __pyx_k_load_module_locals_on_select_mes_3[] = "load_module.<locals>.on_select_message.<locals>.on_click_delete";
-static const char __pyx_k_load_module_locals_on_select_mes_4[] = "load_module.<locals>.on_select_message.<locals>.on_click_ok";
-static const char __pyx_k_load_module_locals_on_select_mes_5[] = "load_module.<locals>.on_select_message.<locals>.<lambda>";
-static const char __pyx_k_load_module_locals_on_select_mes_6[] = "load_module.<locals>.on_select_message";
+static const char __pyx_k_main_locals_on_select_message[] = "main.<locals>.on_select_message";
+static const char __pyx_k_main_locals_on_menu_add_message[] = "main.<locals>.on_menu_add_message";
+static const char __pyx_k_main_locals_on_menu_rename_cmcm[] = "main.<locals>.on_menu_rename_cmcm";
+static const char __pyx_k_main_locals_menu_resolve_overlap[] = "main.<locals>.menu_resolve_overlapping.<locals>.<lambda>";
+static const char __pyx_k_main_locals_on_menu_rename_track[] = "main.<locals>.on_menu_rename_track";
+static const char __pyx_k_main_locals_on_select_message_lo[] = "main.<locals>.on_select_message.<locals>.on_click_delete.<locals>.<lambda>";
+static const char __pyx_k_main_locals_menu_resolve_overlap_2[] = "main.<locals>.menu_resolve_overlapping";
+static const char __pyx_k_main_locals_on_select_message_lo_2[] = "main.<locals>.on_select_message.<locals>.on_click_ok.<locals>.<lambda>";
+static const char __pyx_k_main_locals_on_select_message_lo_3[] = "main.<locals>.on_select_message.<locals>.on_click_delete";
+static const char __pyx_k_main_locals_on_select_message_lo_4[] = "main.<locals>.on_select_message.<locals>.on_click_ok";
+static const char __pyx_k_main_locals_on_select_message_lo_5[] = "main.<locals>.on_select_message.<locals>.<lambda>";
 /* #### Code section: decls ### */
-static PyObject *__pyx_pf_9Remodeler_11load_module_on_menu_rename_track(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_9Remodeler_11load_module_2on_menu_rename_cmcm(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_9Remodeler_11load_module_4on_menu_add_message(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_9Remodeler_4main_on_menu_rename_track(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_9Remodeler_4main_2on_menu_rename_cmcm(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_9Remodeler_4main_4on_menu_add_message(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x); /* proto */
-static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_on_click_delete(PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_9Remodeler_4main_17on_select_message_on_click_delete(PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_lambda_funcdef_lambda1(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_x); /* proto */
-static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click_ok(PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_9Remodeler_4main_17on_select_message_2on_click_ok(PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, CYTHON_UNUSED PyObject *__pyx_v_event); /* proto */
-static PyObject *__pyx_pf_9Remodeler_11load_module_6on_select_message(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_event); /* proto */
+static PyObject *__pyx_pf_9Remodeler_4main_6on_select_message(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_event); /* proto */
 static PyObject *__pyx_lambda_funcdef_lambda3(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_m); /* proto */
-static PyObject *__pyx_pf_9Remodeler_11load_module_8menu_resolve_overlapping(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
-static PyObject *__pyx_pf_9Remodeler_load_module(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_9Remodeler_4main_8menu_resolve_overlapping(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
+static PyObject *__pyx_pf_9Remodeler_main(CYTHON_UNUSED PyObject *__pyx_self); /* proto */
 static PyObject *__pyx_tp_new_9Remodeler___pyx_scope_struct__on_select_message(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 /* #### Code section: late_includes ### */
 /* #### Code section: module_state ### */
@@ -2488,23 +2488,23 @@ typedef struct {
   PyObject *__pyx_n_s_label;
   PyObject *__pyx_n_u_label;
   PyObject *__pyx_n_s_load_com;
-  PyObject *__pyx_n_s_load_module;
-  PyObject *__pyx_n_s_load_module_locals_menu_resolve;
-  PyObject *__pyx_n_s_load_module_locals_menu_resolve_2;
-  PyObject *__pyx_n_s_load_module_locals_on_menu_add_m;
-  PyObject *__pyx_n_s_load_module_locals_on_menu_renam;
-  PyObject *__pyx_n_s_load_module_locals_on_menu_renam_2;
-  PyObject *__pyx_n_s_load_module_locals_on_select_mes;
-  PyObject *__pyx_n_s_load_module_locals_on_select_mes_2;
-  PyObject *__pyx_n_s_load_module_locals_on_select_mes_3;
-  PyObject *__pyx_n_s_load_module_locals_on_select_mes_4;
-  PyObject *__pyx_n_s_load_module_locals_on_select_mes_5;
-  PyObject *__pyx_n_s_load_module_locals_on_select_mes_6;
   PyObject *__pyx_n_s_loads;
   PyObject *__pyx_n_s_log_events;
   PyObject *__pyx_n_s_log_notes;
   PyObject *__pyx_n_s_m;
   PyObject *__pyx_n_s_main;
+  PyObject *__pyx_n_s_main_2;
+  PyObject *__pyx_n_s_main_locals_menu_resolve_overlap;
+  PyObject *__pyx_n_s_main_locals_menu_resolve_overlap_2;
+  PyObject *__pyx_n_s_main_locals_on_menu_add_message;
+  PyObject *__pyx_n_s_main_locals_on_menu_rename_cmcm;
+  PyObject *__pyx_n_s_main_locals_on_menu_rename_track;
+  PyObject *__pyx_n_s_main_locals_on_select_message;
+  PyObject *__pyx_n_s_main_locals_on_select_message_lo;
+  PyObject *__pyx_n_s_main_locals_on_select_message_lo_2;
+  PyObject *__pyx_n_s_main_locals_on_select_message_lo_3;
+  PyObject *__pyx_n_s_main_locals_on_select_message_lo_4;
+  PyObject *__pyx_n_s_main_locals_on_select_message_lo_5;
   PyObject *__pyx_n_s_menu_edit;
   PyObject *__pyx_n_s_menu_resolve_overlapping;
   PyObject *__pyx_n_s_messages;
@@ -2711,23 +2711,23 @@ static int __pyx_m_clear(PyObject *m) {
   Py_CLEAR(clear_module_state->__pyx_n_s_label);
   Py_CLEAR(clear_module_state->__pyx_n_u_label);
   Py_CLEAR(clear_module_state->__pyx_n_s_load_com);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_menu_resolve);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_menu_resolve_2);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_on_menu_add_m);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_on_menu_renam);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_on_menu_renam_2);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_on_select_mes);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_on_select_mes_2);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_on_select_mes_3);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_on_select_mes_4);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_on_select_mes_5);
-  Py_CLEAR(clear_module_state->__pyx_n_s_load_module_locals_on_select_mes_6);
   Py_CLEAR(clear_module_state->__pyx_n_s_loads);
   Py_CLEAR(clear_module_state->__pyx_n_s_log_events);
   Py_CLEAR(clear_module_state->__pyx_n_s_log_notes);
   Py_CLEAR(clear_module_state->__pyx_n_s_m);
   Py_CLEAR(clear_module_state->__pyx_n_s_main);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_2);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_menu_resolve_overlap);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_menu_resolve_overlap_2);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_on_menu_add_message);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_on_menu_rename_cmcm);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_on_menu_rename_track);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_on_select_message);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_on_select_message_lo);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_on_select_message_lo_2);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_on_select_message_lo_3);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_on_select_message_lo_4);
+  Py_CLEAR(clear_module_state->__pyx_n_s_main_locals_on_select_message_lo_5);
   Py_CLEAR(clear_module_state->__pyx_n_s_menu_edit);
   Py_CLEAR(clear_module_state->__pyx_n_s_menu_resolve_overlapping);
   Py_CLEAR(clear_module_state->__pyx_n_s_messages);
@@ -2912,23 +2912,23 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
   Py_VISIT(traverse_module_state->__pyx_n_s_label);
   Py_VISIT(traverse_module_state->__pyx_n_u_label);
   Py_VISIT(traverse_module_state->__pyx_n_s_load_com);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_menu_resolve);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_menu_resolve_2);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_on_menu_add_m);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_on_menu_renam);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_on_menu_renam_2);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_on_select_mes);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_on_select_mes_2);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_on_select_mes_3);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_on_select_mes_4);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_on_select_mes_5);
-  Py_VISIT(traverse_module_state->__pyx_n_s_load_module_locals_on_select_mes_6);
   Py_VISIT(traverse_module_state->__pyx_n_s_loads);
   Py_VISIT(traverse_module_state->__pyx_n_s_log_events);
   Py_VISIT(traverse_module_state->__pyx_n_s_log_notes);
   Py_VISIT(traverse_module_state->__pyx_n_s_m);
   Py_VISIT(traverse_module_state->__pyx_n_s_main);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_2);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_menu_resolve_overlap);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_menu_resolve_overlap_2);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_on_menu_add_message);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_on_menu_rename_cmcm);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_on_menu_rename_track);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_on_select_message);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_on_select_message_lo);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_on_select_message_lo_2);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_on_select_message_lo_3);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_on_select_message_lo_4);
+  Py_VISIT(traverse_module_state->__pyx_n_s_main_locals_on_select_message_lo_5);
   Py_VISIT(traverse_module_state->__pyx_n_s_menu_edit);
   Py_VISIT(traverse_module_state->__pyx_n_s_menu_resolve_overlapping);
   Py_VISIT(traverse_module_state->__pyx_n_s_messages);
@@ -3123,23 +3123,23 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 #define __pyx_n_s_label __pyx_mstate_global->__pyx_n_s_label
 #define __pyx_n_u_label __pyx_mstate_global->__pyx_n_u_label
 #define __pyx_n_s_load_com __pyx_mstate_global->__pyx_n_s_load_com
-#define __pyx_n_s_load_module __pyx_mstate_global->__pyx_n_s_load_module
-#define __pyx_n_s_load_module_locals_menu_resolve __pyx_mstate_global->__pyx_n_s_load_module_locals_menu_resolve
-#define __pyx_n_s_load_module_locals_menu_resolve_2 __pyx_mstate_global->__pyx_n_s_load_module_locals_menu_resolve_2
-#define __pyx_n_s_load_module_locals_on_menu_add_m __pyx_mstate_global->__pyx_n_s_load_module_locals_on_menu_add_m
-#define __pyx_n_s_load_module_locals_on_menu_renam __pyx_mstate_global->__pyx_n_s_load_module_locals_on_menu_renam
-#define __pyx_n_s_load_module_locals_on_menu_renam_2 __pyx_mstate_global->__pyx_n_s_load_module_locals_on_menu_renam_2
-#define __pyx_n_s_load_module_locals_on_select_mes __pyx_mstate_global->__pyx_n_s_load_module_locals_on_select_mes
-#define __pyx_n_s_load_module_locals_on_select_mes_2 __pyx_mstate_global->__pyx_n_s_load_module_locals_on_select_mes_2
-#define __pyx_n_s_load_module_locals_on_select_mes_3 __pyx_mstate_global->__pyx_n_s_load_module_locals_on_select_mes_3
-#define __pyx_n_s_load_module_locals_on_select_mes_4 __pyx_mstate_global->__pyx_n_s_load_module_locals_on_select_mes_4
-#define __pyx_n_s_load_module_locals_on_select_mes_5 __pyx_mstate_global->__pyx_n_s_load_module_locals_on_select_mes_5
-#define __pyx_n_s_load_module_locals_on_select_mes_6 __pyx_mstate_global->__pyx_n_s_load_module_locals_on_select_mes_6
 #define __pyx_n_s_loads __pyx_mstate_global->__pyx_n_s_loads
 #define __pyx_n_s_log_events __pyx_mstate_global->__pyx_n_s_log_events
 #define __pyx_n_s_log_notes __pyx_mstate_global->__pyx_n_s_log_notes
 #define __pyx_n_s_m __pyx_mstate_global->__pyx_n_s_m
 #define __pyx_n_s_main __pyx_mstate_global->__pyx_n_s_main
+#define __pyx_n_s_main_2 __pyx_mstate_global->__pyx_n_s_main_2
+#define __pyx_n_s_main_locals_menu_resolve_overlap __pyx_mstate_global->__pyx_n_s_main_locals_menu_resolve_overlap
+#define __pyx_n_s_main_locals_menu_resolve_overlap_2 __pyx_mstate_global->__pyx_n_s_main_locals_menu_resolve_overlap_2
+#define __pyx_n_s_main_locals_on_menu_add_message __pyx_mstate_global->__pyx_n_s_main_locals_on_menu_add_message
+#define __pyx_n_s_main_locals_on_menu_rename_cmcm __pyx_mstate_global->__pyx_n_s_main_locals_on_menu_rename_cmcm
+#define __pyx_n_s_main_locals_on_menu_rename_track __pyx_mstate_global->__pyx_n_s_main_locals_on_menu_rename_track
+#define __pyx_n_s_main_locals_on_select_message __pyx_mstate_global->__pyx_n_s_main_locals_on_select_message
+#define __pyx_n_s_main_locals_on_select_message_lo __pyx_mstate_global->__pyx_n_s_main_locals_on_select_message_lo
+#define __pyx_n_s_main_locals_on_select_message_lo_2 __pyx_mstate_global->__pyx_n_s_main_locals_on_select_message_lo_2
+#define __pyx_n_s_main_locals_on_select_message_lo_3 __pyx_mstate_global->__pyx_n_s_main_locals_on_select_message_lo_3
+#define __pyx_n_s_main_locals_on_select_message_lo_4 __pyx_mstate_global->__pyx_n_s_main_locals_on_select_message_lo_4
+#define __pyx_n_s_main_locals_on_select_message_lo_5 __pyx_mstate_global->__pyx_n_s_main_locals_on_select_message_lo_5
 #define __pyx_n_s_menu_edit __pyx_mstate_global->__pyx_n_s_menu_edit
 #define __pyx_n_s_menu_resolve_overlapping __pyx_mstate_global->__pyx_n_s_menu_resolve_overlapping
 #define __pyx_n_s_messages __pyx_mstate_global->__pyx_n_s_messages
@@ -3231,21 +3231,21 @@ static int __pyx_m_traverse(PyObject *m, visitproc visit, void *arg) {
 /* "Remodeler.pyx":18
  * 
  * 
- * def load_module():             # <<<<<<<<<<<<<<
+ * def main():             # <<<<<<<<<<<<<<
  *     def on_menu_rename_track():
  *         from window import com_files, com_select
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_1load_module(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_1load_module = {"load_module", (PyCFunction)__pyx_pw_9Remodeler_1load_module, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_1load_module(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_1main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_1main = {"main", (PyCFunction)__pyx_pw_9Remodeler_1main, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_1main(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("load_module (wrapper)", 0);
+  __Pyx_RefNannySetupContext("main (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_load_module(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_main(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
@@ -3254,29 +3254,29 @@ static PyObject *__pyx_pw_9Remodeler_1load_module(PyObject *__pyx_self, CYTHON_U
 
 /* "Remodeler.pyx":19
  * 
- * def load_module():
+ * def main():
  *     def on_menu_rename_track():             # <<<<<<<<<<<<<<
  *         from window import com_files, com_select
  * 
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_1on_menu_rename_track(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_1on_menu_rename_track = {"on_menu_rename_track", (PyCFunction)__pyx_pw_9Remodeler_11load_module_1on_menu_rename_track, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_1on_menu_rename_track(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_4main_1on_menu_rename_track(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_4main_1on_menu_rename_track = {"on_menu_rename_track", (PyCFunction)__pyx_pw_9Remodeler_4main_1on_menu_rename_track, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_1on_menu_rename_track(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("on_menu_rename_track (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_on_menu_rename_track(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_4main_on_menu_rename_track(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9Remodeler_11load_module_on_menu_rename_track(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_4main_on_menu_rename_track(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_v_com_files = NULL;
   PyObject *__pyx_v_com_select = NULL;
   PyObject *__pyx_v_new_name = NULL;
@@ -3296,7 +3296,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_on_menu_rename_track(CYTHON_U
   __Pyx_RefNannySetupContext("on_menu_rename_track", 1);
 
   /* "Remodeler.pyx":20
- * def load_module():
+ * def main():
  *     def on_menu_rename_track():
  *         from window import com_files, com_select             # <<<<<<<<<<<<<<
  * 
@@ -3526,7 +3526,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_on_menu_rename_track(CYTHON_U
 
   /* "Remodeler.pyx":19
  * 
- * def load_module():
+ * def main():
  *     def on_menu_rename_track():             # <<<<<<<<<<<<<<
  *         from window import com_files, com_select
  * 
@@ -3539,7 +3539,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_on_menu_rename_track(CYTHON_U
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("Remodeler.load_module.on_menu_rename_track", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_menu_rename_track", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_com_files);
@@ -3561,22 +3561,22 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_on_menu_rename_track(CYTHON_U
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_3on_menu_rename_cmcm(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_3on_menu_rename_cmcm = {"on_menu_rename_cmcm", (PyCFunction)__pyx_pw_9Remodeler_11load_module_3on_menu_rename_cmcm, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_3on_menu_rename_cmcm(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_4main_3on_menu_rename_cmcm(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_4main_3on_menu_rename_cmcm = {"on_menu_rename_cmcm", (PyCFunction)__pyx_pw_9Remodeler_4main_3on_menu_rename_cmcm, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_3on_menu_rename_cmcm(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("on_menu_rename_cmcm (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_2on_menu_rename_cmcm(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_4main_2on_menu_rename_cmcm(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9Remodeler_11load_module_2on_menu_rename_cmcm(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_4main_2on_menu_rename_cmcm(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_v_com_files = NULL;
   PyObject *__pyx_v_com_select = NULL;
   PyObject *__pyx_v_new_name = NULL;
@@ -3817,7 +3817,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_2on_menu_rename_cmcm(CYTHON_U
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("Remodeler.load_module.on_menu_rename_cmcm", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_menu_rename_cmcm", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_com_files);
@@ -3838,22 +3838,22 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_2on_menu_rename_cmcm(CYTHON_U
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_5on_menu_add_message(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_5on_menu_add_message = {"on_menu_add_message", (PyCFunction)__pyx_pw_9Remodeler_11load_module_5on_menu_add_message, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_5on_menu_add_message(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_4main_5on_menu_add_message(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_4main_5on_menu_add_message = {"on_menu_add_message", (PyCFunction)__pyx_pw_9Remodeler_4main_5on_menu_add_message, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_5on_menu_add_message(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("on_menu_add_message (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_4on_menu_add_message(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_4main_4on_menu_add_message(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_9Remodeler_11load_module_4on_menu_add_message(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_4main_4on_menu_add_message(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_v_com_files = NULL;
   PyObject *__pyx_v_com_select = NULL;
   PyObject *__pyx_v_midi_player = NULL;
@@ -4139,7 +4139,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_4on_menu_add_message(CYTHON_U
  * 
  */
     /*except:*/ {
-      __Pyx_AddTraceback("Remodeler.load_module.on_menu_add_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("Remodeler.main.on_menu_add_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
       if (__Pyx_GetException(&__pyx_t_1, &__pyx_t_8, &__pyx_t_2) < 0) __PYX_ERR(0, 77, __pyx_L7_except_error)
       __Pyx_XGOTREF(__pyx_t_1);
       __Pyx_XGOTREF(__pyx_t_8);
@@ -4346,7 +4346,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_4on_menu_add_message(CYTHON_U
   __Pyx_XDECREF(__pyx_t_12);
   __Pyx_XDECREF(__pyx_t_13);
   __Pyx_XDECREF(__pyx_t_14);
-  __Pyx_AddTraceback("Remodeler.load_module.on_menu_add_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_menu_add_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_com_files);
@@ -4370,15 +4370,15 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_4on_menu_add_message(CYTHON_U
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_7on_select_message(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9Remodeler_4main_7on_select_message(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_7on_select_message = {"on_select_message", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_11load_module_7on_select_message, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_7on_select_message(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_9Remodeler_4main_7on_select_message = {"on_select_message", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_4main_7on_select_message, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_7on_select_message(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4448,11 +4448,11 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("Remodeler.load_module.on_select_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_select_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_6on_select_message(__pyx_self, __pyx_v_event);
+  __pyx_r = __pyx_pf_9Remodeler_4main_6on_select_message(__pyx_self, __pyx_v_event);
 
   /* function exit code */
   {
@@ -4474,15 +4474,15 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_1on_click_delete(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_17on_select_message_1on_click_delete = {"on_click_delete", (PyCFunction)__pyx_pw_9Remodeler_11load_module_17on_select_message_1on_click_delete, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_1on_click_delete(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_1on_click_delete(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_4main_17on_select_message_1on_click_delete = {"on_click_delete", (PyCFunction)__pyx_pw_9Remodeler_4main_17on_select_message_1on_click_delete, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_1on_click_delete(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("on_click_delete (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_17on_select_message_on_click_delete(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_4main_17on_select_message_on_click_delete(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
@@ -4498,15 +4498,15 @@ static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_1on_click
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_15on_click_delete_lambda(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_15on_click_delete_lambda(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_17on_select_message_15on_click_delete_lambda = {"lambda", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_11load_module_17on_select_message_15on_click_delete_lambda, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_15on_click_delete_lambda(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_9Remodeler_4main_17on_select_message_15on_click_delete_lambda = {"lambda", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_4main_17on_select_message_15on_click_delete_lambda, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_15on_click_delete_lambda(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -4576,7 +4576,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("Remodeler.load_module.on_select_message.on_click_delete.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_select_message.on_click_delete.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -4611,7 +4611,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self,
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("Remodeler.load_module.on_select_message.on_click_delete.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_select_message.on_click_delete.lambda", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -4627,7 +4627,7 @@ static PyObject *__pyx_lambda_funcdef_lambda(CYTHON_UNUSED PyObject *__pyx_self,
  *                 messages = com.get_events(com.data["selected_track"])
  */
 
-static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_on_click_delete(PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_4main_17on_select_message_on_click_delete(PyObject *__pyx_self) {
   struct __pyx_obj_9Remodeler___pyx_scope_struct__on_select_message *__pyx_cur_scope;
   struct __pyx_obj_9Remodeler___pyx_scope_struct__on_select_message *__pyx_outer_scope;
   PyObject *__pyx_v_messages = NULL;
@@ -4949,7 +4949,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_on_click_
  */
   __pyx_t_3 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_11load_module_17on_select_message_15on_click_delete_lambda, 0, __pyx_n_s_load_module_locals_on_select_mes, NULL, __pyx_n_s_Remodeler, __pyx_d, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 102, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_4main_17on_select_message_15on_click_delete_lambda, 0, __pyx_n_s_main_locals_on_select_message_lo, NULL, __pyx_n_s_Remodeler, __pyx_d, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (PyDict_SetItem(__pyx_t_3, __pyx_n_s_key, __pyx_t_5) < 0) __PYX_ERR(0, 102, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -5078,7 +5078,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_on_click_
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("Remodeler.load_module.on_select_message.on_click_delete", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_select_message.on_click_delete", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_messages);
@@ -5097,15 +5097,15 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_on_click_
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_3on_click_ok(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_17on_select_message_3on_click_ok = {"on_click_ok", (PyCFunction)__pyx_pw_9Remodeler_11load_module_17on_select_message_3on_click_ok, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_3on_click_ok(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_3on_click_ok(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_4main_17on_select_message_3on_click_ok = {"on_click_ok", (PyCFunction)__pyx_pw_9Remodeler_4main_17on_select_message_3on_click_ok, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_3on_click_ok(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("on_click_ok (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click_ok(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_4main_17on_select_message_2on_click_ok(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
@@ -5121,15 +5121,15 @@ static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_3on_click
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_11on_click_ok_lambda1(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_11on_click_ok_lambda1(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_17on_select_message_11on_click_ok_lambda1 = {"lambda1", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_11load_module_17on_select_message_11on_click_ok_lambda1, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_11on_click_ok_lambda1(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_9Remodeler_4main_17on_select_message_11on_click_ok_lambda1 = {"lambda1", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_4main_17on_select_message_11on_click_ok_lambda1, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_11on_click_ok_lambda1(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -5199,7 +5199,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("Remodeler.load_module.on_select_message.on_click_ok.lambda1", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_select_message.on_click_ok.lambda1", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -5234,7 +5234,7 @@ static PyObject *__pyx_lambda_funcdef_lambda1(CYTHON_UNUSED PyObject *__pyx_self
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("Remodeler.load_module.on_select_message.on_click_ok.lambda1", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_select_message.on_click_ok.lambda1", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5250,7 +5250,7 @@ static PyObject *__pyx_lambda_funcdef_lambda1(CYTHON_UNUSED PyObject *__pyx_self
  *                 if naiyou == "type":
  */
 
-static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click_ok(PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_4main_17on_select_message_2on_click_ok(PyObject *__pyx_self) {
   struct __pyx_obj_9Remodeler___pyx_scope_struct__on_select_message *__pyx_cur_scope;
   struct __pyx_obj_9Remodeler___pyx_scope_struct__on_select_message *__pyx_outer_scope;
   PyObject *__pyx_v_naiyou = NULL;
@@ -5798,7 +5798,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_11load_module_17on_select_message_11on_click_ok_lambda1, 0, __pyx_n_s_load_module_locals_on_select_mes_2, NULL, __pyx_n_s_Remodeler, __pyx_d, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 131, __pyx_L1_error)
+  __pyx_t_6 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_4main_17on_select_message_11on_click_ok_lambda1, 0, __pyx_n_s_main_locals_on_select_message_lo_2, NULL, __pyx_n_s_Remodeler, __pyx_d, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_key, __pyx_t_6) < 0) __PYX_ERR(0, 131, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -5927,7 +5927,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_6);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("Remodeler.load_module.on_select_message.on_click_ok", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_select_message.on_click_ok", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_naiyou);
@@ -5948,15 +5948,15 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_4lambda2(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_4lambda2(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_17on_select_message_4lambda2 = {"lambda2", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_11load_module_17on_select_message_4lambda2, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_17on_select_message_4lambda2(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_9Remodeler_4main_17on_select_message_4lambda2 = {"lambda2", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_4main_17on_select_message_4lambda2, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_17on_select_message_4lambda2(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -6026,7 +6026,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("Remodeler.load_module.on_select_message.lambda2", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_select_message.lambda2", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -6057,7 +6057,7 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, CYTHON_UNUSE
   __pyx_cur_scope = __pyx_outer_scope;
   __Pyx_XDECREF(__pyx_r);
   if (unlikely(!__pyx_cur_scope->__pyx_v_on_click_ok)) { __Pyx_RaiseClosureNameError("on_click_ok"); __PYX_ERR(0, 178, __pyx_L1_error) }
-  __pyx_t_1 = __pyx_pf_9Remodeler_11load_module_17on_select_message_2on_click_ok(__pyx_cur_scope->__pyx_v_on_click_ok); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_1 = __pyx_pf_9Remodeler_4main_17on_select_message_2on_click_ok(__pyx_cur_scope->__pyx_v_on_click_ok); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 178, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6066,7 +6066,7 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, CYTHON_UNUSE
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("Remodeler.load_module.on_select_message.lambda2", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_select_message.lambda2", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -6082,7 +6082,7 @@ static PyObject *__pyx_lambda_funcdef_lambda2(PyObject *__pyx_self, CYTHON_UNUSE
  *             if key == "events":
  */
 
-static PyObject *__pyx_pf_9Remodeler_11load_module_6on_select_message(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_event) {
+static PyObject *__pyx_pf_9Remodeler_4main_6on_select_message(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_event) {
   struct __pyx_obj_9Remodeler___pyx_scope_struct__on_select_message *__pyx_cur_scope;
   PyObject *__pyx_v_on_click_delete = 0;
   PyObject *__pyx_v_com_files = NULL;
@@ -6123,7 +6123,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_6on_select_message(CYTHON_UNU
  *             if key == "events":
  *                 messages = com.get_events(com.data["selected_track"])
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_11load_module_17on_select_message_1on_click_delete, 0, __pyx_n_s_load_module_locals_on_select_mes_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_4main_17on_select_message_1on_click_delete, 0, __pyx_n_s_main_locals_on_select_message_lo_3, ((PyObject*)__pyx_cur_scope), __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__5)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_on_click_delete = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -6135,7 +6135,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_6on_select_message(CYTHON_UNU
  *             for naiyou in naiyous:
  *                 if naiyou == "type":
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_11load_module_17on_select_message_3on_click_ok, 0, __pyx_n_s_load_module_locals_on_select_mes_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_4main_17on_select_message_3on_click_ok, 0, __pyx_n_s_main_locals_on_select_message_lo_4, ((PyObject*)__pyx_cur_scope), __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__7)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __pyx_cur_scope->__pyx_v_on_click_ok = __pyx_t_1;
@@ -6965,7 +6965,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_6on_select_message(CYTHON_UNU
  */
   __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_cur_scope->__pyx_v_window_ask, __pyx_n_s_bind); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 178, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_11load_module_17on_select_message_4lambda2, 0, __pyx_n_s_load_module_locals_on_select_mes_5, ((PyObject*)__pyx_cur_scope), __pyx_n_s_Remodeler, __pyx_d, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_4main_17on_select_message_4lambda2, 0, __pyx_n_s_main_locals_on_select_message_lo_5, ((PyObject*)__pyx_cur_scope), __pyx_n_s_Remodeler, __pyx_d, NULL); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 178, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_5 = NULL;
   __pyx_t_6 = 0;
@@ -7010,7 +7010,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_6on_select_message(CYTHON_UNU
   __Pyx_XDECREF(__pyx_t_7);
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("Remodeler.load_module.on_select_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.on_select_message", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_on_click_delete);
@@ -7035,15 +7035,15 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_6on_select_message(CYTHON_UNU
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_9menu_resolve_overlapping(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_9menu_resolve_overlapping = {"menu_resolve_overlapping", (PyCFunction)__pyx_pw_9Remodeler_11load_module_9menu_resolve_overlapping, METH_NOARGS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_9menu_resolve_overlapping(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_9Remodeler_4main_9menu_resolve_overlapping(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyMethodDef __pyx_mdef_9Remodeler_4main_9menu_resolve_overlapping = {"menu_resolve_overlapping", (PyCFunction)__pyx_pw_9Remodeler_4main_9menu_resolve_overlapping, METH_NOARGS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_9menu_resolve_overlapping(PyObject *__pyx_self, CYTHON_UNUSED PyObject *unused) {
   CYTHON_UNUSED PyObject *const *__pyx_kwvalues;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("menu_resolve_overlapping (wrapper)", 0);
   __pyx_kwvalues = __Pyx_KwValues_VARARGS(__pyx_args, __pyx_nargs);
-  __pyx_r = __pyx_pf_9Remodeler_11load_module_8menu_resolve_overlapping(__pyx_self);
+  __pyx_r = __pyx_pf_9Remodeler_4main_8menu_resolve_overlapping(__pyx_self);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
@@ -7059,15 +7059,15 @@ static PyObject *__pyx_pw_9Remodeler_11load_module_9menu_resolve_overlapping(PyO
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_9Remodeler_11load_module_24menu_resolve_overlapping_lambda3(PyObject *__pyx_self, 
+static PyObject *__pyx_pw_9Remodeler_4main_24menu_resolve_overlapping_lambda3(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
 PyObject *__pyx_args, PyObject *__pyx_kwds
 #endif
 ); /*proto*/
-static PyMethodDef __pyx_mdef_9Remodeler_11load_module_24menu_resolve_overlapping_lambda3 = {"lambda3", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_11load_module_24menu_resolve_overlapping_lambda3, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_9Remodeler_11load_module_24menu_resolve_overlapping_lambda3(PyObject *__pyx_self, 
+static PyMethodDef __pyx_mdef_9Remodeler_4main_24menu_resolve_overlapping_lambda3 = {"lambda3", (PyCFunction)(void*)(__Pyx_PyCFunction_FastCallWithKeywords)__pyx_pw_9Remodeler_4main_24menu_resolve_overlapping_lambda3, __Pyx_METH_FASTCALL|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_9Remodeler_4main_24menu_resolve_overlapping_lambda3(PyObject *__pyx_self, 
 #if CYTHON_METH_FASTCALL
 PyObject *const *__pyx_args, Py_ssize_t __pyx_nargs, PyObject *__pyx_kwds
 #else
@@ -7137,7 +7137,7 @@ PyObject *__pyx_args, PyObject *__pyx_kwds
       __Pyx_Arg_XDECREF_FASTCALL(values[__pyx_temp]);
     }
   }
-  __Pyx_AddTraceback("Remodeler.load_module.menu_resolve_overlapping.lambda3", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.menu_resolve_overlapping.lambda3", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
@@ -7172,7 +7172,7 @@ static PyObject *__pyx_lambda_funcdef_lambda3(CYTHON_UNUSED PyObject *__pyx_self
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("Remodeler.load_module.menu_resolve_overlapping.lambda3", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.menu_resolve_overlapping.lambda3", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -7188,7 +7188,7 @@ static PyObject *__pyx_lambda_funcdef_lambda3(CYTHON_UNUSED PyObject *__pyx_self
  * 
  */
 
-static PyObject *__pyx_pf_9Remodeler_11load_module_8menu_resolve_overlapping(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_4main_8menu_resolve_overlapping(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_v_com_files = NULL;
   PyObject *__pyx_v_com_select = NULL;
   PyObject *__pyx_v_com = NULL;
@@ -7444,7 +7444,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_8menu_resolve_overlapping(CYT
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_11load_module_24menu_resolve_overlapping_lambda3, 0, __pyx_n_s_load_module_locals_menu_resolve, NULL, __pyx_n_s_Remodeler, __pyx_d, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_5 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_4main_24menu_resolve_overlapping_lambda3, 0, __pyx_n_s_main_locals_menu_resolve_overlap, NULL, __pyx_n_s_Remodeler, __pyx_d, NULL); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_s_key, __pyx_t_5) < 0) __PYX_ERR(0, 198, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
@@ -7569,7 +7569,7 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_8menu_resolve_overlapping(CYT
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_5);
   __Pyx_XDECREF(__pyx_t_7);
-  __Pyx_AddTraceback("Remodeler.load_module.menu_resolve_overlapping", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main.menu_resolve_overlapping", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_com_files);
@@ -7587,12 +7587,12 @@ static PyObject *__pyx_pf_9Remodeler_11load_module_8menu_resolve_overlapping(CYT
 /* "Remodeler.pyx":18
  * 
  * 
- * def load_module():             # <<<<<<<<<<<<<<
+ * def main():             # <<<<<<<<<<<<<<
  *     def on_menu_rename_track():
  *         from window import com_files, com_select
  */
 
-static PyObject *__pyx_pf_9Remodeler_load_module(CYTHON_UNUSED PyObject *__pyx_self) {
+static PyObject *__pyx_pf_9Remodeler_main(CYTHON_UNUSED PyObject *__pyx_self) {
   PyObject *__pyx_v_on_menu_rename_track = 0;
   PyObject *__pyx_v_on_menu_rename_cmcm = 0;
   PyObject *__pyx_v_on_menu_add_message = 0;
@@ -7607,16 +7607,16 @@ static PyObject *__pyx_pf_9Remodeler_load_module(CYTHON_UNUSED PyObject *__pyx_s
   int __pyx_lineno = 0;
   const char *__pyx_filename = NULL;
   int __pyx_clineno = 0;
-  __Pyx_RefNannySetupContext("load_module", 1);
+  __Pyx_RefNannySetupContext("main", 1);
 
   /* "Remodeler.pyx":19
  * 
- * def load_module():
+ * def main():
  *     def on_menu_rename_track():             # <<<<<<<<<<<<<<
  *         from window import com_files, com_select
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_11load_module_1on_menu_rename_track, 0, __pyx_n_s_load_module_locals_on_menu_renam, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_4main_1on_menu_rename_track, 0, __pyx_n_s_main_locals_on_menu_rename_track, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__13)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 19, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_on_menu_rename_track = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7628,7 +7628,7 @@ static PyObject *__pyx_pf_9Remodeler_load_module(CYTHON_UNUSED PyObject *__pyx_s
  *         from window import com_files, com_select
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_11load_module_3on_menu_rename_cmcm, 0, __pyx_n_s_load_module_locals_on_menu_renam_2, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_4main_3on_menu_rename_cmcm, 0, __pyx_n_s_main_locals_on_menu_rename_cmcm, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__15)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_on_menu_rename_cmcm = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7640,7 +7640,7 @@ static PyObject *__pyx_pf_9Remodeler_load_module(CYTHON_UNUSED PyObject *__pyx_s
  *         from window import com_files, com_select, midi_player
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_11load_module_5on_menu_add_message, 0, __pyx_n_s_load_module_locals_on_menu_add_m, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_4main_5on_menu_add_message, 0, __pyx_n_s_main_locals_on_menu_add_message, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__17)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_on_menu_add_message = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7652,7 +7652,7 @@ static PyObject *__pyx_pf_9Remodeler_load_module(CYTHON_UNUSED PyObject *__pyx_s
  *         def on_click_delete():
  *             if key == "events":
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_11load_module_7on_select_message, 0, __pyx_n_s_load_module_locals_on_select_mes_6, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_4main_7on_select_message, 0, __pyx_n_s_main_locals_on_select_message, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__19)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 88, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_on_select_message = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7664,7 +7664,7 @@ static PyObject *__pyx_pf_9Remodeler_load_module(CYTHON_UNUSED PyObject *__pyx_s
  *         from window import com_files, com_select
  * 
  */
-  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_11load_module_9menu_resolve_overlapping, 0, __pyx_n_s_load_module_locals_menu_resolve_2, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_4main_9menu_resolve_overlapping, 0, __pyx_n_s_main_locals_menu_resolve_overlap_2, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__21)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 180, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_menu_resolve_overlapping = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -7829,7 +7829,7 @@ static PyObject *__pyx_pf_9Remodeler_load_module(CYTHON_UNUSED PyObject *__pyx_s
   /* "Remodeler.pyx":18
  * 
  * 
- * def load_module():             # <<<<<<<<<<<<<<
+ * def main():             # <<<<<<<<<<<<<<
  *     def on_menu_rename_track():
  *         from window import com_files, com_select
  */
@@ -7841,7 +7841,7 @@ static PyObject *__pyx_pf_9Remodeler_load_module(CYTHON_UNUSED PyObject *__pyx_s
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("Remodeler.load_module", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("Remodeler.main", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_on_menu_rename_track);
@@ -8158,23 +8158,23 @@ static int __Pyx_CreateStringTabAndInitStrings(void) {
     {&__pyx_n_s_label, __pyx_k_label, sizeof(__pyx_k_label), 0, 0, 1, 1},
     {&__pyx_n_u_label, __pyx_k_label, sizeof(__pyx_k_label), 0, 1, 0, 1},
     {&__pyx_n_s_load_com, __pyx_k_load_com, sizeof(__pyx_k_load_com), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module, __pyx_k_load_module, sizeof(__pyx_k_load_module), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_menu_resolve, __pyx_k_load_module_locals_menu_resolve, sizeof(__pyx_k_load_module_locals_menu_resolve), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_menu_resolve_2, __pyx_k_load_module_locals_menu_resolve_2, sizeof(__pyx_k_load_module_locals_menu_resolve_2), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_on_menu_add_m, __pyx_k_load_module_locals_on_menu_add_m, sizeof(__pyx_k_load_module_locals_on_menu_add_m), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_on_menu_renam, __pyx_k_load_module_locals_on_menu_renam, sizeof(__pyx_k_load_module_locals_on_menu_renam), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_on_menu_renam_2, __pyx_k_load_module_locals_on_menu_renam_2, sizeof(__pyx_k_load_module_locals_on_menu_renam_2), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_on_select_mes, __pyx_k_load_module_locals_on_select_mes, sizeof(__pyx_k_load_module_locals_on_select_mes), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_on_select_mes_2, __pyx_k_load_module_locals_on_select_mes_2, sizeof(__pyx_k_load_module_locals_on_select_mes_2), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_on_select_mes_3, __pyx_k_load_module_locals_on_select_mes_3, sizeof(__pyx_k_load_module_locals_on_select_mes_3), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_on_select_mes_4, __pyx_k_load_module_locals_on_select_mes_4, sizeof(__pyx_k_load_module_locals_on_select_mes_4), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_on_select_mes_5, __pyx_k_load_module_locals_on_select_mes_5, sizeof(__pyx_k_load_module_locals_on_select_mes_5), 0, 0, 1, 1},
-    {&__pyx_n_s_load_module_locals_on_select_mes_6, __pyx_k_load_module_locals_on_select_mes_6, sizeof(__pyx_k_load_module_locals_on_select_mes_6), 0, 0, 1, 1},
     {&__pyx_n_s_loads, __pyx_k_loads, sizeof(__pyx_k_loads), 0, 0, 1, 1},
     {&__pyx_n_s_log_events, __pyx_k_log_events, sizeof(__pyx_k_log_events), 0, 0, 1, 1},
     {&__pyx_n_s_log_notes, __pyx_k_log_notes, sizeof(__pyx_k_log_notes), 0, 0, 1, 1},
     {&__pyx_n_s_m, __pyx_k_m, sizeof(__pyx_k_m), 0, 0, 1, 1},
     {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
+    {&__pyx_n_s_main_2, __pyx_k_main_2, sizeof(__pyx_k_main_2), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_menu_resolve_overlap, __pyx_k_main_locals_menu_resolve_overlap, sizeof(__pyx_k_main_locals_menu_resolve_overlap), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_menu_resolve_overlap_2, __pyx_k_main_locals_menu_resolve_overlap_2, sizeof(__pyx_k_main_locals_menu_resolve_overlap_2), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_on_menu_add_message, __pyx_k_main_locals_on_menu_add_message, sizeof(__pyx_k_main_locals_on_menu_add_message), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_on_menu_rename_cmcm, __pyx_k_main_locals_on_menu_rename_cmcm, sizeof(__pyx_k_main_locals_on_menu_rename_cmcm), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_on_menu_rename_track, __pyx_k_main_locals_on_menu_rename_track, sizeof(__pyx_k_main_locals_on_menu_rename_track), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_on_select_message, __pyx_k_main_locals_on_select_message, sizeof(__pyx_k_main_locals_on_select_message), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_on_select_message_lo, __pyx_k_main_locals_on_select_message_lo, sizeof(__pyx_k_main_locals_on_select_message_lo), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_on_select_message_lo_2, __pyx_k_main_locals_on_select_message_lo_2, sizeof(__pyx_k_main_locals_on_select_message_lo_2), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_on_select_message_lo_3, __pyx_k_main_locals_on_select_message_lo_3, sizeof(__pyx_k_main_locals_on_select_message_lo_3), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_on_select_message_lo_4, __pyx_k_main_locals_on_select_message_lo_4, sizeof(__pyx_k_main_locals_on_select_message_lo_4), 0, 0, 1, 1},
+    {&__pyx_n_s_main_locals_on_select_message_lo_5, __pyx_k_main_locals_on_select_message_lo_5, sizeof(__pyx_k_main_locals_on_select_message_lo_5), 0, 0, 1, 1},
     {&__pyx_n_s_menu_edit, __pyx_k_menu_edit, sizeof(__pyx_k_menu_edit), 0, 0, 1, 1},
     {&__pyx_n_s_menu_resolve_overlapping, __pyx_k_menu_resolve_overlapping, sizeof(__pyx_k_menu_resolve_overlapping), 0, 0, 1, 1},
     {&__pyx_n_s_messages, __pyx_k_messages, sizeof(__pyx_k_messages), 0, 0, 1, 1},
@@ -8310,7 +8310,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
   /* "Remodeler.pyx":19
  * 
- * def load_module():
+ * def main():
  *     def on_menu_rename_track():             # <<<<<<<<<<<<<<
  *         from window import com_files, com_select
  * 
@@ -8380,14 +8380,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   /* "Remodeler.pyx":18
  * 
  * 
- * def load_module():             # <<<<<<<<<<<<<<
+ * def main():             # <<<<<<<<<<<<<<
  *     def on_menu_rename_track():
  *         from window import com_files, com_select
  */
   __pyx_tuple__24 = PyTuple_Pack(10, __pyx_n_s_on_menu_rename_track, __pyx_n_s_on_menu_rename_track, __pyx_n_s_on_menu_rename_cmcm, __pyx_n_s_on_menu_rename_cmcm, __pyx_n_s_on_menu_add_message, __pyx_n_s_on_menu_add_message, __pyx_n_s_on_select_message, __pyx_n_s_on_select_message, __pyx_n_s_menu_resolve_overlapping, __pyx_n_s_menu_resolve_overlapping); if (unlikely(!__pyx_tuple__24)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__24);
   __Pyx_GIVEREF(__pyx_tuple__24);
-  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Remodeler_pyx, __pyx_n_s_load_module, 18, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_codeobj__25 = (PyObject*)__Pyx_PyCode_New(0, 0, 0, 10, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__24, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_Remodeler_pyx, __pyx_n_s_main_2, 18, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__25)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -8912,13 +8912,13 @@ if (!__Pyx_RefNanny) {
   /* "Remodeler.pyx":18
  * 
  * 
- * def load_module():             # <<<<<<<<<<<<<<
+ * def main():             # <<<<<<<<<<<<<<
  *     def on_menu_rename_track():
  *         from window import com_files, com_select
  */
-  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_1load_module, 0, __pyx_n_s_load_module, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_CyFunction_New(&__pyx_mdef_9Remodeler_1main, 0, __pyx_n_s_main_2, NULL, __pyx_n_s_Remodeler, __pyx_d, ((PyObject *)__pyx_codeobj__25)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_load_module, __pyx_t_3) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_main_2, __pyx_t_3) < 0) __PYX_ERR(0, 18, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
   /* "Remodeler.pyx":1

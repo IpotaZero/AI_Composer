@@ -15,7 +15,7 @@ from window import (
 )
 
 
-def load_module():
+def main():
     def on_menu_rename_track():
         from window import com_files, com_select
 
